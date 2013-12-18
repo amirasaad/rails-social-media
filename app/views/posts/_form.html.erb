@@ -1,0 +1,13 @@
+<%= form_for @post, :html => { :class => 'form-horizontal' } , :remote => true do |f| %>
+  <div class="control-group">
+    <div class="controls">
+      <%=  f.text_area :body, size: "550x3" ,:placeholder=>"What do you like to say?"%>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit "Share!", :class => 'btn btn-success' , :remote => true %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                posts_path, :class => 'btn' , :remote => true %>
+  </div>
+<% end %>

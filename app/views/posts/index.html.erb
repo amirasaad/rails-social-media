@@ -1,0 +1,49 @@
+<% if current_user %>
+<% @post = Post.new %>
+<%=render :partial => 'new'%>
+<% end %>
+
+<div id="postsfeed">
+<%= render :partial => 'posts', :locals => { :posts_streams => @posts_streams } %>
+</div></br>
+
+<script>
+  $(document).ready(function(){
+  var timelyrefreshpostFeeds = function(){
+  url = '/refresh'
+  $.get(url,function(data,status){
+   $('#postsfeed').html(data)
+   return false
+   });
+  };
+  setInterval(timelyrefreshpostFeeds,600);
+
+  $(".votes").click(function()
+	{
+		var id = $(this).attr("id");
+		var name = $(this).attr("name");
+		var parent = $(this)
+		if (name=='up')
+		{
+
+
+			$.get('/voteup', {id: id},
+				function(data,status){
+					parent.html(data);
+				});
+		}
+		else
+		{
+			$.get('/votedown', {id: id},
+				function(data,status){
+					parent.html(data);
+				});
+		}
+		return false;
+	});
+
+
+  
+
+
+</script>

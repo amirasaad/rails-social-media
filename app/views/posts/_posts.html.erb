@@ -1,0 +1,11 @@
+<div id ="postsfeed">
+	
+<% if posts_streams.empty? %>
+<h3> no posts yet </h3>
+<% else %>
+  <% posts_streams.each do |post| %>
+   <%= render post %>
+  <% end %>
+<% end %>
+    
+</div>

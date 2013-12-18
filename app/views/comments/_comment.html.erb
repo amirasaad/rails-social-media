@@ -1,0 +1,41 @@
+<script type="text/javascript">
+	$('.actions').hide();
+	var mouseover = function() {
+		$(this).find('.actions').show();
+	};
+
+	var mouseout = function() {
+		$(this).find('.actions').hide();
+	};
+
+	$('.comment').hover(mouseover, mouseout);
+</script>
+<%= div_for comment do %>
+
+<div class="media">
+    <a class="pull-left" href="#">
+		<img class="media-object img-circle" src="../avatar.jpg" alt="64x46">
+	</a>
+	<div class ="media-body comment">
+	<div class="media-heading">
+		<h4>@<%= comment.user.username%></h4>
+	</div>
+	
+	<blockquote>
+		<p><%= comment.body %> </p>
+		<% if comment.user == current_user %>
+		<span class='actions pull-right' >
+			<%= link_to "", post_comment_path(:post_id => comment.post,
+			:id => comment), confirm: 'Are you sure?', method: :delete , remote: true ,:class => 'icon-remove'%>
+		</span>
+		<% end %>
+
+		<small> <%= time_ago_in_words(comment.created_at) %> ago.</small>
+	</blockquote>
+	
+	</div>
+</div>
+
+
+
+<% end %> 
