@@ -1,2 +1,3 @@
-$("#postsfeed").html("<%= escape_javascript( render(:partial => 'post') ) %>");
-<% end -%>
+$("#postsfeed").prepend("<%= escape_javascript( render(:partial => @post) ) %>");
+$('#notice').html("Posted.").slideDown(500).delay(3000).slideUp(500)
+$("#post_form")[0].reset();

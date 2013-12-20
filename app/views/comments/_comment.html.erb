@@ -12,7 +12,7 @@
 </script>
 <%= div_for comment do %>
 
-<div class="media">
+<div class="media" id= "<%=  dom_id(comment) %>">
     <a class="pull-left" href="#">
 		<img class="media-object img-circle" src="../avatar.jpg" alt="64x46">
 	</a>
@@ -26,7 +26,7 @@
 		<% if comment.user == current_user %>
 		<span class='actions pull-right' >
 			<%= link_to "", post_comment_path(:post_id => comment.post,
-			:id => comment), confirm: 'Are you sure?', method: :delete , remote: true ,:class => 'icon-remove'%>
+			:id => comment), confirm: 'Are you sure?', method: :delete , :remote=> true ,:class => 'icon-remove'%>
 		</span>
 		<% end %>
 

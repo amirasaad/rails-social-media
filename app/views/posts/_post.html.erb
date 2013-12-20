@@ -13,21 +13,17 @@
 	
 </script>
 <%= div_for post do %>
-<div class="media" >
+<div class="media" id="<%= dom_id(post) %>" >
 	<a class="pull-left" href="#">
 		<img class="media-object img-circle" src="../avatar.jpg" alt="64x46">
 	</a>
-	<div class="media-body post" id="<%= post.id %>" >
+	<div class="media-body post" >
 
 		<h4 class="media-heading">@<%=link_to post.user.username  , "/#{post.user.username}" %>
 		</h4>
 
 		<blockquote>
-			<div class="actions pull-right" style="margin-right:5px;">
-				<a href="" id="<%= post.id %>" name="up" class="votes">
-					<div class='up'></div><%= post.ups %> Up</a>
-					<a href=""  id="<%= post.id %>"  name="down" class="votes">
-						<div class='down'></div><%= post.downs %> Down</a>
+			<div class="actions pull-right" style="margin-right:50px;">
 						<% if post.owned_by? current_user %>
 						<%= link_to "Edit", edit_post_path(post) ,:class => "btn " ,:remote => true %>
 						<%= link_to "Delete", post, confirm: "Are you sure?", method: :delete  ,:class => "btn btn-danger" ,:remote => true%>
@@ -39,21 +35,19 @@
 			</div>
 		</div>
 
-		<div id="comments" >
+		<div id="comments">
 
 			<%= for comment in post.comments do %>
-			 <%= render comment %>
-			<% if current_user %>
-			<div id="<%= comment.id %>"></div>
-
-
-			<%= link_to "new comment", new_post_comment_path(post,:format => :js),
-			:remote => true, :id => 'new_comment_link' ,:class =>'btn btn-success' %>
-
+			 <%= render :partial => comment ,:locals =>{:comment => comment} %>
 			<% end %>
-			<%end %>
+			
 
 		</div>
-		<% end %>  
+		<div>
+		<% if current_user %>
+		<%= render :partial => "comments/new" ,:locals => {:post => post}%>
+		<%end %>
+		</div>
+<% end %>  
 
 

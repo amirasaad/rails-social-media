@@ -28,8 +28,6 @@ class CommentsController < ApplicationController
 			format.html { redirect_to @post, notice: 'Comment Deleted' }
 			format.js
 		end
-		redirect_to @post, notice: 'Comment Deleted'
-
 	end
 
 	private

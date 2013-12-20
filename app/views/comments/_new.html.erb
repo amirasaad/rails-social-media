@@ -1,9 +1,9 @@
 
-<%= form_for([post, post.comments.new], remote: true )   do |f| %>
-<div class="control-group well" id="new_comment">
+<%= form_for([post, post.comments.new], :html => { :class => 'form-horizontal' ,:id => 'comment_form' } , remote: true )   do |f| %>
+<div class="control-group well" >
 
 	<%= f.text_area :body , :class=>'text_area' ,:placeholder => 'Write a comment' ,:size => '500x1'%>
-	<%= f.submit 'Comment' , :class=> 'btn btn-success' %>
+	<%= f.submit 'Comment' , :class=> 'btn btn-success'%>
 
 	
 

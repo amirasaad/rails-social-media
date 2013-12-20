@@ -1,1 +1,1 @@
-$("#post_<%=post.id %>").html("<%= escape_javascript(render(:partial => 'post'))%>");
+$("#<%= dom_id(@post) %>").html("<%= escape_javascript(render(@post))%>");
