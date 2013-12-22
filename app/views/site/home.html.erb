@@ -1,0 +1,12 @@
+<div class="well well-large">
+<h1>Welcome :)</h1>
+<p>
+<% if logged_in? %> 
+<%= link_to "See what ppl say", posts_path %>
+<% else %>
+<% @user = User.new %>
+<%= render :partial => "users/form" , :locals => {user: @user} %>
+<% end %>
+
+</p>
+</div>
