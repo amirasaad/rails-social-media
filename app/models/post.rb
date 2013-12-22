@@ -12,11 +12,8 @@ class Post < ActiveRecord::Base
 		user == owner
 	end
 
-	def latest_comments(id)
-		post = Post.find(id)
-		if post
-			return post.comments.take(3)
-		end
+	def latest_comments
+		return comments.order('created_at DESC').take(2)
 	end
 
 end

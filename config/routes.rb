@@ -6,8 +6,7 @@ Sm::Application.routes.draw do
   root :to => "site#home"
 
   get  "refresh"  => "posts#refreshposts", :as => "refresh"
-  get "votedup"  => "posts#votedup", :as => "votedup"
-  get  "voteddown"  => "posts#voteddown", :as => "voteddown"
+
   
   resources :posts do 
     resources :comments

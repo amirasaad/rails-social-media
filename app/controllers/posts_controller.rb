@@ -6,17 +6,16 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.find(:all , :order => 'posts.created_at DESC')
-    respond_to do |format|
-      format.html 
-      format.json{ render :json => @posts}
-      format.js
-    end
+    @posts = Post.order('created_at DESC').all
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
+     respond_to do |format|
+      format.html 
+      format.js
+    end
   end
 
   # GET /posts/new
@@ -45,6 +44,7 @@ class PostsController < ApplicationController
       else
         format.html { redirect_to root_path }
         format.json { render json: @post.errors, status: :unprocessable_entity }
+        format.js { render 'fail_create.js.erb' }
       end
     end
   end
@@ -56,10 +56,8 @@ class PostsController < ApplicationController
       if @post.update(post_params)
         format.js
         format.html { redirect_to action: 'index', notice: 'Post was successfully updated.' }
-        format.json { head :no_content }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -74,27 +72,6 @@ class PostsController < ApplicationController
       format.js
     end
   end
-
-  def votedup
-    @post = Post.find(params[:id])
-    @post.ups=@post.ups+1
-    @post.save
-    render :text => "<div class='up'></div>"+@post.ups.to_s+" Ups"
-  end
-
-  def voteddown
-    @post = Post.find(params[:id])
-    @post.downs=@Post.downs+1
-    @post.save
-    render :text => "<div class='down'></div>"+@post.downs.to_s+" Downs"
-  end
-
-  def refreshposts
-    render :partial => 'posts.html.erb', :locals => { :posts_streams => @posts_streams }
-  end
-
-
-  
 
   private
     # Use callbacks to share common setup or constraints between actions.

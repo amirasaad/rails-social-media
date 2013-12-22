@@ -6,4 +6,5 @@ $('#<%= dom_id(@post) %>').find("#comments").append("<%= escape_javascript(rende
 
 
 /* Reset the comment form */
-$("#comment_form")[0].reset();
+$('#<%= dom_id(@post) %>').find("#comment_form")[0].reset();
+$('#<%= dom_id(@post) %>').find("#count_comments").html("<%= @post.comments.count %>").effect("bounce");

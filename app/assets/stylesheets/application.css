@@ -23,9 +23,6 @@ footer {
 }
 
 .comment{
-	display: block;
-  background-color: #ddd;
-  color: blue;
 	border-radius: 15px;
 	
 	margin-top: 5px;

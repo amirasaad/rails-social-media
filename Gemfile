@@ -17,7 +17,13 @@ gem 'rails_12factor', group: :production
 
 
 # Use PostgreSql as the database for Active Record
-gem "sqlite3-ruby"
+gem "pg"
+
+gem 'will_paginate', '~> 3.0'
+
+gem 'kaminari'
+
+gem "rainbows-rails"
 
 
 

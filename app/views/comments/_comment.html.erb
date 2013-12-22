@@ -12,23 +12,25 @@
 </script>
 <%= div_for comment do %>
 
-<div class="media" id= "<%=  dom_id(comment) %>">
+<div class="media " id= "<%=  dom_id(comment) %>">
     <a class="pull-left" href="#">
-		<img class="media-object img-circle" src="../avatar.jpg" alt="64x46">
+		<img class="media-object img-circle" src="../user_avatar.png" alt="64x46">
 	</a>
+	<% if comment.user == current_user || comment.post.user ==  current_user%>
+		<span class='actions pull-right' style="padding:5px;" >
+			<%= link_to "", post_comment_path(:post_id => comment.post,
+			:id => comment), confirm: 'Are you sure?', method: :delete , :remote=> true ,:class => 'close icon-remove'%>
+		</span>
+		<% end %>
 	<div class ="media-body comment">
 	<div class="media-heading">
 		<h4>@<%= comment.user.username%></h4>
+
 	</div>
 	
 	<blockquote>
 		<p><%= comment.body %> </p>
-		<% if comment.user == current_user %>
-		<span class='actions pull-right' >
-			<%= link_to "", post_comment_path(:post_id => comment.post,
-			:id => comment), confirm: 'Are you sure?', method: :delete , :remote=> true ,:class => 'icon-remove'%>
-		</span>
-		<% end %>
+		
 
 		<small> <%= time_ago_in_words(comment.created_at) %> ago.</small>
 	</blockquote>

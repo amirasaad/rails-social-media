@@ -5,14 +5,14 @@ class UsersController < ApplicationController
 
 	def new
 		@user = User.new
-
 	end
+	
 	def create 
 		@user = User.new(user_params)
 		@profile = Profile.new 
 		@profile.save
 		if @user.save && @profile.save
-			redirect_to edit_user_profile_path(@user), notice: 'You successfully registered.'
+			redirect_to edit_user_profile_path(@user,@profile), notice: 'You successfully registered.'
 		else 
 			render action: :new
 		end
@@ -22,8 +22,6 @@ class UsersController < ApplicationController
 	end
 
 	def show
-
-		
 		@user ||= User.find(params[:username]) 
 		@posts = @user.posts
 		@profile = @user.profile
