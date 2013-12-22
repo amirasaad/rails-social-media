@@ -1,0 +1,1 @@
+$("#<%= dom_id(@post) %>").find("#comments").html("<%= escape_javascript(render(:partial => 'postcomments' ,:locals=>{comments:@post.comments})) %>")
