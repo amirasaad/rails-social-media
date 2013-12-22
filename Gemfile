@@ -8,7 +8,8 @@ gem 'rails', '4.0.2'
 # Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "therubyracer"
 gem "less-rails" 
-gem 'bootstrap-sass', '2.3.2.0'
+gem "twitter-bootstrap-rails"
+
 
 # Client Side Validations 
 
