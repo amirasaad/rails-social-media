@@ -32,8 +32,6 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user = current_user
-    @post.ups = 0
-    @post.downs = 0
 
     respond_to do |format|
       if @post.save
