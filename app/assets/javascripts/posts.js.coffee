@@ -2,3 +2,8 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+jQuery ->
+   $('.actions').hide
+   $('.post').hover \
+        (-> $(this).find('.actions').fadeIn(150)), \
+        (-> $(this).find('.actions').fadeOut(150))

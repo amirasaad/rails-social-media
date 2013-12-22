@@ -10,6 +10,7 @@ gem "therubyracer"
 gem "less-rails" 
 gem "twitter-bootstrap-rails"
 
+
 # Client Side Validations 
 
 #Heroku
@@ -20,6 +21,7 @@ gem 'rails_12factor', group: :production
 gem "pg"
 
 gem 'will_paginate', '~> 3.0'
+gem 'bootstrap-will_paginate', '0.0.9'
 
 gem 'kaminari'
 

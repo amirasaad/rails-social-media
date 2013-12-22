@@ -1,18 +1,22 @@
 class UsersController < ApplicationController
 	before_action :authenticate, only: [:edit, :update]
 	before_action :set_user, only: [:edit ,:update, :destroy]
+	before_action :admin_user,     only: :destroy
 
 
 	def new
 		@user = User.new
 	end
+	def index
+		@users = User.paginate(page: params[:page])
+
+	end
 	
 	def create 
 		@user = User.new(user_params)
-		@profile = Profile.new 
-		@profile.save
-		if @user.save && @profile.save
-			redirect_to edit_user_profile_path(@user,@profile), notice: 'You successfully registered.'
+		@user.build_profile
+		if @user.save
+			redirect_to "/#{@user.username}", notice: 'You successfully registered.'
 		else 
 			render action: :new
 		end
@@ -25,6 +29,8 @@ class UsersController < ApplicationController
 		@user ||= User.find(params[:username]) 
 		@posts = @user.posts
 		@profile = @user.profile
+		@followed_users = @user.followed_users.paginate(page: params[:page])
+		@followers = @user.followers.paginate(page: params[:page])
 	end
 
 	def update
@@ -35,12 +41,35 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def destroy
+		User.find(params[:id]).destroy
+		flash[:success] = "User deleted."
+		redirect_to users_url
+	end
+
+	def following
+		@title = "Following"
+		@user = User.find(params[:id])
+		@users = @user.followed_users.paginate(page: params[:page])
+		render 'show_follow'
+	end
+
+	def followers
+		@title = "Followers"
+		@user = User.find(params[:id])
+		@users = @user.followers.paginate(page: params[:page])
+		render 'show_follow'
+	end
+
 	private
 	def set_user
-		@user = User.find(user_params[:id])
+		@user = User.find(params[:id])
 	end
 
 	def user_params
 		params.require(:user).permit(:username ,:email, :password, :password_confirmation)
+	end
+	def admin_user
+		redirect_to(root_url) unless current_user.admin?
 	end
 end

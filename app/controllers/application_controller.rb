@@ -23,4 +23,8 @@ class ApplicationController < ActionController::Base
   	return false
   end
 
+  def current_user?(user)
+    return current_user == user
+  end
+
 end

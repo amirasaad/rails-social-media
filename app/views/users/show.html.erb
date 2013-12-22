@@ -1,29 +1,77 @@
+<div class="row">
+	<aside class="span4">
+		<section>
+			<h1>
+				<%= gravatar_for @user %>
+				<%= link_to @user.username , "/#{@user.username}" %> 
+				<div class="pull-right"><%= render 'follow_form' if logged_in? %></div>
+			</h1>
+			<div class="stats">
+				<ul>
+					<li><strong>
+						<%= @user.posts.count %>
+					</strong> 
+					Posts </li>
+					<li> <strong>
+						<%= @user.replies.count %>
+					</strong> 
+					Comments </li>
+					<li><a href="<%= following_user_path(@user) %>">
+						<strong id="following" class="stat">
+							<%= @user.followed_users.count %>
+						</strong>
+						following
+					</a></li>
+					<li><a href="<%= followers_user_path(@user) %>">
+						<strong id="followers" class="stat">
+							<%= @user.followers.count %>
+						</strong>
+						followers
+					</a></li>
+				</ul>
+			</div>
+		</section>
+	</aside>
+</div>
+
+</section>
+<br/>
 <div class="tabbable">
 	<ul class="nav nav-tabs" id="proftabs">
 		<li class="active"><a href="#profile_tab"  data-toggle="tab" >Profile</a></li>
 		<li><a  href="#posts_tab" data-toggle="tab">Posts</a></li>
-		<li><a href="#friends_tab" data-toggle="tab">Friends</a></li>
+		<li><a href="#followers_tab" data-toggle="tab">Followers</a></li>
+		<li><a  href="#followings_tab" data-toggle="tab">Followings</a></li>
 		<li><a  href="#photos_tab" data-toggle="tab">Photos</a></li>
-		<li><a  href="#videos_tab" data-toggle="tab">Videos</a></li>
 
 	</ul>
 
 	<div class="tab-content">
 		<div id="profile_tab" class="tab-pane">
-			<%= render "user" %>
 		</div>
 		<div id="posts_tab"  class="tab-pane">
 			<%= render "userposts" %>
 		</div>
-		<div id="friends_tab"  class="tab-pane">
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut corporis cupiditate incidunt. Accusantium adipisci architecto dignissimos eligendi est explicabo ipsa molestiae nesciunt optio porro provident, sint soluta, tempore temporibus vitae?
+		<div id="followers_tab"  class="tab-pane">
+			<% if @followers.any? %>
+			<ul class="users">
+				<%=  render @followers %>
+			</ul>
+			<% end %>
+		</div>
+		<div id="followings_tab"  class="tab-pane">
+			<% if @followed_users.any? %>
+			<ul class="users">
+				<%=  render @followed_users %>
+			</ul>
+			
+			<% end %>
+			
 		</div>
 		<div id="photos_tab"  class="tab-pane">
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error ex harum iste magnam necessitatibus sed sit. A adipisci amet cupiditate delectus dolor itaque numquam officia omnis, provident quod temporibus voluptatibus?
+			working on it ! 
 		</div>
-		<div id="videos_tab"  class="tab-pane">
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam architecto at autem dolore, dolorum eaque earum eius, id in iste molestias officia, possimus qui quis recusandae repellat reprehenderit suscipit voluptatum!
-		</div>
+		
 		
 	</div>
 </div>

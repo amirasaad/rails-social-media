@@ -1,36 +1,27 @@
-<script type="text/javascript">
-	$('.actions').hide();
-	var mouseover = function() {
-		$(this).find('.actions').show();
-	};
 
-	var mouseout = function() {
-		$(this).find('.actions').hide();
-	};
-
-	$('.post').hover(mouseover, mouseout);
-
-	
-</script>
 <%= div_for post do %>
-<div class="media" id="<%= dom_id(post) %>" >
+<div class="media well " id="<%= dom_id(post) %>" >
 	<a class="pull-left" href="#">
-		<img class="media-object img-circle" src="../user_avatar.png" alt="64x46">
+	<%= gravatar_for post.user ,:size => 64 %>
 	</a>
+	<div class="actions pull-right" >
+		<% if post.owned_by? current_user %>
+		<ul>
+
+		<li><%= link_to " ", post, confirm: "Are you sure?", method: :delete  ,:class => "close icon-remove" ,:remote => true%>  </li>
+		<li><%= link_to " ", edit_post_path(post) ,:class => "close icon-pencil" ,:remote => true %></li>
+		</ul>
+
+
+		<% end %>
+	</div>
 	<div class="media-body post" >
 
 		<h4 class="media-heading">@<%=link_to post.user.username  , "/#{post.user.username}" %>
 		</h4>
 
 		<blockquote>
-			<div class="actions pull-right" style="margin-right:50px;">
-				<% if post.owned_by? current_user %>
-				
-
-				<%= link_to " ", post, confirm: "Are you sure?", method: :delete  ,:class => "close icon-remove" ,:remote => true%>  <%= link_to " ", edit_post_path(post) ,:class => "close icon-pencil" ,:remote => true %>
-
-				<% end %>
-			</div>
+			
 			<p class="lead"><%=  post.body %></p>
 			<small>
 			<%= time_ago_in_words(post.created_at) %> ago. 
@@ -51,7 +42,7 @@
 
 
 
-	<%= render :partial => 'postcomments',:locals => {:comments => post.latest_comments} %>
+	<%= render :partial => 'posts/postcomments',:locals => {:comments => post.latest_comments} %>
 
 </div>
 <div style="padding:5px;margin-left:50px;">

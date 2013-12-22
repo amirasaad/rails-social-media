@@ -16,6 +16,9 @@ Sm::Application.routes.draw do
 
   resources :users  do 
     resources :profiles
+    member do
+      get :following, :followers
+    end
   end
   resource :session, :only => [:new, :create, :destroy]
   get '/login' => "sessions#new", :as => "login"
@@ -28,6 +31,8 @@ Sm::Application.routes.draw do
   end
 
   match 'users#show', :to => redirect(':username') , via: :get
+
+  resources :relationships, only: [:create, :destroy]
 
 
 

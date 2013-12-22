@@ -1,20 +1,13 @@
-<script type="text/javascript">
-	$('.actions').hide();
-	var mouseover = function() {
-		$(this).find('.actions').show();
-	};
-
-	var mouseout = function() {
-		$(this).find('.actions').hide();
-	};
-
-	$('.comment').hover(mouseover, mouseout);
+<script>
+	$(document).ready(function(){
+		$('.actions').hide();
+	})
 </script>
 <%= div_for comment do %>
 
-<div class="media " id= "<%=  dom_id(comment) %>">
+<div class="media well well-small" id= "<%=  dom_id(comment) %>">
     <a class="pull-left" href="#">
-		<img class="media-object img-circle" src="../user_avatar.png" alt="64x46">
+		<%= gravatar_for comment.user ,:size => 64 %>
 	</a>
 	<% if comment.user == current_user || comment.post.user ==  current_user%>
 		<span class='actions pull-right' style="padding:5px;" >
@@ -22,7 +15,7 @@
 			:id => comment), confirm: 'Are you sure?', method: :delete , :remote=> true ,:class => 'close icon-remove'%>
 		</span>
 		<% end %>
-	<div class ="media-body comment">
+	<div class ="media-body comment ">
 	<div class="media-heading">
 		<h4>@<%= comment.user.username%></h4>
 
