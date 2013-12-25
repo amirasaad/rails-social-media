@@ -1,4 +1,4 @@
-<%= simple_form_for([@post, @post.comments.new], remote: true) do |f| %>
+<%= simple_form_for[@post, @post.comments.new], remote: true, :html => {:id => 'comment_form' } do |f| %>
 	<%= f.input :body  ,label: false,placeholder:'Write a comment' %>
-	<%= f.submit 'Comment'  %>
+	<%= f.button :submit , 'Comment'  %>
 <% end %>

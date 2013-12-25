@@ -2,7 +2,7 @@
 <%= simple_form_for [post, post.comments.new], :html => { :class => 'form-inline' ,:id => 'comment_form' } , remote: true    do |f| %>
 
 	<%= f.input :body  ,label: false,placeholder: 'Write a comment' %>
-	<%= f.button :submit, 'Comment' %>
+	<%= f.button :submit , 'Comment'  %>
 
 	
 
