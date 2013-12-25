@@ -40,8 +40,6 @@
 	<%= link_to "See all comments" ,post_path(post) ,:remote => true %>
 	<% end %>
 
-
-
 	<%= render :partial => 'posts/postcomments',:locals => {:comments => post.latest_comments} %>
 
 </div>

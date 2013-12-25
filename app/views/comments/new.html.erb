@@ -1,6 +1,4 @@
-<%= form_for([@post, @post.comments.new], remote: true) do |f| %>
-<div class="control-group well">
-	<%= f.text_area :body , :class=>'text_area' ,:placeholder => 'Write a comment' ,:size => '500x3'%>
-	<%= f.submit 'Comment' , :class=> 'btn btn-lg' %>
-</div>
+<%= simple_form_for([@post, @post.comments.new], remote: true) do |f| %>
+	<%= f.input :body  ,label: false,placeholder:'Write a comment' %>
+	<%= f.submit 'Comment'  %>
 <% end %>

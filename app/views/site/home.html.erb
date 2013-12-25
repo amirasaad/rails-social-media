@@ -1,12 +1,14 @@
-<div class="hero-unit">
-<h1>Welcome :)</h1>
-<p>
-<% if logged_in? %> 
-<%= link_to "See what ppl say", posts_path %>
-<% else %>
-<% @user = User.new %>
-<%= render :partial => "users/form" , :locals => {user: @user} %>
-<% end %>
 
-</p>
+<% if logged_in? %> 
+
+<div id="postsfeed">
+	<%= render  @posts  %>
+</div>
+<% else %>
+<div class="hero-unit">
+	<h1>Welcome</h1>
+	<h2>Join now</h2>
+	<% @user = User.new %>
+	<%= render :partial => "users/form" , :locals => {user: @user} %>
+	<% end %>
 </div>

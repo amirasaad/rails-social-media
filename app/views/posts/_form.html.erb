@@ -1,7 +1,7 @@
-<%= form_for @post, :html => { :class => 'form-horizontal' ,:id => 'post_form'} do |f| %>
-      <%=  f.text_area :body, size: "550x3" ,:placeholder=>"What do you like to say?"%>
+<%= simple_form_for @post, :html => { :class => 'form-horizontal' ,:id => 'post_form'}  do |f| %>
+      <%=  f.input :body,placeholder: "What do you like to say?" ,label: false%>
 
-    <%= f.submit "Share!", :class => 'btn btn-success' , :remote => true %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                posts_path, :class => 'btn' , :remote => true %>
+       <%=f.button :submit, 'Share'%>
+
+  
 <% end %>

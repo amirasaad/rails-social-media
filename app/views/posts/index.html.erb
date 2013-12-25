@@ -10,8 +10,6 @@
 <% if @posts.empty? %>
 <h3><span class="label label-warning"> no posts yet </span></h3>
 <% else %>
-  <% @posts.each do |post| %>
-   <%= render post %>
-  <% end %>
+   <%= render @posts %>
 <% end %></div></br>
 

@@ -1,43 +1,12 @@
-<h3>Sign Up </h3>
-<%= form_for user, :html => { :class => 'form-horizontal' }  do |f| %>
-<% if user.errors.any? %>
-<div id="error">
-	<p class="text-danger"><%= pluralize(user.errors.count, "error") %>
-		prohibited this user from being saved:</p>
-		<ul>
-			<% user.errors.full_messages.each do |msg| %>
-			<li><%= msg %></li>
-			<% end %>
-		</ul>
-	</div>
-	<% end %>
-
-	<div class="control-group">
-		<%= f.label :username, :class => 'control-label' %>
-		<div class="controls">		
-			<%= f.text_field :username %>
-		</div>
-	</div>
-	<div class="control-group">
-		<%= f.label :email, :class => 'control-label' %>
-		<div class="controls">		
-			<%= f.text_field :email, :class => 'text_field'%>
-		</div>
-	</div>
-	<div class="control-group">
-		<%= f.label :password, :class => 'control-label' %>
-		<div class="controls">		
-			<%= f.password_field :password, :class => 'text_field'%>
-		</div>
-	</div>
-	<div class="control-group">
-		<%= f.label :password_confirmation, :class => 'control-label' %>
-		<div class="controls">		
-			<%= f.password_field :password_confirmation, :class => 'text_field'%>
-		</div>
-	</div>
+<%= simple_form_for user, :html => { :class => 'form-horizontal' }  do |f| %>
+ <%= f.input :username %>
+    <%= f.input :email%>
+    <%= f.input :password %>
+    <%= f.input :password_confirmation %>
 	<div class="form-actions">
-		<%= f.submit "Register", :class => 'btn btn-success' %>
+
+       <%=f.button :submit, 'Register'%>
+
 
 		<%= link_to "Login" ,login_path, :class => 'btn' %>
 	</div>

@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
 	format: { with: /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/,message: 'The format of Email is invalid'}
 	validates :username, presence: true, uniqueness: true
 
+	validates :username, format: { with: /\A[a-zA-Z0-9]+\Z/ ,message: 'Username must contains alphabtic and numbers only'} 
+
 	validates_confirmation_of :password
 	validates_length_of :password, :within => 4..50
 	validates_presence_of :password, :if => :password_required?

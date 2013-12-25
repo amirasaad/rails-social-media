@@ -84,18 +84,19 @@
 
       <div class="container">
         <div class="row">
-          <div class="span9">
-            <%= bootstrap_flash %>
-            <%= yield %>
-          </div>
-          <div class="span3">
-            <div class="sidebar-nav">
+
+        <div class="span4">
+            <div class="sidebar-nav well well-small">
               <ul class="nav nav-list">
                 
                 <section>
                  <% if logged_in? %>
-                  <%= gravatar_for current_user ,:size => 50 %>
-                  <li><%= render 'shared/stats' %></li>
+                  <%= render current_user ,:size => 50 %>
+                  <% @post = Post.new %>
+                 <%=render :partial => 'posts/new'%>
+                 <% else %>
+                 <%= render 'sessions/form' %>
+
                   <% end %>
                 </section>
                 
@@ -103,10 +104,16 @@
               </ul>
             </div><!--/.well -->
           </div><!--/span-->
+          <div class="span8">
+            <%= bootstrap_flash %>
+            <span id="notice" class="alert alert-success pull-right" style="display:none;z-index:100;position:absolute"></span>
+            <%= yield %>
+          </div>
+          
         </div><!--/row-->
 
-        <footer>
-          <p>&copy; Company 2013 -- <%= link_to "contact@" ,contact_path %> </p>
+        <footer class="footer navbar">
+          <p>&copy; 2013 -- <%= link_to "contact@" ,contact_path %> </p>
         </footer>
 
       </div> <!-- /container -->

@@ -1,8 +1,7 @@
-<%= form_for @post, :html => { :class => 'form-horizontal' ,:id => 'post_form' } , :remote => true do |f| %>
-  <div class="control-group">
-      <%=  f.text_area :body, size: "550x3" ,:placeholder=>"What do you like to say?"%>
+<%= simple_form_for @post, :html => { :class => 'form-inline' ,:id => 'post_form' } , :remote => true do |f| %>
+    <%=  f.input :body, size: "550x3" ,placeholder: "What do you like to say?", label: false%>
 
-    <%= f.submit "Share!", :class => 'btn btn-success icon-share' , :remote => true %>
-      </div>
+       <%=f.button :submit, 'Share' %>
+
 
 <% end %>
