@@ -45,26 +45,19 @@
       <%end%>
 
       <%= menu_item users_path do %>
-      <i class="icon-user"></i> Find ppl
+      <i class="icon-user"></i> People
       <%end%>
 
 
       <% end %>
       <%= menu_group :pull => :right do %>
-      <%= drop_down "<i class='icon-bullhorn'></i>" do %>
-      <%= menu_item posts_path do %>
-      <i class="icon-bullhorn"></i> What's ppl says
-      <%end%>
-      <% if current_user %>
-      <%=  menu_item new_post_path do%>
-      <i class="icon-pencil"></i> Write a post
-      <%end%>
-      <% end %>
-      <% end %>
 
       <% if current_user %>
       <%= drop_down "#{current_user.username} <i class='icon-user'></i>" do %>
-      <%= menu_item "Settings" , edit_user_path(current_user) %>
+      <%= menu_item edit_user_path(current_user) do %>
+        <i class="icon-wrench" ></i> Settings
+      <%end %>
+      <%= drop_down_divider %>
       <%= menu_item logout_path do%>
       <i class="icon-off" ></i> Logout
       <% end %>
