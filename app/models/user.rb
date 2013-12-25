@@ -22,6 +22,10 @@ class User < ActiveRecord::Base
 
 	before_save :encrypt_new_password
 
+	before_save { self.email = email.downcase }
+	before_save { self.username = username.downcase }
+	before_create :create_remember_token
+
 
 	def self.authenticate(username, password)
 		user = find_by_username(username)
@@ -59,6 +63,12 @@ class User < ActiveRecord::Base
 
 	def encrypt(string)
 		Digest::SHA1.hexdigest(string)
+	end
+
+	private
+
+	def create_remember_token
+		self.remember_token = User.encrypt(User.new_remember_token)
 	end
 
 

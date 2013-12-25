@@ -8,6 +8,8 @@
 		<% end %>
 
 	</h3>
+	<div class="pull-right"><%= render :partial => 'users/follow_form' ,:locals=>{user: user} if logged_in? %></div>
+
 	<div class="stats">
 		<a href="<%= following_user_path(user) %>">
 			<strong id="following" class="stat">

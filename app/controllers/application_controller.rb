@@ -19,8 +19,9 @@ class ApplicationController < ActionController::Base
   end
   helper_method :logged_in?
   def access_denied
-  	redirect_to login_path, notice: "Please log in to continue"
-  	return false
+    store_location
+    redirect_to login_path, notice: "Please log in to continue."
+    return false
   end
 
   def current_user?(user)

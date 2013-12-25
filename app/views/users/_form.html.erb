@@ -10,8 +10,8 @@
 			<%= f.input :password_confirmation %>
 	
 	<div class="form-actions">
-		<%= f.submit "Register", :class => 'btn btn-success' %>
+		<%= f.submit "Update", :class => 'btn btn-success' %>
 
-		<%= link_to "Login" ,login_path, :class => 'btn' %>
+		<%= link_to "Cancel" ,"/#{@user.username}", :class => 'btn' %>
 	</div>
 <% end %>

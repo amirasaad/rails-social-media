@@ -1,8 +1,12 @@
 
 <% if logged_in? %> 
-
 <div id="postsfeed">
-	<%= render  @posts  %>
+
+<% if @posts.empty? %>
+<h3><span class="label label-warning"> no posts yet </span></h3>
+<% else %>
+   <%= render @posts %>
+<% end %></br>
 </div>
 <% else %>
 <div class="hero-unit">

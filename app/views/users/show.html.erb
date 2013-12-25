@@ -3,7 +3,7 @@
 	<h1>
 		<%= gravatar_for @user %>
 		<%= link_to @user.username , "/#{@user.username}" %> 
-		<div class="pull-right"><%= render 'follow_form' if logged_in? %></div>
+		<div class="pull-right"><%= render :partial => 'follow_form', :locals => {user: @user} if logged_in? %></div>
 	</h1>
 	<div class="stats">
 		<ul>
