@@ -1,39 +1,34 @@
-<div class="row">
-	<aside class="span4">
-		<section>
-			<h1>
-				<%= gravatar_for @user %>
-				<%= link_to @user.username , "/#{@user.username}" %> 
-				<div class="pull-right"><%= render 'follow_form' if logged_in? %></div>
-			</h1>
-			<div class="stats">
-				<ul>
-					<li><strong>
-						<%= @user.posts.count %>
-					</strong> 
-					Posts </li>
-					<li> <strong>
-						<%= @user.replies.count %>
-					</strong> 
-					Comments </li>
-					<li><a href="<%= following_user_path(@user) %>">
-						<strong id="following" class="stat">
-							<%= @user.followed_users.count %>
-						</strong>
-						following
-					</a></li>
-					<li><a href="<%= followers_user_path(@user) %>">
-						<strong id="followers" class="stat">
-							<%= @user.followers.count %>
-						</strong>
-						followers
-					</a></li>
-				</ul>
-			</div>
-		</section>
-	</aside>
-</div>
 
+<section>
+	<h1>
+		<%= gravatar_for @user %>
+		<%= link_to @user.username , "/#{@user.username}" %> 
+		<div class="pull-right"><%= render 'follow_form' if logged_in? %></div>
+	</h1>
+	<div class="stats">
+		<ul>
+			<li><strong>
+				<%= @user.posts.count %>
+			</strong> 
+			Posts </li>
+			<li> <strong>
+				<%= @user.replies.count %>
+			</strong> 
+			Comments </li>
+			<li><a href="<%= following_user_path(@user) %>">
+				<strong id="following" class="stat">
+					<%= @user.followed_users.count %>
+				</strong>
+				following
+			</a></li>
+			<li><a href="<%= followers_user_path(@user) %>">
+				<strong id="followers" class="stat">
+					<%= @user.followers.count %>
+				</strong>
+				followers
+			</a></li>
+		</ul>
+	</div>
 </section>
 <br/>
 <div class="tabbable">
