@@ -1,12 +1,3 @@
-
-
-/* Add the new comment to the bottom of the comments list */
 $('#<%= dom_id(@post) %>').find("#comments").append("<%= escape_javascript(render(@comment)) %>");
-
-
-
-/* Reset the comment form */
-$('#<%= dom_id(@post) %>').find("#comment_form").each(function(){
-$(this).reset(); 
-});
-$('#<%= dom_id(@post) %>').find("#count_comments").html("<%= @post.comments.count %>").effect("bounce");
+$('#<%= dom_id(@post) %>').find("#comment_form")[0].reset();
+$('#<%= dom_id(@post) %>').find("#count_comments").html("<%= @post.comments.count %>");

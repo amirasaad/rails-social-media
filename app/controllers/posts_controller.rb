@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_filter :update_poststreams, :only => [:index , :refreshPosts]
+  before_action :correct_user , only: [:edit ,:update , :destroy]
 
   # GET /posts
   # GET /posts.json
@@ -14,11 +15,11 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-     respond_to do |format|
-      format.html 
-      format.js
-    end
+   respond_to do |format|
+    format.html 
+    format.js
   end
+end
 
   # GET /posts/new
   def new
@@ -87,6 +88,11 @@ class PostsController < ApplicationController
     def update_poststreams
       @posts_streams = Post.order('created_at DESC').all
     end 
+
+    def correct_user
+      @user = @post.user
+      redirect_to(root_url) unless current_user?(@user)
+    end
 
     
   end

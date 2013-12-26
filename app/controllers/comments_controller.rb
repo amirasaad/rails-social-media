@@ -1,10 +1,11 @@
 class CommentsController < ApplicationController
-	before_action :load 
 	before_filter :authenticate, :expect => :show
+	before_action :correct_user , only: [:edit ,:update , :destroy]
 
 	def create
+		@post = current_user.posts.find(params[:post_id])
 		@comment = @post.comments.new(comment_params)
-		@comment.user = @user
+		@comment.user = current_user
 		
 		respond_to do |format|
 			if @comment.save
@@ -31,12 +32,13 @@ class CommentsController < ApplicationController
 	end
 
 	private
-	def load
-		@post = Post.find(params[:post_id])
-		@user = current_user
-	end
 
 	def comment_params
 		params.require(:comment).permit(:name, :email, :body)
 	end
+
+	def correct_user
+      @user = @comment.user
+      redirect_to(root_url) unless current_user?(@user)
+    end
 end
