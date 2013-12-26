@@ -52,7 +52,7 @@
       <% end %>
       <%= menu_group :pull => :right do %>
 
-      <% if current_user %>
+      <% if logged_in? %>
       <%= drop_down "#{current_user.username} <i class='icon-user'></i>" do %>
       <%= menu_item edit_user_path(current_user) do %>
       <i class="icon-wrench" ></i> Settings

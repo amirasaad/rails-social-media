@@ -5,8 +5,8 @@ class ApplicationController < ActionController::Base
 
   protected
   def current_user
-  	return unless session[:user_id]
-  	@current_user ||= User.find_by_id(session[:user_id])
+  	remember_token = User.encrypt(cookies[:remember_token])
+    @current_user ||= User.find_by(remember_token: remember_token)
   end
 
   helper_method :current_user
@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_in?
-  	current_user.is_a? User
+  	!current_user.nil?
   end
   helper_method :logged_in?
   def access_denied

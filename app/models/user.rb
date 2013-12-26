@@ -50,6 +50,14 @@ class User < ActiveRecord::Base
 	def unfollow!(other_user)
 		relationships.find_by(followed_id: other_user.id).destroy!
 	end
+
+	def User.encrypt(token)
+		Digest::SHA1.hexdigest(token.to_s)
+	end
+	def User.new_remember_token
+		SecureRandom.urlsafe_base64
+	end
+
 	
 	protected
 	def encrypt_new_password
@@ -64,6 +72,7 @@ class User < ActiveRecord::Base
 	def encrypt(string)
 		Digest::SHA1.hexdigest(string)
 	end
+
 
 	private
 
