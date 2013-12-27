@@ -22,12 +22,10 @@
 
 		<blockquote>
 			
-			<p class="lead"><%=  post.body %></p>
-			<small>
-			<%= time_ago_in_words(post.created_at) %> ago. 
-			 <span class="label label-info">
-				<span id="count_comments"><%= post.comments.count%></span> Comments
-			</span>
+			<p><b class="lead"><%=  post.body %></b></p>
+			<small class="label label-info">
+			<%= time_ago_in_words(post.created_at) %> ago.  
+				| <span id="count_comments"><%= post.comments.count%></span> Comments
 			</small>
 		</blockquote>
 	</div>

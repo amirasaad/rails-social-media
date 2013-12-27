@@ -1,7 +1,7 @@
 <%= simple_form_for @post, :html => { :class => 'form-inline' ,:id => 'post_form' } , :remote => true do |f| %>
     <%=  f.input :body, size: "550x3" ,placeholder: "What do you like to say?", label: false%>
 
-       <%=f.button :submit, 'Share' %>
+       <%=f.button :submit, 'Share' ,:class =>'btn btn-primary' %>
 
 
 <% end %>

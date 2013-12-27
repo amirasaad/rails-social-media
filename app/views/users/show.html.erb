@@ -1,72 +1,39 @@
-
 <section>
-	<h1>
-		<%= gravatar_for @user %>
+	<h3>
+		<%= gravatar_for @user , :size => 150 %>
 		<%= link_to @user.username , "/#{@user.username}" %> 
-		<div class="pull-right"><%= render :partial => 'follow_form', :locals => {user: @user} if logged_in? %></div>
-	</h1>
-	<div class="stats">
-		<ul>
-			<li><strong>
+		<% if logged_in? && current_user.admin? && !current_user?(@user) %>
+		| <%= link_to "delete", @user, method: :delete,
+		data: { confirm: "You sure?" } %>
+		<% end %>
+		<div class="pull-right"><%= render :partial => 'users/follow_form' ,:locals=>{user: @user} if logged_in? %></div>
+	</h3>
+	
+	<section class="stats">
+		<a href="/<%= @user.username %>/posts">
+			<strong id="posts" class="stat">
 				<%= @user.posts.count %>
-			</strong> 
-			Posts </li>
-			<li> <strong>
+			</strong>
+			posts
+		</a>
+		<a href="/<%= @user.username %>/posts">
+			<strong id="commetns" class="stat">
 				<%= @user.replies.count %>
-			</strong> 
-			Comments </li>
-			<li><a href="<%= following_user_path(@user) %>">
-				<strong id="following" class="stat">
-					<%= @user.followed_users.count %>
-				</strong>
-				following
-			</a></li>
-			<li><a href="<%= followers_user_path(@user) %>">
-				<strong id="followers" class="stat">
-					<%= @user.followers.count %>
-				</strong>
-				followers
-			</a></li>
-		</ul>
-	</div>
-</section>
-<br/>
-<div class="tabbable">
-	<ul class="nav nav-tabs" id="proftabs">
-		<li class="active"><a href="#profile_tab"  data-toggle="tab" >Profile</a></li>
-		<li><a  href="#posts_tab" data-toggle="tab">Posts</a></li>
-		<li><a href="#followers_tab" data-toggle="tab">Followers</a></li>
-		<li><a  href="#followings_tab" data-toggle="tab">Followings</a></li>
-		<li><a  href="#photos_tab" data-toggle="tab">Photos</a></li>
-
-	</ul>
-
-	<div class="tab-content">
-		<div id="profile_tab" class="tab-pane">
-		</div>
-		<div id="posts_tab"  class="tab-pane">
-			<%= render "userposts" %>
-		</div>
-		<div id="followers_tab"  class="tab-pane">
-			<% if @followers.any? %>
-			<ul class="users">
-				<%=  render @followers %>
-			</ul>
-			<% end %>
-		</div>
-		<div id="followings_tab"  class="tab-pane">
-			<% if @followed_users.any? %>
-			<ul class="users">
-				<%=  render @followed_users %>
-			</ul>
-			
-			<% end %>
-			
-		</div>
-		<div id="photos_tab"  class="tab-pane">
-			working on it ! 
-		</div>
-		
-		
-	</div>
-</div>
+			</strong>
+			comments
+		</a>
+	
+		<a href="<%= following_user_path(@user) %>">
+			<strong id="following" class="stat">
+				<%= @user.followed_users.count %>
+			</strong>
+			following
+		</a>
+		<a href="<%= followers_user_path(@user) %>">
+			<strong id="followers" class="stat">
+				<%= @user.followers.count %>
+			</strong>
+			followers
+		</a>
+	</section>
+</section>	

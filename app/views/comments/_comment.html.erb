@@ -12,8 +12,8 @@
 		</span>
 		<% end %>
 	<div class ="media-body comment ">
-	<div class="media-heading">
-		<h4>@<%= comment.user.username%></h4>
+		<h4 class="media-heading">@<%=link_to comment.user.username  , "/#{comment.user.username}" %>
+		</h4>
 
 	</div>
 	
@@ -21,7 +21,7 @@
 		<p><%= comment.body %> </p>
 		
 
-		<small> <%= time_ago_in_words(comment.created_at) %> ago.</small>
+		<small class="label label-info"> <%= time_ago_in_words(comment.created_at) %> ago.</small>
 	</blockquote>
 	
 	</div>

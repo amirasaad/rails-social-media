@@ -1,8 +1,6 @@
 <h1>Poeple who joined us</h1>
 <%= will_paginate %>
 <ul class="users">
-  <% @users.each do |user| %>
-    <%= render :partial => 'user' , :locals =>{user: user} %>
-  <% end %>
+    <%= render @users %>
 </ul>
 <%= will_paginate %>

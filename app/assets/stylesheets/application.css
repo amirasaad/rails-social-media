@@ -14,22 +14,31 @@
 
 
  footer {
-   padding-top: 100px;
+ 	padding-top: 100px;
 
  }
 
  #comments{
-  margin-left: 50px;
-}
+ 	margin-left: 50px;
+ }
 
-blockquote {
-  display: block;
-  -webkit-margin-before: 1em;
-  -webkit-margin-after: 1em;
-  -webkit-margin-start: 40px;
-  -webkit-margin-end: 40px;
-}
-ul
-{
-  list-style-type: none;
-}
+ blockquote {
+ 	display: block;
+ 	-webkit-margin-before: 1em;
+ 	-webkit-margin-after: 1em;
+ 	-webkit-margin-start: 40px;
+ 	-webkit-margin-end: 40px;
+ }
+
+ ul{
+ 	list-style-type: none;
+ }
+
+ body,article ,form {
+ 	padding: 5px;
+ 	margin: 0;
+ 	font-family: 'Doppio One', sans-serif; 
+ 	text-shadow: 0 1px 0 rgba(0,0,0,.3); 
+ 	line-height: 1.5;
+ 	-webkit-font-smoothing: antialiased;
+ }
