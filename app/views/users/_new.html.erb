@@ -4,7 +4,7 @@
     <%= f.input :password %>
     <%= f.input :password_confirmation %>
 	<div class="form-actions">
-       <%=f.button :submit, 'Register'%>
-	   <%= link_to "Login" ,login_path, :class => 'btn' %>
+       <%=f.button :submit, 'Register' , :class => 'btn btn-success'%>
+	   <%= link_to "Login" ,login_path, :class => 'btn btn-primary' %>
 	</div>
 <% end %>

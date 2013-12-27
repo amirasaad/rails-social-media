@@ -13,6 +13,6 @@
 	<h1>Welcome</h1>
 	<h2>Join now</h2>
 	<% @user = User.new %>
-	<%= render :partial => "users/form" , :locals => {user: @user} %>
+	<%= render :partial => "users/new" , :locals => {user: @user} %>
 	<% end %>
 </div>

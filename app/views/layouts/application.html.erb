@@ -1,159 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= content_for?(:title) ? yield(:title) : "Social Media " %></title>
-  <%= csrf_meta_tags %>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title><%= content_for?(:title) ? yield(:title) : "Social Media " %></title>
+		<%= csrf_meta_tags %>
 
-  <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js" type="text/javascript"></script>
-      <![endif]-->
+		<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+		<!--[if lt IE 9]>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js" type="text/javascript"></script>
+		<![endif]-->
 
-      <%= stylesheet_link_tag "application", :media => "all" %>
+		<%= stylesheet_link_tag "application", :media => "all" %>
 
-      <!-- For third-generation iPad with high-resolution Retina display: -->
-      <!-- Size should be 144 x 144 pixels -->
-      <%= favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144' %>
+		<!-- For third-generation iPad with high-resolution Retina display: -->
+		<!-- Size should be 144 x 144 pixels -->
+		<%= favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144' %>
 
-      <!-- For iPhone with high-resolution Retina display: -->
-      <!-- Size should be 114 x 114 pixels -->
-      <%= favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114' %>
+		<!-- For iPhone with high-resolution Retina display: -->
+		<!-- Size should be 114 x 114 pixels -->
+		<%= favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114' %>
 
-      <!-- For first- and second-generation iPad: -->
-      <!-- Size should be 72 x 72 pixels -->
-      <%= favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72' %>
+		<!-- For first- and second-generation iPad: -->
+		<!-- Size should be 72 x 72 pixels -->
+		<%= favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72' %>
 
-      <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
-      <!-- Size should be 57 x 57 pixels -->
-      <%= favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png' %>
+		<!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+		<!-- Size should be 57 x 57 pixels -->
+		<%= favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png' %>
 
-      <!-- For all other devices -->
-      <!-- Size should be 32 x 32 pixels -->
-      <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
+		<!-- For all other devices -->
+		<!-- Size should be 32 x 32 pixels -->
+		<%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
 
-      <%= javascript_include_tag "application" %>
-    </head>
-    <body>
+		<%= javascript_include_tag "application" %>
+	</head>
+	<body>
+		<div id="loginModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					×
+				</button>
+				<h3 id="myModalLabel">Login</h3>
+			</div>
+			<div class="modal-body">
+				<p>
+					<%= render 'sessions/form'%>
+				</p>
+			</div>
+			<div class="modal-footer">
+				
+			</div>
+		</div>
+		<div id="registerModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					×
+				</button>
+				<h3 id="myModalLabel">Register!</h3>
+			</div>
+			<div class="modal-body">
+				<p>
+					<% user = User.new%>
+					<%= render :partial => 'users/new', :locals => {user: user}%>
+				</p>
+			</div>
+			<div class="modal-footer">
+				
+			</div>
+		</div>
 
-      <%= nav_bar :fixed => :top, :brand => "Social Media", :responsive => true do %>
-      <%= menu_group do %>
-      <%= menu_item root_path do %>
-      <i class="icon-home"></i> Home
-      <%end%>
+		<%= nav_bar :fixed => :top, :brand => "Social Media", :responsive => true do %>
+		<%= menu_group do %>
+		<%= menu_item root_path do %>
+		<i class="icon-home"></i> Home
+		<%end%>
 
-      <%= menu_item users_path do %>
-      <i class="icon-user"></i> People
-      <%end%>
+		<%= menu_item users_path do %>
+		<i class="icon-user"></i> People
+		<%end%>
 
+		<% end %>
+		<%= menu_group :pull => :right do %>
 
-      <% end %>
-      <%= menu_group :pull => :right do %>
+		<% if logged_in? %>
+		<%= drop_down "#{current_user.username} <i class='icon-user'></i>" do %>
+		<%= menu_item edit_user_path(current_user) do %>
+		<i class="icon-wrench" ></i> Settings
+		<%end %>
+		<%= drop_down_divider %>
+		<%= menu_item logout_path do%>
+		<i class="icon-off" ></i> Logout
+		<% end %>
 
-      <% if logged_in? %>
-      <%= drop_down "#{current_user.username} <i class='icon-user'></i>" do %>
-      <%= menu_item edit_user_path(current_user) do %>
-      <i class="icon-wrench" ></i> Settings
-      <%end %>
-      <%= drop_down_divider %>
-      <%= menu_item logout_path do%>
-      <i class="icon-off" ></i> Logout
-      <% end %>
-      
-      <% end %>
-      <% else %>
-      <%= menu_group :pull => :right do %>
-      <%= render "sessions/new" %>
-      <% end %>
-      <% end %>
+		<% end %>
+		<% else %>
+		<%= menu_group :pull => :right do %>
+		<li></li><a href="#loginModal" role="button" class="btn" data-toggle="modal">Login</a></li>
+		<li></li><a href="#registerModal" role="button" class="btn btn-success" data-toggle="modal">Register</a></li>
+		<% end %>
+		<% end %>
 
+		<% end %>
 
-      <% end %>
+		<% end %>
 
+		<div class="container">
+			<div class="row">
 
-      <% end %>
+				<div class="span4">
+					<div class="sidebar-nav well well-small">
+						<ul class="nav nav-list">
 
-      <div class="container">
-        <div class="row">
+							<section>
+								<% if logged_in? %>
+								<%= render current_user ,:size => 50 %>
+								<% @post = Post.new %>
+								<%= render :partial => 'posts/new'%>
+								<% else %>
+								<ul class="nav nav-list">
+									<li class="nav-header">
+										List header
+									</li>
+									<li class="active">
+										<a href="#">Home</a>
+									</li>
+									<li>
+										<a href="#">Library</a>
+									</li>
+									...
+								</ul>
 
-          <div class="span4">
-            <div class="sidebar-nav well well-small">
-              <ul class="nav nav-list">
-                
-                <section>
-                 <% if logged_in? %>
-                 <%= render current_user ,:size => 50 %>
-                 <% @post = Post.new %>
-                 <%=render :partial => 'posts/new'%>
-                 <% else %>
-                 <%= render 'sessions/form' %>
+								<% end %>
+							</section>
 
-                 <% end %>
-               </section>
-               
-               
-             </ul>
-           </div><!--/.well -->
-         </div><!--/span-->
-         <div class="span8">
-          <%= bootstrap_flash %>
-          <span id="notice" class="alert alert-success pull-right" style="display:none;z-index:100;position:absolute"></span>
-          <%= yield %>
-        </div>
-        
-      </div><!--/row-->
+						</ul>
+					</div><!--/.well -->
+				</div><!--/span-->
+				<div class="span8">
+					<%= bootstrap_flash %>
+					<span id="notice" class="alert alert-success pull-right" style="display:none;z-index:100;position:absolute"></span>
+					<%= yield %>
+				</div>
 
-      <footer class="footer navbar">
-        <p>&copy; 2013 -- <%= link_to "contact@" ,contact_path %> </p>
-      </footer>
+			</div><!--/row-->
 
-    </div> <!-- /container -->
+			<footer class="footer navbar">
+				<p>
+					&copy; 2013 -- <%= link_to "contact@" ,contact_path %>
+				</p>
+			</footer>
 
-  </body>
-  </html>
+		</div>
+		<!-- /container -->
 
-  <script>
-// Include the UserVoice JavaScript SDK (only needed once on a page)
-UserVoice=window.UserVoice||[];(function(){var uv=document.createElement('script');uv.type='text/javascript';uv.async=true;uv.src='//widget.uservoice.com/IDjtnzP492zsxX2HCe7sgw.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(uv,s)})();
+	</body>
+</html>
 
-//
-// UserVoice Javascript SDK developer documentation:
-// https://www.uservoice.com/o/javascript-sdk
-//
-
-// Set colors
-UserVoice.push(['set', {
-  accent_color: '#448dd6',
-  trigger_color: 'white',
-  trigger_background_color: '#6aba2e'
-}]);
-
-// Identify the user and pass traits
-// To enable, replace sample data with actual user traits and uncomment the line
-UserVoice.push(['identify', {
-  //email:      'john.doe@example.com', // User’s email address
-  //name:       'John Doe', // User’s real name
-  //created_at: 1364406966, // Unix timestamp for the date the user signed up
-  //id:         123, // Optional: Unique id of the user (if set, this should not change)
-  //type:       'Owner', // Optional: segment your users by type
-  //account: {
-  //  id:           123, // Optional: associate multiple users with a single account
-  //  name:         'Acme, Co.', // Account name
-  //  created_at:   1364406966, // Unix timestamp for the date the account was created
-  //  monthly_rate: 9.99, // Decimal; monthly rate of the account
-  //  ltv:          1495.00, // Decimal; lifetime value of the account
-  //  plan:         'Enhanced' // Plan name for the account
-  //}
-}]);
-
-// Add default trigger to the bottom-right corner of the window:
-UserVoice.push(['addTrigger', { mode: 'smartvote', trigger_position: 'top-left' }]);
-
-// Or, use your own custom trigger:
-//UserVoice.push(['addTrigger', '#id', { mode: 'smartvote' }]);
-
-// Autoprompt for Satisfaction and SmartVote (only displayed under certain conditions)
-UserVoice.push(['autoprompt', {}]);
+<script>
+	// Include the UserVoice JavaScript SDK (only needed once on a page)
+	UserVoice=window.UserVoice||[];
+	(function() {
+var uv=document.createElement('script');
+uv.type='text/javascript';
+uv.async=true;
+uv.src='//widget.uservoice.com/IDjtnzP492zsxX2HCe7sgw.js';
+var s=document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(uv,s)
+})();
+	//
+	// UserVoice Javascript SDK developer documentation:
+	// https://www.uservoice.com/o/javascript-sdk
+	//
+	// Set colors
+	UserVoice.push(['set',{
+	accent_color:'#448dd6',trigger_color:'white',trigger_background_color:'#6aba2e'
+	}]);
+	// Identify the user and pass traits
+	// To enable, replace sample data with actual user traits and uncomment the line
+	UserVoice.push(['identify',{
+	//email:      'john.doe@example.com', // User’s email address
+	//name:       'John Doe', // User’s real name
+	//created_at: 1364406966, // Unix timestamp for the date the user signed up
+	//id:         123, // Optional: Unique id of the user (if set, this should not change)
+	//type:       'Owner', // Optional: segment your users by type
+	//account: {
+	//  id:           123, // Optional: associate multiple users with a single account
+	//  name:         'Acme, Co.', // Account name
+	//  created_at:   1364406966, // Unix timestamp for the date the account was created
+	//  monthly_rate: 9.99, // Decimal; monthly rate of the account
+	//  ltv:          1495.00, // Decimal; lifetime value of the account
+	//  plan:         'Enhanced' // Plan name for the account
+	//}
+	}]);
+	// Add default trigger to the bottom-right corner of the window:
+	UserVoice.push(['addTrigger',{
+	mode:'smartvote',trigger_position:'top-left'
+	}]);
+	// Or, use your own custom trigger:
+	//UserVoice.push(['addTrigger', '#id', { mode: 'smartvote' }]);
+	// Autoprompt for Satisfaction and SmartVote (only displayed under certain conditions)
+	UserVoice.push(['autoprompt',{}]);
 </script>
