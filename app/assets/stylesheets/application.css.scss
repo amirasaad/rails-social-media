@@ -1,0 +1,88 @@
+/*
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the top of the
+* compiled file, but it's generally better to create a new file per style scope.
+*
+*= require_self
+*= require_tree .
+*/
+
+$linkColor:                  #B4D8E0;
+$navbarBackgroundHighlight:  #B4D8E0;
+$navbarText:                #fff;
+$navbarLinkColor:            #fff;
+$navbarLinkColorHover:       #1F7E94;
+
+@import "bootstrap";
+
+
+
+footer {
+	padding-top: 100px;
+}
+
+#comments {
+	margin-left: 50px;
+}
+
+blockquote {
+	display: block;
+	-webkit-margin-before: 1em;
+	-webkit-margin-after: 1em;
+	-webkit-margin-start: 40px;
+	-webkit-margin-end: 40px;
+}
+
+ul {
+	list-style-type: none;
+}
+
+
+.box{
+	list-style: none;
+	background: white;
+	position: relative;
+	padding: 5px;
+	box-shadow: 0 0 5px rgba(0,0,0,0.2);
+	margin: 5px ;
+	font-size: 14px;
+	font-family: 'Doppio One', sans-serif;
+}
+.navbar-text img {
+  max-height:30px;
+  width:auto;
+  vertical-align:middle;
+}
+
+.stats {
+  overflow: auto;
+  a {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid #ccc;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: #B2E5F1;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
+
+.user_avatars {
+  overflow: auto;
+  margin-top: 10px;
+  .gravatar {
+    margin: 1px 1px;
+  }
+}

@@ -9,31 +9,27 @@
 		<div class="pull-right"><%= render :partial => 'users/follow_form' ,:locals=>{user: @user} if logged_in? %></div>
 	</h3>
 	
-	<section class="stats">
-		<a href="/<%= @user.username %>/posts">
-			<strong id="posts" class="stat">
-				<%= @user.posts.count %>
-			</strong>
-			posts
-		</a>
-		<a href="/<%= @user.username %>/posts">
-			<strong id="commetns" class="stat">
-				<%= @user.replies.count %>
-			</strong>
-			comments
-		</a>
-	
-		<a href="<%= following_user_path(@user) %>">
-			<strong id="following" class="stat">
-				<%= @user.followed_users.count %>
-			</strong>
-			following
-		</a>
-		<a href="<%= followers_user_path(@user) %>">
-			<strong id="followers" class="stat">
-				<%= @user.followers.count %>
-			</strong>
-			followers
-		</a>
-	</section>
-</section>	
+
+
+
+ <ul id="tabs" class="nav nav-pills" data-tabs="tabs">
+        <li class="active"><a href="#posts" data-toggle="tab">Posts</a></li>
+        <li><a href="#followers" data-toggle="tab">Followers</a></li>
+        <li><a href="#followings" data-toggle="tab">Followings</a></li>
+    </ul>
+    <div id="my-tab-content" class="tab-content">
+        <div class="tab-pane active" id="posts">
+            <h1><%= @user.username %>'s Posts</h1>
+            <%= render @posts %>
+            
+        </div>
+         <div class="tab-pane" id="followers">
+            <h1><%= @user.username %>'s Followers</h1>
+            <%= render @followers %>
+        </div>
+        <div class="tab-pane" id="followings">
+            <h1><%= @user.username %>'s Followings</h1>
+            <%= render @followed_users %>
+        </div>
+    
+    </div>

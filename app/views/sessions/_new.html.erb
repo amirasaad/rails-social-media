@@ -1,7 +1,6 @@
 
-<%= form_tag session_path , {:class=> "navbar-form pull-right"}  do %>
-	<%= text_field_tag :username  , nil ,:placeholder=>"username?" %>
-	<%= password_field_tag :password , nil ,:placeholder=>"Password?" %>
-	<%= submit_tag 'Login'  , :class => 'btn btn-primary'%>
-	<%= link_to "Register" , registration_path , :class=> "btn btn-success" %>
+<%= simple_form_for :login, { url: session_path, :html => { :class => 'form-horizontal'}}  do |f| %>
+  <%= f.input :username %>
+  <%= f.input :password %>
+  <%= f.button :submit, "Sign In" %>
 <% end %>

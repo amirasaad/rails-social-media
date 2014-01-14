@@ -1,17 +1,14 @@
-
 <% if logged_in? %> 
-<div id="postsfeed">
+	<%= render :partial => 'posts/posts_feed' , :locals => {posts: @posts} %>
 
-<% if @posts.empty? %>
-<h3><span class="label label-warning"> no posts yet </span></h3>
 <% else %>
-   <%= render @posts %>
-<% end %></br>
-</div>
-<% else %>
-<div class="hero-unit">
-	<h1>Welcome</h1>
-	<h2>Join now</h2>
+<div id="first" class="jumbotron">
+	<div class="container">
+		<h1>Hello</h1>
+		<p class="text-primary">Join now</p>
+		<% @user = User.new %>
+		<%= link_to "Register", registration_path ,:class => 'btn btn-primary btn-lg' %>
+	</div>
 </div>
 <% end %>
 

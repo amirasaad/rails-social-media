@@ -1,14 +1,14 @@
 
-<%= form_tag session_path do %>
-<div class="control-group">
-    <%= label_tag :username , nil, :class => "control-label" %>
+<%= form_tag session_path  ,:class => 'form-horizontal' ,:role =>'form' do %>
+  <div class="form-group">
+    <%= label_tag :username , nil, :class => "col-sm-2 control-label" %>
 	<%= text_field_tag :username %>
 </div>
-<div class="control-group">
-    <%= label_tag :password , nil, :class => "control-label" %>
+<div class="form-group">
+      <%= label_tag :password , nil, :class => "col-sm-2 control-label" %>
 	<%= password_field_tag :password %>
 </div>
-<div class="form-actions">
+<div class="form-group">
 	<%= submit_tag 'Login'  , :class => 'btn btn-priamry'%>
 	<%= link_to "Register" , registration_path , :class=> "btn btn-success" %>
 </div>

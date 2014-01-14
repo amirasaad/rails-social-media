@@ -1,33 +1,37 @@
 
 <%= div_for post do %>
-<div class="media well " id="<%= dom_id(post) %>" >
+<div id="<%= dom_id(post) %>" class="post">
+<div class="media box" >
 	<a class="pull-left" href="#">
-	<%= gravatar_for post.user ,:size => 64 %>
+	<%= gravatar_for(post.user ,:size => 64 ) %>
 	</a>
 	<div class="actions pull-right" >
 		<% if post.owned_by? current_user %>
 		<ul>
 
-		<li><%= link_to " ", post, confirm: "Are you sure?", method: :delete  ,:class => "close icon-remove" ,:remote => true%>  </li>
-		<li><%= link_to " ", edit_post_path(post) ,:class => "close icon-pencil" ,:remote => true %></li>
+		<li><%= link_to "", post, confirm: "Are you sure?", method: :delete  ,:class => "close glyphicon glyphicon-remove" ,:remote => true%>  </li>
+		<li><%= link_to "", edit_post_path(post) ,:class => "close glyphicon glyphicon-pencil" ,:remote => true %></li>
 		</ul>
 
 
 		<% end %>
 	</div>
-	<div class="media-body post" >
+	<div class="media-body" >
 
-		<h4 class="media-heading">@<%=link_to post.user.username  , "/#{post.user.username}" %>
+		<h4 class="media-heading"><%=link_to post.user.username  , "/#{post.user.username}" %>
 		</h4>
-
-		<blockquote>
+		    	<p class="body"><%=  post.body %></p>
 			
-			<p><b class="lead"><%=  post.body %></b></p>
-			<small class="label label-info">
-			<%= time_ago_in_words(post.created_at) %> ago.  
-				| <span id="count_comments"><%= post.comments.count%></span> Comments
-			</small>
-		</blockquote>
+				<small><%= time_ago_in_words(post.created_at) %> ago.</small>
+						
+			
+			<div class="label label-info pull-right">
+				 <span id="count_comments"><%= post.comments.count%></span> Comments
+			</div>
+
+
+			
+			
 	</div>
 </div>
 
@@ -39,13 +43,20 @@
 	<% end %>
 
 	<%= render :partial => 'posts/postcomments',:locals => {:comments => post.latest_comments} %>
-
+<% end %>  
 </div>
+
 <div style="padding:5px;margin-left:50px;">
 	<% if current_user %>
 	<%= render :partial => "comments/new" ,:locals => {:post => post}%>
 	<%end %>
 </div>
-<% end %>  
+</div>
+
+<script>
+	$(document).ready(function(){
+		$('.actions').hide();
+	});
+</script>
 
 

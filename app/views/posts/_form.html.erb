@@ -1,7 +1,5 @@
-<%= simple_form_for @post, :html => { :class => 'form-horizontal' ,:id => 'post_form'}  do |f| %>
-      <%=  f.input :body,placeholder: "What do you like to say?" ,label: false%>
+<%= simple_form_for @post, :html => { :class => 'form-horizontal' ,:id => 'post_form'} , :remote => true  do |f| %>
+<%=  f.input :body,placeholder: "What do you like to say?" ,label: false%>
 
-       <%=f.button :submit, 'Share'%>
-
-  
+<%=f.button :submit, 'Edit'%>  
 <% end %>

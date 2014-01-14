@@ -1,15 +1,5 @@
-
-<%= form_tag session_path do %>
-<div class="control-group">
-    <%= label_tag :username , nil, :class => "control-label" %>
-	<%= text_field_tag :username %>
-</div>
-<div class="control-group">
-    <%= label_tag :password , nil, :class => "control-label" %>
-	<%= password_field_tag :password %>
-</div>
-<div class="form-actions">
-	<%= submit_tag 'Login'  , :class => 'btn btn-priamry'%>
-	<%= link_to "Register" , registration_path , :class=> "btn btn-success" %>
-</div>
+<%= simple_form_for :login, { url: session_path, :html => { :class => 'form-horizontal'}}  do |f| %>
+  <%= f.input :username %>
+  <%= f.input :password %>
+  <%= f.button :submit, "Sign In" %>
 <% end %>

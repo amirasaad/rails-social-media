@@ -1,1 +1,1 @@
-$("#<%= dom_id(@post)%>").find('.post').html("<%= escape_javascript(render(:partial => 'new'))%>");
+$("#<%= dom_id(@post)%>").find('.body').html("<%= escape_javascript(render(:partial => 'form'))%>");

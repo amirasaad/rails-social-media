@@ -1,15 +1,8 @@
-<span id="notice" class="alert alert-success pull-right" style="display:none;z-index:100;position:absolute"></span>
 
-<% if current_user %>
-<% @post = Post.new %>
-<%=render :partial => 'new'%>
-<% end %>
 
 
 <div id="postsfeed">
-<% if @posts.empty? %>
-<h3><span class="label label-warning"> no posts yet </span></h3>
-<% else %>
+
    <%= render @posts %>
-<% end %></div></br>
+</div></br>
 

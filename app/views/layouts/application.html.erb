@@ -1,189 +1,178 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= content_for?(:title) ? yield(:title) : "Social Media " %></title>
-  <%= csrf_meta_tags %>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-		<!--[if lt IE 9]>
-		<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js" type="text/javascript"></script>
-		<![endif]-->
+	<title><%= content_for?(:title) ? yield(:title) : "Social Media " %></title>
+	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+	<%= javascript_include_tag "application",media: "all" ,"data-turbolinks-track" => true %>
+	<%= csrf_meta_tags %>
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
 
-		<%= stylesheet_link_tag "application", :media => "all" %>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			padding-top: 70px;
+		}
 
-		<!-- For third-generation iPad with high-resolution Retina display: -->
-		<!-- Size should be 144 x 144 pixels -->
-		<%= favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144' %>
+	</style>
+</head>
+<body>
 
-		<!-- For iPhone with high-resolution Retina display: -->
-		<!-- Size should be 114 x 114 pixels -->
-		<%= favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114' %>
 
-		<!-- For first- and second-generation iPad: -->
-		<!-- Size should be 72 x 72 pixels -->
-		<%= favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72' %>
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <p>
+				<%= render 'sessions/new'%>
+			</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <p>
+				<% user = User.new%>
+				<%= render :partial => 'users/new', :locals => {user: user}%>
+			</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
-		<!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
-		<!-- Size should be 57 x 57 pixels -->
-		<%= favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png' %>
-
-		<!-- For all other devices -->
-		<!-- Size should be 32 x 32 pixels -->
-		<%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
-
-		<%= javascript_include_tag "application" %>
-	</head>
-	<body>
-		<div id="loginModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-					×
+	
+	
+	<div id="wrap">
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
 				</button>
-				<h3 id="myModalLabel">Login</h3>
+				<a class="navbar-brand" href="#">Social Media</a>
 			</div>
-			<div class="modal-body">
-				<p>
-					<%= render 'sessions/form'%>
-				</p>
-			</div>
-			<div class="modal-footer">
-				
-			</div>
-		</div>
-		<div id="registerModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-					×
-				</button>
-				<h3 id="myModalLabel">Register!</h3>
-			</div>
-			<div class="modal-body">
-				<p>
-					<% user = User.new%>
-					<%= render :partial => 'users/new', :locals => {user: user}%>
-				</p>
-			</div>
-			<div class="modal-footer">
-				
-			</div>
-		</div>
 
-		<%= nav_bar :fixed => :top, :brand => "Social Media", :responsive => true do %>
-		<%= menu_group do %>
-		<%= menu_item root_path do %>
-		<i class="icon-home"></i> Home
-		<%end%>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li><%= link_to 'Home' ,root_path , :class => 'glyphicon glyphicon-home' %> </li>
+					<li><%= link_to 'People' ,users_path , :class => 'glyphicon glyphicon-search' %> </li>
+					
+				</ul>
+				<form class="navbar-form navbar-left" role="search">
 
-		<%= menu_item users_path do %>
-		<i class="icon-user"></i> People
-		<%end%>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Search">
+					</div>
+					<button type="submit" class="btn btn-default">Submit</button>
+				</form>
+				<ul class="nav navbar-nav navbar-right">
+					<li><%= link_to 'About' , about_path %></li>
+					<% if !logged_in? %>
+					<form class="navbar-form navbar-left" role="search">
 
-		<% end %>
-		<%= menu_group :pull => :right do %>
+					<div class="form-group">
+					<button class="btn btn-primary " data-toggle="modal" data-target="#loginModal">
+						Login
+					</button>
+					<button class="btn btn-success" data-toggle="modal" data-target="#registerModal">
+						Register
+					</button>
+					</div>
+					</form>
+					<% else %>
 
-		<% if logged_in? %>
-		<%= drop_down "#{current_user.username} <i class='icon-user'></i>" do %>
-		<%= menu_item edit_user_path(current_user) do %>
-		<i class="icon-wrench" ></i> Settings
-		<%end %>
-		<%= drop_down_divider %>
-		<%= menu_item logout_path do%>
-		<i class="icon-off" ></i> Logout
-		<% end %>
 
-		<% end %>
-		<% else %>
-		<%= menu_group :pull => :right do %>
-		<li></li><a href="#loginModal" role="button" class="btn" data-toggle="modal">Login</a></li>
-		<li></li><a href="#registerModal" role="button" class="btn btn-success" data-toggle="modal">Register</a></li>
-		<% end %>
-		<% end %>
+					
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= gravatar_for(current_user , size: 20) %> </a>
+						<ul class="dropdown-menu">
+							<li><%= link_to 'Settings' , edit_user_path(current_user)  ,:class => 'glyphicon glyphicon-wrench' %></li>
+							<li><a href="#">Another action</a></li>
+							<li><a href="#">Something else here</a></li>
+							<li class="divider"></li>
+							<li><%= link_to 'Logout', logout_path ,:class => 'glyphicon glyphicon-off' %></li>
+						</ul>
+					</li>
+					<% end %>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</nav>
+		<!-- Main jumbotron for a primary marketing message or call to action -->
 
-		<% end %>
 
-		<% end %>
+
 
 		<div class="container">
-      <div class="row">
+			<% flash.each do |name, msg| %>
+			<div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+				<a class="close" data-dismiss="alert">×</a>
+				<%= msg %>
+			</div>
+			<% end %>
+			<!-- Example row of columns -->
+			<div class="row">
+				<% if logged_in? %>
+				<div class="well well-lg col-xs-6 col-md-4">
+					
+					<%= render :partial => '/users/usergist' ,:locals => {user:current_user} %>
+					<% @post = Post.new %>
+					<%= render 'posts/new' %>
+
+					
+				</div>
+				<div class="col-xs-12 col-md-8">
 
 
-      <div class="span8">
-         <%= bootstrap_flash %>
-         <span id="notice" class="alert alert-success pull-right" style="display:none;z-index:100;"></span>
-         <%= yield %>
-       </div>
+					<%= yield %>
+				</div>
+				<% else %>
+
+				<div class="col-xs-18 col-md-12">
 
 
-       <aside class="span4">
-        <div class="sidebar-nav well well-small">
-          <section>
-            <% if logged_in? %>
-            <%= render :partial =>'users/usergist' , :locals =>{user: current_user } %>
-            <% @post = Post.new %>
-            <%= render 'posts/new' %>
-            <% end %>
-          </section>
-        </div><!--/.well -->
-      </aside>
-    </div><!--/row-->
+					<%= yield %>
+				</div>
 
-    <footer class="footer navbar">
-      <p>
-       &copy; 2013 -- <%= link_to "contact@" ,contact_path %>
-     </p>
-   </footer>
 
- </div>
- <!-- /container -->
+				<% end -%>
+				
+
+
+			</div><!-- /.container -->
+
+		</div>
+	</div>
+
+	<footer id="footer">
+		<div class="container">
+			<p class="text-muted credit">Amir &copy;</p>
+		</div>
+	</footer>
 
 </body>
 </html>
-
-<script>
-	// Include the UserVoice JavaScript SDK (only needed once on a page)
-	UserVoice=window.UserVoice||[];
-	(function() {
-    var uv=document.createElement('script');
-    uv.type='text/javascript';
-    uv.async=true;
-    uv.src='//widget.uservoice.com/IDjtnzP492zsxX2HCe7sgw.js';
-    var s=document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(uv,s)
-  })();
-	//
-	// UserVoice Javascript SDK developer documentation:
-	// https://www.uservoice.com/o/javascript-sdk
-	//
-	// Set colors
-	UserVoice.push(['set',{
-   accent_color:'#448dd6',trigger_color:'white',trigger_background_color:'#6aba2e'
- }]);
-	// Identify the user and pass traits
-	// To enable, replace sample data with actual user traits and uncomment the line
-	UserVoice.push(['identify',{
-	//email:      'john.doe@example.com', // User’s email address
-	//name:       'John Doe', // User’s real name
-	//created_at: 1364406966, // Unix timestamp for the date the user signed up
-	//id:         123, // Optional: Unique id of the user (if set, this should not change)
-	//type:       'Owner', // Optional: segment your users by type
-	//account: {
-	//  id:           123, // Optional: associate multiple users with a single account
-	//  name:         'Acme, Co.', // Account name
-	//  created_at:   1364406966, // Unix timestamp for the date the account was created
-	//  monthly_rate: 9.99, // Decimal; monthly rate of the account
-	//  ltv:          1495.00, // Decimal; lifetime value of the account
-	//  plan:         'Enhanced' // Plan name for the account
-	//}
-}]);
-	// Add default trigger to the bottom-right corner of the window:
-	UserVoice.push(['addTrigger',{
-   mode:'smartvote',trigger_position:'top-left'
- }]);
-	// Or, use your own custom trigger:
-	//UserVoice.push(['addTrigger', '#id', { mode: 'smartvote' }]);
-	// Autoprompt for Satisfaction and SmartVote (only displayed under certain conditions)
-	UserVoice.push(['autoprompt',{}]);
-</script>

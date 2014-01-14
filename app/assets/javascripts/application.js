@@ -12,6 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require twitter/bootstrap
+// Loads all Bootstrap javascripts
+//= require bootstrap
+//= require bootstrap/scrollspy
+//= require bootstrap/modal
+//= require bootstrap/dropdown
+//= require bootstrap/tab
 //= require turbolinks
 //= require_tree .

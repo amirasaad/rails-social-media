@@ -1,3 +1,6 @@
 $('#<%= dom_id(@post) %>').find("#comments").append("<%= escape_javascript(render(@comment)) %>");
-$('#<%= dom_id(@post) %>').find("#comment_form")[0].reset();
+
+$("#<%= dom_id(@comment) %>").effect("highlight", 3000 );
 $('#<%= dom_id(@post) %>').find("#count_comments").html("<%= @post.comments.count %>");
+
+$('#<%= dom_id(@post) %>').find("#comment_form")[0].reset();
