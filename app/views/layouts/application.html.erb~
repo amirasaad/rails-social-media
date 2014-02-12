@@ -111,7 +111,7 @@
 				</ul>
 			</div><!-- /.navbar-collapse -->
 		</nav>
-		<div class="container">
+		<div class="container well">
 			<% flash.each do |name, msg| %>
 			<div class="alert alert-<%= name == :notice ? "success" : "error" %>">
 				<a class="close" data-dismiss="alert">×</a>

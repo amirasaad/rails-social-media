@@ -12,17 +12,14 @@
 *= require_tree .
 */
 
-$linkColor:                  #B4D8E0;
-$navbarBackgroundHighlight:  #B4D8E0;
-$navbarText:                #fff;
-$navbarLinkColor:            #fff;
-$navbarLinkColorHover:       #1F7E94;
+
 
 @import "bootstrap";
 
 
 body {
 	padding-top: 70px;
+	background-color: #eee;
 }
 
 #comments {
@@ -64,4 +61,7 @@ ul {
 }
 .sidebar{
 	height: 100%;
+	background-color: #fff;
+	box-shadow: 0 0 5px rgba(0,0,0,0.2);
+	padding: 2px;
 }
