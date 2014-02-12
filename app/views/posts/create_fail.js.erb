@@ -1,1 +1,1 @@
-alert("<%= @post.errors.full_messages.to_sentence.html_safe %>");
+$('#alert').html("<%= @post.errors.full_messages.to_sentence.html_safe %>").slideDown();

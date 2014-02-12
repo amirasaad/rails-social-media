@@ -12,7 +12,11 @@
 *= require_tree .
 */
 
-
+$linkColor:                  #B4D8E0;
+$navbarBackgroundHighlight:  #B4D8E0;
+$navbarText:                #fff;
+$navbarLinkColor:            #fff;
+$navbarLinkColorHover:       #1F7E94;
 
 @import "bootstrap";
 

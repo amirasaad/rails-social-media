@@ -12,55 +12,49 @@
 	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<style>
-		body {
-			padding-top: 70px;
-		}
-
-	</style>
 </head>
 <body>
 
 
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        <p>
-				<%= render 'sessions/new'%>
-			</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        <p>
-				<% user = User.new%>
-				<%= render :partial => 'users/new', :locals => {user: user}%>
-			</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+	<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+				</div>
+				<div class="modal-body">
+					<p>
+						<%= render 'sessions/new'%>
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+				</div>
+				<div class="modal-body">
+					<p>
+						<% user = User.new%>
+						<%= render :partial => 'users/new', :locals => {user: user}%>
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
 
 	
 	
@@ -75,8 +69,6 @@
 				</button>
 				<a class="navbar-brand" href="#">Social Media</a>
 			</div>
-
-			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 					<li><%= link_to 'Home' ,root_path , :class => 'glyphicon glyphicon-home' %> </li>
@@ -95,19 +87,16 @@
 					<% if !logged_in? %>
 					<form class="navbar-form navbar-left" role="search">
 
-					<div class="form-group">
-					<button class="btn btn-primary " data-toggle="modal" data-target="#loginModal">
-						Login
-					</button>
-					<button class="btn btn-success" data-toggle="modal" data-target="#registerModal">
-						Register
-					</button>
-					</div>
+						<div class="form-group">
+							<button class="btn btn-primary " data-toggle="modal" data-target="#loginModal">
+								Login
+							</button>
+							<button class="btn btn-success" data-toggle="modal" data-target="#registerModal">
+								Register
+							</button>
+						</div>
 					</form>
-					<% else %>
-
-
-					
+					<% else %>					
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= gravatar_for(current_user , size: 20) %> </a>
 						<ul class="dropdown-menu">
@@ -122,54 +111,45 @@
 				</ul>
 			</div><!-- /.navbar-collapse -->
 		</nav>
-		<!-- Main jumbotron for a primary marketing message or call to action -->
-
-
-
-
-		<div class="container">
+		<div class="container well">
 			<% flash.each do |name, msg| %>
 			<div class="alert alert-<%= name == :notice ? "success" : "error" %>">
 				<a class="close" data-dismiss="alert">×</a>
 				<%= msg %>
 			</div>
 			<% end %>
-			<!-- Example row of columns -->
 			<div class="row">
 				<% if logged_in? %>
-				<div class="well well-lg col-xs-6 col-md-4">
+				<aside class="well sidebar col-xs-5 col-md-3">
+					<section>
+						<%= render :partial => '/users/usergist' ,:locals => {user:current_user} %>
+						<% @post = Post.new %>
+						<%= render 'posts/new' %>
+						<br />
+						<div id="notice" class="a alert alert-success" style="display:none">
+							<a class="close" data-dismiss="a">×</a>
+						</div>
+						<div id="alert" class="b alert alert-warning" style="display:none">
+							<a class="close" data-dismiss="b">×</a>
+						</div>
+
+					</section>
 					
-					<%= render :partial => '/users/usergist' ,:locals => {user:current_user} %>
-					<% @post = Post.new %>
-					<%= render 'posts/new' %>
-
-					
-				</div>
-				<div class="col-xs-12 col-md-8">
-
-
+				</aside>
+				<div class="col-xs-13 col-md-9">
 					<%= yield %>
 				</div>
 				<% else %>
-
 				<div class="col-xs-18 col-md-12">
-
-
 					<%= yield %>
 				</div>
-
-
 				<% end -%>
-				
-
-
 			</div><!-- /.container -->
-
 		</div>
 	</div>
 
 	<footer id="footer">
-		<div class="container">
+		<div class="container well">
 			<p class="text-muted credit">Amir &copy;</p>
 		</div>
 	</footer>

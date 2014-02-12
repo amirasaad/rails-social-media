@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 	format: { with: /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/,message: 'The format of Email is invalid'}
 	validates :username, presence: true, uniqueness: true
 
-	validates :username, format: { with: /\A[a-zA-Z0-9]+\Z/ ,message: 'Username must contains alphabtic and numbers only'} 
+	validates :username, format: { with: /\A[a-zA-Z0-9]+[\_]+[a-zA-Z0-9]+\Z/ ,message: 'Username must contains alphabtic and numbers only'} 
 
 	validates_confirmation_of :password
 	validates_length_of :password, :within => 4..50
@@ -19,6 +19,10 @@ class User < ActiveRecord::Base
 	has_many :followed_users, through: :relationships, source: :followed
 	has_many :reverse_relationships, foreign_key: "followed_id",class_name:  "Relationship", dependent:   :destroy
 	has_many :followers, through: :reverse_relationships, source: :follower
+
+	has_many :sent_messages, :class_name => 'Message' , :foreign_key => 'sender_id'
+	has_many :received_messages, :class_name => 'Message' , :foreign_key => 'receiver_id'
+
 
 	before_save :encrypt_new_password
 

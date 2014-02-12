@@ -1,14 +1,16 @@
 class MessagesController < ApplicationController
   include ActionController::Live
+  before_action :authenticate
 
   def index
-    @messages = Message.all
+    @messages = current_user.received_messages
   end
 
   def create
     response.headers["Content-Type"] = "text/javascript"
-    attributes = params.require(:message).permit(:content, :name)
+    attributes = params.require(:message).permit(:content, :reciver_id)
     @message = Message.create(attributes)
+    @message.sender = current_user
     $redis.publish('messages.create', @message.to_json)
   end
   

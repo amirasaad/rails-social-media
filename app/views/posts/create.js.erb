@@ -1,5 +1,6 @@
 $("#postsfeed").prepend("<%= escape_javascript( render(:partial => @post) ) %>");
 $("#post_form")[0].reset();
+$('#notice').html('Posted').slideDown().fadeOut(3000);
 
 
 $("#<%= dom_id(@post) %>").find(".media").effect( "highlight", 3000 );

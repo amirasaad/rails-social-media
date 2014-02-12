@@ -27,6 +27,7 @@ gem 'kaminari'
 
 gem 'unicorn'
 
+gem 'redis'
 
 
 # Use SCSS for stylesheets

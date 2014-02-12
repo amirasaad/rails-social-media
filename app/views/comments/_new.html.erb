@@ -1,9 +1,15 @@
 
-<%= simple_form_for [post, post.comments.new], :html => { :class => 'form-horizontal' ,:id => 'comment_form' } , remote: true    do |f| %>
-
-	<%= f.input :body  ,label: false,placeholder: 'Write a comment' %>
-	<%= f.button :submit , 'Post' ,:class =>'btn btn-primary' %>
+<%= simple_form_for [post, post.comments.new], :html => { :class => 'form-inline' ,:id => 'comment_form' } , remote: true    do |f| %>
 
 	
+	
+
+   
+    <div class="input-group">
+     <%= f.input :body  ,label: false,placeholder: 'Write a comment' ,rows: 1 %>
+      <span class="input-group-btn">
+        <%= f.button :submit , 'Post' ,:class =>'btn btn-primary btn-lg' %>
+      </span>
+    </div><!-- /input-group -->
 
 <% end %>

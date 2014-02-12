@@ -1,5 +1,11 @@
 <% if logged_in? %> 
-	<%= render :partial => 'posts/posts_feed' , :locals => {posts: @posts} %>
+<div id="notice" class="alert alert-success" style="display:none">
+	<a class="close" data-dismiss="alert">×</a>
+</div>
+<div id="alert" class="alert alert-warning" style="display:none">
+	<a class="close" data-dismiss="alert">×</a>
+</div>
+<%= render :partial => 'posts/posts_feed' , :locals => {posts: @posts} %>
 
 <% else %>
 <div id="first" class="jumbotron">

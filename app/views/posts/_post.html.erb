@@ -1,56 +1,59 @@
 
 <%= div_for post do %>
 <div id="<%= dom_id(post) %>" class="post">
-<div class="media box" >
-	<a class="pull-left" href="#">
-	<%= gravatar_for(post.user ,:size => 64 ) %>
-	</a>
-	<div class="actions pull-right" >
-		<% if post.owned_by? current_user %>
-		<ul>
+	<div class="media box" >
+		<a class="pull-left" href="#">
+			<%= gravatar_for(post.user ,:size => 64 ) %>
+		</a>
+		<div class="actions pull-right" >
+			<% if post.owned_by? current_user %>
+			<ul>
 
-		<li><%= link_to "", post, confirm: "Are you sure?", method: :delete  ,:class => "close glyphicon glyphicon-remove" ,:remote => true%>  </li>
-		<li><%= link_to "", edit_post_path(post) ,:class => "close glyphicon glyphicon-pencil" ,:remote => true %></li>
-		</ul>
+				<li><%= link_to "", post, confirm: "Are you sure?", method: :delete  ,:class => "close glyphicon glyphicon-remove" ,:remote => true%>  </li>
+				<li><%= link_to "", edit_post_path(post) ,:class => "close glyphicon glyphicon-pencil" ,:remote => true %></li>
+			</ul>
 
 
-		<% end %>
-	</div>
-	<div class="media-body" >
+			<% end %>
+		</div>
+		<div class="media-body" >
 
-		<h4 class="media-heading"><%=link_to post.user.username  , "/#{post.user.username}" %>
-		</h4>
-		    	<p class="body"><%=  post.body %></p>
+			<h4 class="media-heading"><%=link_to post.user.username  , "/#{post.user.username}" %>
+			</h4>
+			<p><%=  post.body %></p>
 			
-				<small><%= time_ago_in_words(post.created_at) %> ago.</small>
-						
+			<small><%= time_ago_in_words(post.created_at) %> ago.</small>
+
 			
 			<div class="label label-info pull-right">
-				 <span id="count_comments"><%= post.comments.count%></span> Comments
+				<span id="count_comments"><%= post.comments.count%></span> Comments
 			</div>
 
 
 			
 			
+		</div>
 	</div>
-</div>
 
 
-<div id="comments">
+	<div id="comments">
+		<%= render :partial=> 'posts/postcomments' , :locals =>{:@post => post} %>
+	</div>
+	
 
-	<% if  post.comments.count >= 3 %>
-	<%= link_to "See all comments" ,post_path(post) ,:remote => true %>
-	<% end %>
+<%end %>	
 
-	<%= render :partial => 'posts/postcomments',:locals => {:comments => post.latest_comments} %>
-<% end %>  
-</div>
-
-<div style="padding:5px;margin-left:50px;">
-	<% if current_user %>
-	<%= render :partial => "comments/new" ,:locals => {:post => post}%>
-	<%end %>
-</div>
+	<div style="padding:5px;margin-left:50px;">
+		<% if current_user %>
+		<%= render :partial => "comments/new" ,:locals => {:post => post}%>
+		<%end %>
+	</div>
+	<div id="notice" class="alert alert-success" style="display:none;position:fixed;z-index:1000">
+		<a class="close" data-dismiss="alert">×</a>
+	</div>
+	<div id="alert" class="alert alert-warning" style="display:none;position:fixed;z-index:1000">
+		<a class="close" data-dismiss="alert">×</a>
+	</div>
 </div>
 
 <script>

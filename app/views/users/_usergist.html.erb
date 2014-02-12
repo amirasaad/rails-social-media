@@ -8,25 +8,29 @@
 		<% end %>
 		
 	</h1>
-	<div class="stats">
-  <a href="#">
-    <strong id="following" class="stat">
-      <%= user.followed_users.count %>
-    </strong>
-    following
-  </a>
-  <a href="#">
-    <strong id="followers" class="stat">
-      <%= user.followers.count %>
-    </strong>
-    followers
-  </a>
-</div>
-	<div class="user_avatars">
-    <% user.followers.each do |user| %>
-    <%= link_to gravatar_for(user, size: 30), "/#{user.username}" %>
-    <% end %>
-  </div>
+	<div id="followings" class="stats">
+		<strong id="followers" class="stat">
+			<%= user.followers.count %>
+		</strong>
+		followers
+	</div>
+	<div class="followers_avatars">
+		<% user.followers.each do |user| %>
+		<%= link_to gravatar_for(user, size: 30), "/#{user.username}" %>
+		<% end %>
+	</div>
+
+	<div  id="followers" class="stats">
+		<strong id="following" class="stat">
+			<%= user.followed_users.count %>
+		</strong>
+		following
+	</div>
+	<div class="followings_avatars">
+		<% user.followed_users.each do |user| %>
+		<%= link_to gravatar_for(user, size: 30), "/#{user.username}" %>
+		<% end %>
+	</div>
 
 </section>	
 <br />
