@@ -1,16 +1,13 @@
 <section>
-        <center>
 	<h1>
 		<%= gravatar_for user  %>
-		
+		<%= link_to user.username , "/#{user.username}" %> 
 		<% if logged_in? && current_user.admin? && !current_user?(user) %>
 		| <%= link_to "delete", user, method: :delete,
 		data: { confirm: "You sure?" } %>
 		<% end %>
 		
 	</h1>
-	<h2><%= link_to user.username , "/#{user.username}" %> </h2>
-	</center>
 	<div id="followings" class="stats">
 		<strong id="followers" class="stat">
 			<%= user.followers.count %>

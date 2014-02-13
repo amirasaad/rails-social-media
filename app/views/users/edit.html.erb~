@@ -6,7 +6,8 @@
     <br />
 	<%= f.input :username %>
 	<%= f.input :email%>
-  
+    <%= f.input :password %>
+	<%= f.input :password_confirmation %>
 	
 	<div class="form-actions">
 		<%= f.submit "Update", :class => 'btn btn-success' %>

@@ -57,11 +57,16 @@ ul {
 }
 
 .navbar {
-	max-height:30px;
+	min-height:40px;
 }
 .sidebar{
 	height: 100%;
 	background-color: #fff;
 	box-shadow: 0 0 5px rgba(0,0,0,0.2);
-	padding: 2px;
+	
+}
+
+.input-group-addon {
+    min-hiegt:30px;// if you want width please write here //
+    text-align:left;
 }
