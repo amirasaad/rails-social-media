@@ -20,9 +20,16 @@
 
 			<h4 class="media-heading"><%=link_to post.user.username  , "/#{post.user.username}" %>
 			</h4>
-			<p><%=  post.body %></p>
-			
-			<small><%= time_ago_in_words(post.created_at) %> ago.</small>
+			<div class="edit">
+				<blockquote>
+
+					<p><%=  post.body %></p>
+
+
+					<small><%= time_ago_in_words(post.updated_at) %> ago.</small>
+				</blockquote>
+			</div>
+
 
 			
 			<div class="label label-info pull-right">
@@ -41,24 +48,20 @@
 	</div>
 	
 
-<%end %>	
+	<%end %>	
 
 	<div style="padding:5px;margin-left:50px;">
 		<% if current_user %>
-		<%= render :partial => "comments/new" ,:locals => {:post => post}%>
+		<%= render :partial => "comments/new" ,:locals => {:post => post} ,:id => "comment_form"%>
 		<%end %>
 	</div>
-	<div id="notice" class="alert alert-success" style="display:none;position:fixed;z-index:1000">
-		<a class="close" data-dismiss="alert">×</a>
-	</div>
-	<div id="alert" class="alert alert-warning" style="display:none;position:fixed;z-index:1000">
-		<a class="close" data-dismiss="alert">×</a>
-	</div>
+	
 </div>
 
 <script>
 	$(document).ready(function(){
-		$('.actions').hide();
+		$('#notice').hide();
+		$('#alert').hide();
 	});
 </script>
 

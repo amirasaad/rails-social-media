@@ -1,5 +1,8 @@
 <%= simple_form_for @post, :html => { :class => 'form-horizontal' ,:id => 'post_form'} , :remote => true  do |f| %>
-<%=  f.input :body,placeholder: "What do you like to say?" ,label: false, :class =>'col-xs-6 col-md-4' %>
+<div class="col-sm-10">
 
+	<%= f.input :body ,label: false%>
+	</div>
+	
 <%=f.button :submit, 'Edit'%>  
 <% end %>

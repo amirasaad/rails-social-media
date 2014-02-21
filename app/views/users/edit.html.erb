@@ -4,8 +4,21 @@
    <%= gravatar_for @user , :size => 80  %>
     <a href="http://gravatar.com/emails">change</a> 
     <br />
-	<%= f.input :username %>
-	<%= f.input :email%>
+	<div class="col-lg-6 input-group-lg">
+	<%= f.input :username ,:wrapper => :prepend do %>
+	    <%= content_tag :span,"@",:class => 'input-group-addon' %>
+	    <%= f.input_field :username,:placeholder => 'user_name' %>
+    <% end %>
+    </div>
+
+		
+	
+	<div class="col-lg-6 input-group-lg">
+	<%= f.input :email , :wrapper => :prepend do %>
+	   <%= content_tag :span,"", :class => 'input-group-addon glyphicon glyphicon-envelope' %>
+	   <%= f.input_field :email,:placeholder => 'example@company.com' ,:class => "input-group-lg" %>
+	<% end %>
+	</div>
   
 	
 	<div class="form-actions">

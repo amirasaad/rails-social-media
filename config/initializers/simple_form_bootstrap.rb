@@ -25,6 +25,7 @@ end
 # Use this setup block to configure all options available in SimpleForm.
 SimpleForm.setup do |config|
   config.boolean_style = :nested
+  
  
   config.wrappers :bootstrap3, tag: 'div', class: 'form-group', error_class: 'has-error',
       defaults: { input_html: { class: 'default_class' } } do |b|
@@ -37,7 +38,8 @@ SimpleForm.setup do |config|
     b.optional :pattern
     b.optional :readonly
     
-    b.use :label_input
+    #b.use :label_input
+     b.use :input, :wrap_with => { :tag => 'div', :class => 'controls' }
     b.use :hint,  wrap_with: { tag: 'span', class: 'help-block' }
     b.use :error, wrap_with: { tag: 'span', class: 'help-block has-error' }
   end
@@ -82,10 +84,15 @@ SimpleForm.setup do |config|
     b.use :hint,  wrap_with: { tag: :p, class: "help-block" }
     b.use :error, wrap_with: { tag: :span, class: "help-block text-danger" }
   end
+
+
  
   # Wrappers for forms and inputs using the Twitter Bootstrap toolkit.
   # Check the Bootstrap docs (http://getbootstrap.com/)
   # to learn about the different styles for forms and inputs,
   # buttons and other elements.
+  config.form_class = "form-horizontal"
+  config.label_class = "control-label"
+  #config.input_class = "form-control" #not yet supported
   config.default_wrapper = :bootstrap3
 end

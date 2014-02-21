@@ -1,20 +1,46 @@
 
-	<%= simple_form_for user, :html => { :class => 'form-horizontal' }  do |f| %>
+	<%= simple_form_for user, :defaults => { :input_html => { :class => "form-control" } } do |f| %>
+
+	<div class="form-group">
+
+	<%= f.input :username ,:class => "col-sm-2" ,:wrapper => :prepend do %>
 	
-
-
-	<%= f.input :username, :wrapper => :prepend do %>
 	    <%= content_tag :span,"@",:class => 'input-group-addon' %>
-	    <%= f.input_field :username %>
-	    
+	    <div class="col-sm-10">
+	    <%= f.input_field :username,:placeholder => 'user_name' %>
+	    </div>
     <% end %>
+    </div>
 
 		
 	
-
-	<%= f.input :email ,label: false,:placeholder => 'example@company.com' %>
-	<%= f.input :password ,label: false,:placeholder => '$Xf%d88&&'%>
-	<%= f.input :password_confirmation ,label: false %>
+	<div class="form-group">
+	<%= f.input :email  , :wrapper => :prepend do %>
+	
+	   <%= content_tag :span,"", :class => 'input-group-addon glyphicon glyphicon-envelope' %>
+	   <div class="col-sm-10">
+	   <%= f.input_field :email,:class => "col-sm-10",:placeholder => 'example@company.com' %>
+	   </div>
+	<% end %>
+	</div>
+	<div class="form-group">
+	<%= f.input :password ,:wrapper => :prepend do %>
+	
+	   <%= content_tag :span,"", :class => 'input-group-addon glyphicon glyphicon-eye-close' %>
+	   <div class="col-sm-10">
+	   <%= f.input_field :password,:placeholder => 'e$Xf%d88&&'  %>
+	   </div>
+	<% end %>
+	</div>
+	<div class="form-group">
+	<%= f.input :password_confirmation , :wrapper => :prepend do %>
+	
+	   <%= content_tag :span,"", :class => 'input-group-addon glyphicon glyphicon-eye-close' %>
+	   <div class="col-sm-10">
+	   <%= f.input_field :password_confirmation,:placeholder => 'e$Xf%d88&&' %>
+	   </div>
+	<% end %>
+	</div>
 	<div class="form-actions">
 		<%=f.button :submit, 'Register' , :class => 'btn btn-success'%>
 		<%= link_to "Login" ,login_path, :class => 'btn btn-primary' %>
