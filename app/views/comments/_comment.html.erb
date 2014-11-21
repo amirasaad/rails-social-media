@@ -1,7 +1,7 @@
 
 <%= div_for comment do %>
 
-<div class="media box" id= "<%=  dom_id(comment) %>">
+<div class="media well well-sm" id= "<%=  dom_id(comment) %>">
     <a class="pull-left" href="#">
 		<%= gravatar_for comment.user ,:size => 64 ,:class => "media-object img-thumbnail"%>
 	</a>
@@ -15,22 +15,22 @@
 		<h4 class="media-heading"><%=link_to comment.user.username  , "/#{comment.user.username}" %>
 		</h4>
 
-	
+
 	    <div class="bubble">
 	    	<p><%= comment.body %> </p>
 	    </div>
-		
+
 
 		<small><%= time_ago_in_words(comment.created_at) %> ago.</small>
-	</div>	
+	</div>
 
-	
+
 </div>
 
 
 
 
-<% end %> 
+<% end %>
 
 <script>
 	$(document).ready(function(){

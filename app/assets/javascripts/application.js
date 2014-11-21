@@ -12,11 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-// Loads all Bootstrap javascripts
-//= require bootstrap
+//= require turbolinks
+//= require bootstrap-sprockets
+//= require_tree .
 //= require bootstrap/scrollspy
 //= require bootstrap/modal
 //= require bootstrap/dropdown
-//= require bootstrap/tab
-//= require turbolinks
-//= require_tree .

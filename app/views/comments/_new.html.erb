@@ -1,29 +1,5 @@
 
-<%= simple_form_for [post, post.comments.new], :html => { :class => 'form-inline' ,:id => 'comment_form' } , remote: true    do |f| %>
-
-	
-	<div class="form-group">
-
-	<%= f.input :body ,label: false ,:wrapper => :prepend do %>
-	
-	    <div class="col-sm-18">
-	    <%= f.input_field :body,:placeholder => 'Write a comment'%>
-	    </div>
-	    <span class="input-group-btn">
-        <%= f.button :submit , 'Post' ,:class =>'btn btn-primary btn-lg' %>
-      </span>
-    <% end %>
-    </div>
-<!--
-    <div class="input-group">
-    
-     <%= f.input :body  ,label: false,placeholder: 'Write a comment' ,rows: 1 %>
-     
-      <span class="input-group-btn">
-        <%= f.button :submit , 'Post' ,:class =>'btn btn-primary btn-lg' %>
-      </span>
-    </div> 
-
-     -->
-
+<%= bootstrap_form_for [post, post.comments.new] , remote: true do |f| %>
+  <%= f.text_area :body, :placeholder => 'Write a comment', hide_label: true %>
+  <%= f.submit 'Comment' ,:class =>'btn btn-success btn-sm' %>
 <% end %>

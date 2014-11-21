@@ -2,38 +2,54 @@
         <center>
 	<h1>
 		<%= gravatar_for user  %>
-		
+
 		<% if logged_in? && current_user.admin? && !current_user?(user) %>
 		| <%= link_to "delete", user, method: :delete,
 		data: { confirm: "You sure?" } %>
 		<% end %>
-		
+
 	</h1>
 	<h2><%= link_to user.username , "/#{user.username}" %> </h2>
 	</center>
-	<div id="followings" class="stats">
-		<strong id="followers" class="stat">
-			<%= user.followers.count %>
-		</strong>
-		followers
-	</div>
-	<div class="followers_avatars">
+
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-success">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          <span class="label label-success"><%= user.followers.count %></span> Followers
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+        <div class="followers_avatars">
 		<% user.followers.each do |user| %>
 		<%= link_to gravatar_for(user, size: 30), "/#{user.username}" %>
 		<% end %>
-	</div>
-
-	<div  id="followers" class="stats">
-		<strong id="following" class="stat">
-			<%= user.followed_users.count %>
-		</strong>
-		following
-	</div>
-	<div class="followings_avatars">
+		</div>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-info">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          <span class="label label-info"><%= user.followed_users.count %></span> Following
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+        <div class="followings_avatars">
 		<% user.followed_users.each do |user| %>
 		<%= link_to gravatar_for(user, size: 30), "/#{user.username}" %>
 		<% end %>
-	</div>
+		</div>
+      </div>
+    </div>
+  </div>
+</div>
 
-</section>	
+</section>
 <br />

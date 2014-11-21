@@ -1,19 +1,10 @@
-
-	<%= simple_form_for @user, :html => { :class => 'form-horizontal' }  do |f| %>
-
-	
-	<%= f.input :username %>
-
-	<%= f.input :email%>
-
-	<%= f.input :password %>
-
-	<%= f.input :password_confirmation %>
-	
-	<div class="form-actions">
-		<%= f.submit "Update", :class => 'btn btn-success' %>
-
-		<%= link_to "Cancel" ,"/#{@user.username}", :class => 'btn' %>
-	</div>
+<div class="col-md-6">
+	<%= bootstrap_form_for(@user) do |f| %>
+	<%= f.text_field :username,:placeholder => 'Username', icon: "user"%>
+	<%= f.email_field :email,:placeholder => 'Email', icon: "envelope" %>
+	<%= f.password_field :password,:placeholder => 'e$Xf%d88&&', icon: 'eye-close' %>
+	<%= f.password_field :password_confirmation, icon: 'eye-close' %>
+	<%= f.submit "Register" %>
 	<% end %>
 
+</div>

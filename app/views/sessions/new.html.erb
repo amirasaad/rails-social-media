@@ -1,22 +1,7 @@
-<%= simple_form_for :login, { url: session_path, :html => { :class => 'form-horizontal'}}  do |f| %>
-  <div class="form-group">
-
-	<%= f.input :username ,:class => "col-sm-2" ,:wrapper => :prepend do %>
-	
-	    <%= content_tag :span,"@",:class => 'input-group-addon' %>
-	    <div class="col-sm-10">
-	    <%= f.input_field :username,:placeholder => 'Your User Name' %>
-	    </div>
-    <% end %>
-    </div>
-    
-	<div class="form-group">
-	<%= f.input :password , :wrapper => :prepend do %>
-	   <%= content_tag :span,"", :class => 'input-group-addon glyphicon glyphicon-eye-close' %>
-	   <div class="col-sm-10">
-	   <%= f.input_field :password,:placeholder => 'Your password' ,:class => "input-group-lg" %>
-	   </div>
-	<% end %>
+<%=  bootstrap_form_for :login, { url: session_path, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-6"} do |f| %>
+	<%= f.text_field :username, :placeholder => 'Your Username', icon: 'user' %>
+	<%= f.password_field :password, :placeholder => 'Your password', icon: 'eye-close' %>
+	<div class="col-sm-offset-2 col-sm-10">
+	<%= f.submit "Sign In" %>
 	</div>
-  <%= f.button :submit, "Sign In" %>
 <% end %>

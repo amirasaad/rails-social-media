@@ -2,16 +2,20 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 #gem 'rails', '4.0.2'
-gem 'rails', '4.0.2'
+gem 'rails', '4.1.7'
 
 
 # Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 
-gem 'bootstrap-sass', '~> 3.0.3.0'
+gem 'bootstrap-sass', '~> 3.3.1'
+
+gem 'autoprefixer-rails'
+
+gem 'bootstrap_form'
 
 gem "simple_form", "~> 3.0.1"
 
-# Client Side Validations 
+# Client Side Validations
 
 #Heroku
 gem 'rails_12factor', group: :production
@@ -21,6 +25,7 @@ gem 'rails_12factor', group: :production
 gem "pg"
 
 gem 'will_paginate', '~> 3.0'
+
 gem 'bootstrap-will_paginate', '0.0.9'
 
 gem 'kaminari'
@@ -72,6 +77,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
+  gem 'sqlite3', '~> 1.3.10'
 end
 
-ruby "2.0.0"
+ruby "2.1.4"

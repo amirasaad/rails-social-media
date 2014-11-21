@@ -1,29 +1,21 @@
   <h1>Settings</h1>
 
-<%= simple_form_for @user, :html => { :class => 'form-horizontal' }  do |f| %>
+<%= bootstrap_form_for(@user) do |f| %>
    <%= gravatar_for @user , :size => 80  %>
-    <a href="http://gravatar.com/emails">change</a> 
+    <a href="http://gravatar.com/emails">change</a>
     <br />
-	<div class="col-lg-6 input-group-lg">
-	<%= f.input :username ,:wrapper => :prepend do %>
-	    <%= content_tag :span,"@",:class => 'input-group-addon' %>
-	    <%= f.input_field :username,:placeholder => 'user_name' %>
-    <% end %>
-    </div>
+	<div class="col-md-6">
+	  <%= f.text_field :username,:placeholder => 'Username', icon: "user"%>
 
-		
-	
-	<div class="col-lg-6 input-group-lg">
-	<%= f.input :email , :wrapper => :prepend do %>
-	   <%= content_tag :span,"", :class => 'input-group-addon glyphicon glyphicon-envelope' %>
-	   <%= f.input_field :email,:placeholder => 'example@company.com' ,:class => "input-group-lg" %>
-	<% end %>
+    </div>
+	<div class="col-lg-6">
+	   <%= f.email_field :email,:placeholder => 'Email', icon: "envelope" %>
 	</div>
-  
-	
+
+
 	<div class="form-actions">
 		<%= f.submit "Update", :class => 'btn btn-success' %>
 		<%= link_to "Cancel" ,"/#{@user.username}", :class => 'btn' %>
 	</div>
 <% end %>
- 
+

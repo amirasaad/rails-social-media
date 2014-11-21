@@ -1,8 +1,7 @@
-<%= simple_form_for @post, :html => { :class => 'form-horizontal' ,:id => 'post_form'} , :remote => true  do |f| %>
-<div class="col-sm-10">
+<%= bootstrap_form_for(@post, :remote => true) do |f| %>
+    <%=  f.text_area :body, size: "550x3" ,placeholder: "What do you like to say?", hide_label: :true%>
 
-	<%= f.input :body ,label: false%>
-	</div>
-	
-<%=f.button :submit, 'Edit'%>  
+       <%=f.submit 'Save' ,:class =>'btn btn-success' %>
+
+
 <% end %>

@@ -15,48 +15,6 @@
 </head>
 <body>
 
-
-	<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title" id="myModalLabel">Login</h4>
-				</div>
-				<div class="modal-body">
-					<p>
-						<%= render 'sessions/new'%>
-					</p>
-				</div>
-				
-
-				</div>
-			</div><!-- /.modal-content -->
-		</div><!-- /.modal-dialog -->
-	</div><!-- /.modal -->
-	<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title" id="myModalLabel">Register</h4>
-				</div>
-				<div class="modal-body">
-					<p>
-						<% user = User.new%>
-						<%= render :partial => 'users/new', :locals => {user: user}%>
-					</p>
-				</div>
-				
-
-				</div>
-			</div><!-- /.modal-content -->
-		</div><!-- /.modal-dialog -->
-	</div><!-- /.modal -->
-
-	
-	
-	<div id="wrap">
 		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -69,40 +27,21 @@
 			</div>
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li><%= link_to 'Home' ,root_path , :class => 'glyphicon glyphicon-home' %> </li>
-					<li><%= link_to 'People' ,users_path , :class => 'glyphicon glyphicon-search' %> </li>
-					
-				</ul>
-				<form class="navbar-form navbar-left" role="search">
+					<li><%= link_to ' Home' ,root_path , :class => 'glyphicon glyphicon-home' %> </li>
+					<li><%= link_to ' People' ,users_path , :class => 'glyphicon glyphicon-search' %> </li>
 
-					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Search">
-					</div>
-					<button type="submit" class="btn btn-default">Submit</button>
-				</form>
+				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><%= link_to 'About' , about_path %></li>
 					<% if !logged_in? %>
-					<form class="navbar-form navbar-left" role="search">
-
-						<div class="form-group">
-							<button class="btn btn-primary " data-toggle="modal" data-target="#loginModal">
-								Login
-							</button>
-							<button class="btn btn-success" data-toggle="modal" data-target="#registerModal">
-								Register
-							</button>
-						</div>
-					</form>
-					<% else %>					
+					<li><a href="/login">Login</a></li>
+					<% else %>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= gravatar_for(current_user , size: 30) %> <span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><%= link_to 'Settings' , edit_user_path(current_user)  ,:class => 'glyphicon glyphicon-wrench' %></li>
-							<li><a href="#">Another action</a></li>
-							<li><a href="#">Something else here</a></li>
+							<li><%= link_to ' Settings' , edit_user_path(current_user)  ,:class => 'glyphicon glyphicon-wrench' %></li>
 							<li class="divider"></li>
-							<li><%= link_to 'Logout', logout_path ,:class => 'glyphicon glyphicon-off' %></li>
+							<li><%= link_to ' Logout', logout_path ,:class => 'glyphicon glyphicon-off' %></li>
 						</ul>
 					</li>
 					<% end %>
@@ -111,7 +50,7 @@
 		</nav>
 		<div class="container">
 			<% flash.each do |name, msg| %>
-			<div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+			<div class="alert alert-<%= name == :notice ? "success" : "danger" %>">
 				<a class="close" data-dismiss="alert">×</a>
 				<%= msg %>
 			</div>
@@ -132,7 +71,7 @@
 						</div>
 
 					</section>
-					
+
 				</aside>
 				<div class="col-xs-13 col-md-9">
 					<%= yield %>
@@ -142,12 +81,11 @@
 					<%= yield %>
 				</div>
 				<% end -%>
-			</div><!-- /.container -->
-		</div>
-	</div>
+			</div>
+		</div><!-- /.container -->
 
-	<footer id="footer">
-		<div class="container well">
+	<footer class="footer">
+		<div class="container">
 			<p class="text-muted credit">Amir &copy;</p>
 		</div>
 	</footer>

@@ -1,7 +1,7 @@
 
 <%= div_for post do %>
 <div id="<%= dom_id(post) %>" class="post">
-	<div class="media box" >
+	<div class="media well" >
 		<a class="pull-left" href="#">
 			<%= gravatar_for(post.user ,:size => 64 ) %>
 		</a>
@@ -31,14 +31,14 @@
 			</div>
 
 
-			
+
 			<div class="label label-info pull-right">
 				<span id="count_comments"><%= post.comments.count%></span> Comments
 			</div>
 
 
-			
-			
+
+
 		</div>
 	</div>
 
@@ -46,16 +46,16 @@
 	<div id="comments">
 		<%= render :partial=> 'posts/postcomments' , :locals =>{:@post => post} %>
 	</div>
-	
 
-	<%end %>	
+
+	<%end %>
 
 	<div style="padding:5px;margin-left:50px;">
 		<% if current_user %>
 		<%= render :partial => "comments/new" ,:locals => {:post => post} ,:id => "comment_form"%>
 		<%end %>
 	</div>
-	
+
 </div>
 
 <script>

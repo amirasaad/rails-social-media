@@ -1,3 +1,4 @@
 <%= provide(:title => "Join Now") %>
-<h1>Join Now</h1> 
-<%= render :partial => 'new', :locals => {user: @user}%>
+<div class="page-header">
+  <h1>Registration <small>Join Now</small></h1>
+</div><%= render :partial => 'new', :locals => {user: @user}%>
