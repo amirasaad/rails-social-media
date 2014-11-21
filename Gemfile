@@ -13,6 +13,8 @@ gem 'autoprefixer-rails'
 
 gem 'bootstrap_form'
 
+gem "font-awesome-rails"
+
 gem "simple_form", "~> 3.0.1"
 
 # Client Side Validations

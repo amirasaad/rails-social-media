@@ -1,11 +1,10 @@
 class SessionsController < ApplicationController
-	include SessionsHelper 
+	include SessionsHelper
 	def create
 		if user = User.authenticate(params[:login][:username], params[:login][:password])
 			sign_in user
-			
-			redirect_back_or "/#{user.username}"
-			flash.now[:alert] = "Welcome Back! #{user.username}"
+
+			redirect_to root_path, :notice => "Welcome #{user.username}!"
 		else
 			flash.now[:alert] = "Invalid login/password combination"
 			render :action => 'new'
