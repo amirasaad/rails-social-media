@@ -16,7 +16,7 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
    respond_to do |format|
-    format.html 
+    format.html
     format.js
   end
 end
@@ -38,11 +38,13 @@ end
 
     respond_to do |format|
       if @post.save
+        flash.now[:alert] = "Post has been created"
         format.js
         format.html { redirect_to action: 'index' }
         format.json { render action: 'show', status: :created, location: @post }
-        
+
       else
+        flash.now[:alert] = "Post has not been created"
         format.html { redirect_to root_path }
         format.json { render json: @post.errors, status: :unprocessable_entity }
         format.js { render 'fail_create.js.erb' }
@@ -53,6 +55,7 @@ end
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
+    flash.now[:alert] = "Post has been updated"
     respond_to do |format|
       if @post.update(post_params)
         format.js
@@ -67,6 +70,7 @@ end
   # DELETE /posts/1.json
   def destroy
     @post.destroy
+    flash.now[:alert] = "Post has been deleted"
     respond_to do |format|
       format.html { redirect_to posts_url }
       format.json { head :no_content }
@@ -87,12 +91,12 @@ end
 
     def update_poststreams
       @posts_streams = Post.order('created_at DESC').all
-    end 
+    end
 
     def correct_user
       @user = @post.user
       redirect_to(root_url) unless current_user?(@user)
     end
 
-    
+
   end

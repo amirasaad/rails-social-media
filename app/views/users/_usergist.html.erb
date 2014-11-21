@@ -17,7 +17,7 @@
     <div class="panel-heading" role="tab" id="headingOne">
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          <span class="label label-success"><%= user.followers.count %></span> Followers
+          <%= user.followers.count %> Followers
         </a>
       </h4>
     </div>
@@ -35,7 +35,7 @@
     <div class="panel-heading" role="tab" id="headingTwo">
       <h4 class="panel-title">
         <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          <span class="label label-info"><%= user.followed_users.count %></span> Following
+          <%= user.followed_users.count %> Following
         </a>
       </h4>
     </div>

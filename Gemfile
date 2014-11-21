@@ -9,6 +9,8 @@ gem 'rails', '4.1.7'
 
 gem 'bootstrap-sass', '~> 3.3.1'
 
+gem 'bootswatch-rails'
+
 gem 'autoprefixer-rails'
 
 gem 'bootstrap_form'
