@@ -9,8 +9,8 @@
 			<% if post.owned_by? current_user %>
 			<ul>
 
-				<li><%= link_to "", post, confirm: "Are you sure?", method: :delete  ,:class => "close glyphicon glyphicon-remove" ,:remote => true%>  </li>
-				<li><%= link_to "", edit_post_path(post) ,:class => "close glyphicon glyphicon-pencil" ,:remote => true %></li>
+				<li><%= link_to "", edit_post_path(post) ,:class => "btn btn-sm btn-success glyphicon glyphicon-pencil" ,:remote => true %></li>
+				<li><%= link_to "", post, confirm: "Are you sure?", method: :delete  ,:class => "btn btn-sm btn-danger glyphicon glyphicon-remove" ,:remote => true%>  </li>
 			</ul>
 
 
@@ -21,13 +21,8 @@
 			<h4 class="media-heading"><%=link_to post.user.username  , "/#{post.user.username}" %>
 			</h4>
 			<div class="edit">
-				<blockquote>
-
 					<p><%=  post.body %></p>
-
-
 					<small><%= time_ago_in_words(post.updated_at) %> ago.</small>
-				</blockquote>
 			</div>
 
 

@@ -3,12 +3,12 @@
 
 <div class="media well well-sm" id= "<%=  dom_id(comment) %>">
     <a class="pull-left" href="#">
-		<%= gravatar_for comment.user ,:size => 64 ,:class => "media-object img-thumbnail"%>
+		<%= gravatar_for comment.user ,:size => 32 ,:class => "media-object img-thumbnail"%>
 	</a>
 	<% if comment.user == current_user || comment.post.user ==  current_user%>
-		<span class='actions pull-right' style="padding:5px;" >
+		<span class='actions pull-right'>
 			<%= link_to "", post_comment_path(:post_id => comment.post,
-			:id => comment), confirm: 'Are you sure?', method: :delete , :remote=> true ,:class => 'close glyphicon glyphicon-remove'%>
+			:id => comment), confirm: 'Are you sure?', method: :delete , :remote=> true ,:class => 'btn btn-sm btn-danger glyphicon glyphicon-remove'%>
 		</span>
 		<% end %>
 	<div class ="media-body ">

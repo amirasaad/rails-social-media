@@ -58,8 +58,10 @@
 			<% end %>
 			<div class="row">
 				<% if logged_in? %>
-				<aside class="sidebar col-xs-5 col-md-3">
-					<section>
+				<div class=" col-md-3">
+				<div class="panel panel-primary">
+				 <div class="panel-heading"> </div>
+					<div class="panel-body">
 						<%= render :partial => '/users/usergist' ,:locals => {user:current_user} %>
 						<% @post = Post.new %>
 						<%= render 'posts/new' %>
@@ -71,14 +73,15 @@
 							<a class="close" data-dismiss="b">×</a>
 						</div>
 
-					</section>
+					</div>
 
-				</aside>
-				<div class="col-xs-13 col-md-9">
+				</div>
+				</div>
+				<div class="col-md-9">
 					<%= yield %>
 				</div>
 				<% else %>
-				<div class="col-xs-18 col-md-12">
+				<div class="col-md-12">
 					<%= yield %>
 				</div>
 				<% end -%>
