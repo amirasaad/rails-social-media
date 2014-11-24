@@ -1,107 +1,106 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<title><%= content_for?(:title) ? yield(:title) : "Social Media " %></title>
-	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-	<%= javascript_include_tag "application",media: "all" ,"data-turbolinks-track" => true %>
-	<%= csrf_meta_tags %>
+  <title><%= content_for?(:title) ? yield(:title) : "Social Media " %></title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application",media: "all" ,"data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
-		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">Social Media</a>
-			</div>
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav">
-					<li class="<%= 'active' if current_page?(root_path) %>">
-					<%= link_to ' Home' ,root_path , :class => 'glyphicon glyphicon-home' %> </li>
-					<li class="<%= 'active' if params[:controller] == 'users' %>">
-					<%= link_to ' People' ,users_path , :class => 'glyphicon glyphicon-search' %> </li>
-
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li class="<%= 'active' if current_page?(about_path) %>"><%= link_to 'About' , about_path %></li>
-					<% if !logged_in? %>
-					<li class="<%= 'active' if params[:controller] == 'sessions' %>"><a href="/login">Login</a></li>
-					<% else %>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= gravatar_for(current_user , size: 20) %> <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><%= link_to ' Settings' , edit_user_path(current_user)  ,:class => 'glyphicon glyphicon-wrench' %></li>
-							<li class="divider"></li>
-							<li><%= link_to ' Logout', logout_path ,:class => 'glyphicon glyphicon-off' %></li>
-						</ul>
-					</li>
-					<% end %>
-				</ul>
-			</div><!-- /.navbar-collapse -->
-		</nav>
-		<div class="container">
-			<% flash.each do |name, msg| %>
-			<div class="alert alert-<%= name == 'notice' ? "info" : "danger" %>">
-				<a class="close" data-dismiss="alert">×</a>
-				<%= msg %>
-			</div>
-			<% end %>
-			<div class="row">
-				<% if logged_in? %>
-				<div class=" col-md-3">
-				<div class="panel panel-primary">
-				 <div class="panel-heading"> </div>
-					<div class="panel-body">
-						<%= render :partial => '/users/usergist' ,:locals => {user:current_user} %>
-						<% @post = Post.new %>
-						<%= render 'posts/new' %>
-						<br />
-						<div id="notice" class="a alert alert-success" style="display:none">
-							<a class="close" data-dismiss="a">×</a>
-						</div>
-						<div id="alert" class="b alert alert-warning" style="display:none">
-							<a class="close" data-dismiss="b">×</a>
-						</div>
-
-					</div>
-
-				</div>
-				</div>
-				<div class="col-md-9">
-					<%= yield %>
-				</div>
-				<% else %>
-				<div class="col-md-12">
-					<%= yield %>
-				</div>
-				<% end -%>
-			</div>
-		</div><!-- /.container -->
-
-	<footer class="footer">
-    <div class="container">
-        <div class="text-center center-block">
-            <p class="txt-railway"> Social Media &copy; 2014 </p>
-            <a href="https://www.facebook.com/amir.pro" target="_blank"><i id="social" class="fa fa-facebook-square fa-3x social-fb"></i></a>
-            <a href="https://twitter.com/amir_asaad" target="_blank"><i id="social" class="fa fa-twitter-square fa-3x social-tw"></i></a>
-            <a href="https://plus.google.com/+AmirAsaad" target="_blank"><i id="social" class="fa fa-google-plus-square fa-3x social-gp"></i></a>
-            <a href="http://eg.linkedin.com/in/amirasaad/" target="_blank"><i id="social" class="fa fa-linkedin-square fa-3x social-em"></i></a>
-            <a href="https://github.com/amirasaad" target="_blank"><i id="social" class="fa fa-github-square fa-3x social-em"></i></a>
-            <a href="mailto:amir.pro.2010@gmail.com" target="_blank"><i id="social" class="fa fa-envelope-square fa-3x social-em"></i></a>
-
-        </div>
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Social Media</a>
     </div>
-</footer>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="<%= 'active' if current_page?(root_path) %>">
+          <%= link_to ' Home' ,root_path , :class => 'glyphicon glyphicon-home' %> </li>
+          <li class="<%= 'active' if params[:controller] == 'users' %>">
+            <%= link_to ' People' ,users_path , :class => 'glyphicon glyphicon-search' %> </li>
 
-</body>
-</html>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="<%= 'active' if current_page?(about_path) %>"><%= link_to 'About' , about_path %></li>
+            <% if !logged_in? %>
+            <li class="<%= 'active' if params[:controller] == 'sessions' %>"><a href="/login">Login</a></li>
+            <% else %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= gravatar_for(current_user , size: 20) %> <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to ' Settings' , edit_user_path(current_user)  ,:class => 'glyphicon glyphicon-wrench' %></li>
+                <li class="divider"></li>
+                <li><%= link_to ' Logout', logout_path ,:class => 'glyphicon glyphicon-off' %></li>
+              </ul>
+            </li>
+            <% end %>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </nav>
+
+      <div class="container">
+        <% flash.each do |name, msg| %>
+        <div class="alert alert-<%= name == 'notice' ? "info" : "danger" %>">
+          <a class="close" data-dismiss="alert">×</a>
+          <%= msg %>
+        </div>
+        <% end %>
+        <div class="row">
+          <% if logged_in? and current_page?(root_path)%>
+          <div class=" col-md-3">
+            <div class="panel panel-primary">
+             <div class="panel-heading"> </div>
+             <div class="panel-body">
+              <%= render :partial => '/users/usergist' ,:locals => {user:current_user} %>
+              <% @post = Post.new %>
+              <%= render 'posts/new' %>
+              <br />
+              <div id="notice" class="a alert alert-success" style="display:none">
+                <a class="close" data-dismiss="a">×</a>
+              </div>
+              <div id="alert" class="b alert alert-warning" style="display:none">
+                <a class="close" data-dismiss="b">×</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-md-9">
+          <%= yield %>
+        </div>
+        <% else %>
+        <div class="col-md-12">
+          <%= yield %>
+        </div>
+        <% end -%>
+      </div>
+    </div><!-- /.container -->
+
+    <footer class="footer">
+      <div class="container">
+        <div class="text-center center-block">
+          <p class="txt-railway"> Social Media &copy; 2014 </p>
+          <a href="https://www.facebook.com/amir.pro" target="_blank"><i id="social" class="fa fa-facebook-square fa-3x social-fb"></i></a>
+          <a href="https://twitter.com/amir_asaad" target="_blank"><i id="social" class="fa fa-twitter-square fa-3x social-tw"></i></a>
+          <a href="https://plus.google.com/+AmirAsaad" target="_blank"><i id="social" class="fa fa-google-plus-square fa-3x social-gp"></i></a>
+          <a href="http://eg.linkedin.com/in/amirasaad/" target="_blank"><i id="social" class="fa fa-linkedin-square fa-3x social-em"></i></a>
+          <a href="https://github.com/amirasaad" target="_blank"><i id="social" class="fa fa-github-square fa-3x social-em"></i></a>
+          <a href="mailto:amir.pro.2010@gmail.com" target="_blank"><i id="social" class="fa fa-envelope-square fa-3x social-em"></i></a>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+  </html>

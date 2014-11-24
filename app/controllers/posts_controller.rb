@@ -8,18 +8,20 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     if logged_in?
-      @posts = Post.from_users_followed_by(current_user).paginate(:page => params[:page], :per_page =>5).order('created_at DESC')
+      @posts = Post.from_users_followed_by(current_user).
+        paginate(:page => params[:page], :per_page =>5).
+        order('created_at DESC')
     end
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
-   respond_to do |format|
-    format.html
-    format.js
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
-end
 
   # GET /posts/new
   def new
@@ -41,7 +43,9 @@ end
         flash.now[:alert] = "Post has been created"
         format.js
         format.html { redirect_to action: 'index' }
-        format.json { render action: 'show', status: :created, location: @post }
+        format.json {
+          render action: 'show', status: :created, location: @post
+        }
 
       else
         flash.now[:alert] = "Post has not been created"
@@ -59,7 +63,10 @@ end
     respond_to do |format|
       if @post.update(post_params)
         format.js
-        format.html { redirect_to action: 'index', notice: 'Post was successfully updated.' }
+        format.html {
+          redirect_to action: 'index',
+          notice: 'Post was successfully updated.'
+        }
       else
         format.html { render action: 'edit' }
       end
@@ -79,24 +86,23 @@ end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_post
-      @post = Post.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def post_params
-      params.require(:post).permit( :body)
-    end
-
-    def update_poststreams
-      @posts_streams = Post.order('created_at DESC').all
-    end
-
-    def correct_user
-      @user = @post.user
-      redirect_to(root_url) unless current_user?(@user)
-    end
-
-
+  # Use callbacks to share common setup or constraints between actions.
+  def set_post
+    @post = Post.find(params[:id])
   end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def post_params
+    params.require(:post).permit( :body)
+  end
+
+  def update_poststreams
+    @posts_streams = Post.order('created_at DESC').all
+  end
+
+  def correct_user
+    @user = @post.user
+    redirect_to(root_url) unless current_user?(@user)
+  end
+
+end

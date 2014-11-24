@@ -6,17 +6,17 @@ class ApplicationController < ActionController::Base
 
   protected
   def current_user
-  	remember_token = User.encrypt(cookies[:remember_token])
+    remember_token = User.encrypt(cookies[:remember_token])
     @current_user ||= User.find_by(remember_token: remember_token)
   end
 
   helper_method :current_user
   def authenticate
-  	logged_in? || access_denied
+    logged_in? || access_denied
   end
 
   def logged_in?
-  	!current_user.nil?
+    !current_user.nil?
   end
   helper_method :logged_in?
   def access_denied

@@ -1,4 +1,3 @@
-
 <%= bootstrap_form_for [post, post.comments.new] , remote: true do |f| %>
   <%= f.text_area :body, :placeholder => 'Write a comment', hide_label: true %>
   <%= f.submit 'Comment' ,:class =>'btn btn-success btn-sm' %>

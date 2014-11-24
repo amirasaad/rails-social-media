@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         format.html { redirect_to posts_path, notice: 'your comment posted' }
-      format.js
+        format.js
       else
         format.html { redirect_to posts_path, alert: 'Unable to add comment' }
         format.js { render 'fail_create.js.erb' }

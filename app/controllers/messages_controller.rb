@@ -13,7 +13,7 @@ class MessagesController < ApplicationController
     @message.sender = current_user
     $redis.publish('messages.create', @message.to_json)
   end
-  
+
   def events
     response.headers["Content-Type"] = "text/event-stream"
     redis = Redis.new
