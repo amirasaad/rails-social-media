@@ -27,10 +27,10 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="<%= 'active' if current_page?(root_path) %>">
-          <%= link_to ' Home' ,root_path , :class => 'glyphicon glyphicon-home' %> </li>
+          <%= link_to ' Home' ,root_path , :class => 'fa fa-home' %> </li>
           <li class="<%= 'active' if params[:controller] == 'users' %>">
-            <%= link_to ' People' ,users_path , :class => 'glyphicon glyphicon-search' %> </li>
-
+          <a href="/people"><span class="fa fa-users"></span> People</a>
+          </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="<%= 'active' if current_page?(about_path) %>"><%= link_to 'About' , about_path %></li>
@@ -40,7 +40,7 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= gravatar_for(current_user , size: 20) %> <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><%= link_to ' Settings' , edit_user_path(current_user)  ,:class => 'glyphicon glyphicon-wrench' %></li>
+                <li><%= link_to ' Settings' , settings_path ,:class => 'glyphicon glyphicon-wrench' %></li>
                 <li class="divider"></li>
                 <li><%= link_to ' Logout', logout_path ,:class => 'glyphicon glyphicon-off' %></li>
               </ul>

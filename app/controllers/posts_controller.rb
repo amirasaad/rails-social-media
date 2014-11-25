@@ -50,7 +50,9 @@ class PostsController < ApplicationController
       else
         flash.now[:alert] = "Post has not been created"
         format.html { redirect_to root_path }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        format.json {
+          render json: @post.errors, status: :unprocessable_entity
+        }
         format.js { render 'fail_create.js.erb' }
       end
     end

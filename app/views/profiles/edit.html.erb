@@ -1,0 +1,11 @@
+<div class="col-md-6">
+Name <%= @profile.name %>
+Birthday <%= @profile.birthday %>
+</div>
+<div class="col-md-6">
+<%= bootstrap_form_for [@user, @profile] do |f| %>
+  <%= f.text_field :name %>
+  <%= f.date_field :birthday %>
+  <%= f.submit 'Save Changes' ,:class =>'btn btn-inverse' %>
+<% end %>
+</div>

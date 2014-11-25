@@ -24,6 +24,11 @@ class UsersController < ApplicationController
   end
 
   def edit
+    if params[:id]
+      @user = User.find(params[:id])
+    else
+      @user = current_user
+    end
   end
 
   def show
@@ -64,11 +69,12 @@ class UsersController < ApplicationController
 
   private
   def set_user
-    @user = User.find(params[:id])
+    @user = current_user
   end
 
   def user_params
-    params.require(:user).permit(:username ,:email, :password, :password_confirmation)
+    params.require(:user).permit(
+      :username ,:email, :password, :password_confirmation)
   end
 
   def admin_user

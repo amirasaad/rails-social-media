@@ -1,6 +1,9 @@
-<h1>Poeple</h1>
-<%= will_paginate %>
+<div class="page-header">
+  <h1>People <small>Meet others</small></h1>
+</div>
+
+<%= will_paginate @users, renderer: BootstrapPagination::Rails  %>
 <ul class="users">
-    <%= render @users %>
+  <%= render @users %>
 </ul>
-<%= will_paginate %>
+<%= will_paginate @users, renderer: BootstrapPagination::Rails %>

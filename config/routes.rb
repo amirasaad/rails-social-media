@@ -1,7 +1,12 @@
 Sm::Application.routes.draw do
   get '/contact' => "site#contact"
-  get '/help' => "site#help"
   get '/about' => "site#about"
+  get '/people' => "users#index"
+
+  get '/settings' => "profiles#edit", :as => "settings"
+
+  get '/stories', to: redirect('/posts')
+
 
   root :to => "site#home"
 
@@ -15,8 +20,6 @@ Sm::Application.routes.draw do
     resources :posts
   end
 
-  get '/stories', to: redirect('/posts')
-
   resources :users  do
     resources :profiles
     member do
@@ -29,11 +32,11 @@ Sm::Application.routes.draw do
 
   get '/registration' => "users#new"
 
-  get ':username', to: 'users#show'#, as: :user do
-   # member do
-    #  get :following, :followers
-   # end
- # end
+  get '/profile/:username', to: 'users#show'#, as: :user do
+  # member do
+  #  get :following, :followers
+  # end
+  # end
 
   resources :relationships, only: [:create, :destroy]
 

@@ -1,6 +1,8 @@
 class ProfilesController < ApplicationController
 
   def edit
+    @user = current_user
+    @profile = current_user.profile
   end
 
   def show
@@ -10,9 +12,9 @@ class ProfilesController < ApplicationController
     @user = current_user
     @profile = current_user.profile
     respond_to do |format|
-      if @profile.update_attributes(params[:profile])
+      if @profile.update(profile_params)
         format.html {
-          redirect_to @profile, notice: 'Post was successfully updated.'
+          redirect_to '/settings', notice: 'Profile was successfully updated.'
         }
         format.json { head :no_content }
       else
@@ -22,6 +24,12 @@ class ProfilesController < ApplicationController
         }
       end
     end
+  end
+
+  private
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def profile_params
+    params.require(:profile).permit(:name).permit(:birthday)
   end
 
 end

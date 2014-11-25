@@ -28,9 +28,9 @@ gem 'rails_12factor', group: :production
 # Use PostgreSql as the database for Active Record
 gem "pg"
 
-gem 'will_paginate', '~> 3.0'
+gem 'will_paginate', '~> 3.0.3'
 
-gem 'bootstrap-will_paginate', '0.0.9'
+gem 'will_paginate-bootstrap'
 
 gem 'kaminari'
 
