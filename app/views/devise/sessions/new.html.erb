@@ -1,0 +1,18 @@
+<div class="col-md-4 col-md-offset-4">
+    <div class="login-panel panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Please Sign In</h3>
+        </div>
+        <div class="panel-body">
+            <%= bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <fieldset>
+                <%= f.text_field :username, hide_label: :true, :placeholder => 'Your Email', icon: 'envelope' %>
+                <%= f.password_field :password, hide_label: :true, :placeholder => 'Your Password', icon: 'eye-close' %>
+                    <%= f.check_box :remember_me, as: :boolean if devise_mapping.rememberable? %>
+            </fieldset>
+                    <%= f.submit "Login", class: 'btn btn-lg btn-success btn-block' %>
+                    <%= render "devise/shared/links" %>
+                <% end %>
+        </div>
+    </div>
+</div>

@@ -1,4 +1,5 @@
 Sm::Application.routes.draw do
+  devise_for :users
   get '/contact' => "site#contact"
   get '/about' => "site#about"
   get '/people' => "users#index"
@@ -26,11 +27,6 @@ Sm::Application.routes.draw do
       get :following, :followers
     end
   end
-  resource :session, :only => [:new, :create, :destroy]
-  get '/login' => "sessions#new", :as => "login"
-  get '/logout' => "sessions#destroy", :as => "logout"
-
-  get '/registration' => "users#new"
 
   get '/profile/:username', to: 'users#show'#, as: :user do
   # member do

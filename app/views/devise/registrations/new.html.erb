@@ -1,0 +1,17 @@
+ <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Registeration</h3>
+        </div>
+        <div class="panel-body">
+			<%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-6") do |f| %>
+				<%= f.text_field :username, :placeholder => 'Username', icon: "user"%>
+				<%= f.email_field :email, :placeholder => 'Email', icon: "envelope" %>
+				<%= f.password_field :password,:placeholder => 'Password', icon: 'eye-close' %>
+				<%= f.password_field :password_confirmation, :placeholder => 'Confirm Password', icon: 'eye-close' %>
+				<div class="col-sm-offset-2 col-sm-10">
+				<%= f.submit "Register", :class => 'btn btn-lg btn-success'%>
+				<%= render "devise/shared/links" %>
+				</div>
+			<% end %>
+		</div>
+</div>

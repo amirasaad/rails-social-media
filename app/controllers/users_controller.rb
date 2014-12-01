@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     @user.build_profile
     if @user.save
       sign_in @user
-      redirect_to "/#{@user.username}", notice: 'You successfully registered.'
+      redirect_to root_url, notice: 'You successfully registered.'
     else
       render action: :new
     end

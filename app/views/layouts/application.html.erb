@@ -1,106 +1,307 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title><%= content_for?(:title) ? yield(:title) : "Social Media " %></title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application",media: "all" ,"data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Social Media " %></title>
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
 </head>
+
 <body>
 
-  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Social Media</a>
-    </div>
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="<%= 'active' if current_page?(root_path) %>">
-          <%= link_to ' Home' ,root_path , :class => 'fa fa-home' %> </li>
-          <li class="<%= 'active' if params[:controller] == 'users' %>">
-          <a href="/people"><span class="fa fa-users"></span> People</a>
-          </li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li class="<%= 'active' if current_page?(about_path) %>"><%= link_to 'About' , about_path %></li>
-            <% if !logged_in? %>
-            <li class="<%= 'active' if params[:controller] == 'sessions' %>"><a href="/login">Login</a></li>
-            <% else %>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= gravatar_for(current_user , size: 20) %> <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><%= link_to ' Settings' , settings_path ,:class => 'glyphicon glyphicon-wrench' %></li>
-                <li class="divider"></li>
-                <li><%= link_to ' Logout', logout_path ,:class => 'glyphicon glyphicon-off' %></li>
-              </ul>
-            </li>
-            <% end %>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </nav>
+    <div id="wrapper">
 
-      <div class="container">
-        <% flash.each do |name, msg| %>
-        <div class="alert alert-<%= name == 'notice' ? "info" : "danger" %>">
-          <a class="close" data-dismiss="alert">×</a>
-          <%= msg %>
-        </div>
-        <% end %>
-        <div class="row">
-          <% if logged_in? and current_page?(root_path)%>
-          <div class=" col-md-3">
-            <div class="panel panel-primary">
-             <div class="panel-heading"> </div>
-             <div class="panel-body">
-              <%= render :partial => '/users/usergist' ,:locals => {user:current_user} %>
-              <% @post = Post.new %>
-              <%= render 'posts/new' %>
-              <br />
-              <div id="notice" class="a alert alert-success" style="display:none">
-                <a class="close" data-dismiss="a">×</a>
-              </div>
-              <div id="alert" class="b alert alert-warning" style="display:none">
-                <a class="close" data-dismiss="b">×</a>
-              </div>
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">SB Admin v2.0</a>
             </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-top-links navbar-right">
+                <% if !user_signed_in?%>
+                <li><%= link_to "Sign up", new_user_registration_path %> </li>
+                <li><%= link_to "Login", new_user_session_path %></li>
+                <% else %>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-messages">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>Read All Messages</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-messages -->
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-tasks fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-tasks">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 1</strong>
+                                        <span class="pull-right text-muted">40% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                            <span class="sr-only">40% Complete (success)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 2</strong>
+                                        <span class="pull-right text-muted">20% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                                            <span class="sr-only">20% Complete</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 3</strong>
+                                        <span class="pull-right text-muted">60% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                            <span class="sr-only">60% Complete (warning)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 4</strong>
+                                        <span class="pull-right text-muted">80% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                            <span class="sr-only">80% Complete (danger)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>See All Tasks</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-tasks -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-bell fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-comment fa-fw"></i> New Comment
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                    <span class="pull-right text-muted small">12 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-envelope fa-fw"></i> Message Sent
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-tasks fa-fw"></i> New Task
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>See All Alerts</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-alerts -->
+                </li>
+                <!-- /.dropdown -->
 
-          </div>
-        </div>
-        <div class="col-md-9">
-          <%= yield %>
-        </div>
-        <% else %>
-        <div class="col-md-12">
-          <%= yield %>
-        </div>
-        <% end -%>
-      </div>
-    </div><!-- /.container -->
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= gravatar_for(current_user , size: 20) %> <%= current_user.username %> <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><%= link_to ' Settings' , settings_path ,:class => 'fa fa-fw fa-gear' %></li>
+                    <li><%= link_to ' Logout', logout_path ,:class => 'fa fa-fw fa-power-off' %></li>
+                  </ul>
+                </li>
+                <% end %>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
 
-    <footer class="footer">
-      <div class="container">
-        <div class="text-center center-block">
-          <p class="txt-railway"> Social Media &copy; 2014 </p>
-          <a href="https://www.facebook.com/amir.pro" target="_blank"><i id="social" class="fa fa-facebook-square fa-3x social-fb"></i></a>
-          <a href="https://twitter.com/amir_asaad" target="_blank"><i id="social" class="fa fa-twitter-square fa-3x social-tw"></i></a>
-          <a href="https://plus.google.com/+AmirAsaad" target="_blank"><i id="social" class="fa fa-google-plus-square fa-3x social-gp"></i></a>
-          <a href="http://eg.linkedin.com/in/amirasaad/" target="_blank"><i id="social" class="fa fa-linkedin-square fa-3x social-em"></i></a>
-          <a href="https://github.com/amirasaad" target="_blank"><i id="social" class="fa fa-github-square fa-3x social-em"></i></a>
-          <a href="mailto:amir.pro.2010@gmail.com" target="_blank"><i id="social" class="fa fa-envelope-square fa-3x social-em"></i></a>
-        </div>
-      </div>
-    </footer>
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                 <% if user_signed_in? %>
+                                    <%= render :partial => '/users/usergist' ,:locals => {user:current_user} %>
+                                      <% @post = Post.new %>
+                                      <%= render 'posts/new' %>
+                                <% end %>
 
-  </body>
-  </html>
+                                <div id="notice" class="a alert alert-success" style="display:none">
+                                <a class="close" data-dismiss="a">×</a>
+                              </div>
+                              <div id="alert" class="b alert alert-warning" style="display:none">
+                                <a class="close" data-dismiss="b">×</a>
+                              </div>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                    <% if notice %>
+                      <p class="alert alert-success"><%= notice %></p>
+                    <% end %>
+                    <% if alert %>
+                      <p class="alert alert-danger"><%= alert %></p>
+                    <% end %>
+                </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <%= yield %>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+     <%= javascript_include_tag "application", media: "all", "data-turbolinks-track" => true %>
+
+</body>
+
+</html>
