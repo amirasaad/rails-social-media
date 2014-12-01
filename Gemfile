@@ -38,6 +38,11 @@ gem 'unicorn'
 
 gem 'redis'
 
+gem 'therubyracer'
+
+gem 'devise'
+
+gem 'omniauth'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
