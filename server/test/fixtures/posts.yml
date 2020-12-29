@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+morty_post:
+  body: Awsome post
+  user_id: 1
+
+rick_post:
+  body: Another awsome post
+  user_id: 2

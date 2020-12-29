@@ -1,4 +1,7 @@
-rails-social-media
-==================
+# Social Media App
 
-Social Media by Rails and twitter bootstrap
+## Getting started
+TODO: Dockeriaztion
+```bash
+$ docker build -t sm:latest .
+```
