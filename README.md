@@ -1,7 +1,14 @@
 # Social Media App
 
 ## Getting started
-TODO: Dockeriaztion
+First build the image
 ```bash
-$ docker build -t sm:latest .
+$ docker build -t sm:latest server
+```
+
+### Testing
+
+```bash
+$ docker build -t sm:server server
+$ docker run -it sm:server rake test
 ```
