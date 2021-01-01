@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 morty_profile:
-  user_id: 1
+  user: morty
   name: Morty
   birthday: 2013-12-09
 
 rick_profile:
-  user_id: 2
-  name: Morty
+  user: rick
+  name: Rick
   birthday: 2013-12-09

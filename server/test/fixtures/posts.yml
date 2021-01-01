@@ -2,8 +2,8 @@
 
 morty_post:
   body: Awsome post
-  user_id: 1
+  user: morty
 
 rick_post:
   body: Another awsome post
-  user_id: 2
+  user: rick

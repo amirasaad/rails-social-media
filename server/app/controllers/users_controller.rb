@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.build_profile
+    Profile.new(user: @user)
     if @user.save
       sign_in @user
       redirect_to root_url, notice: 'You successfully registered.'

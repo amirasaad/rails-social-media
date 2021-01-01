@@ -1,5 +1,4 @@
 Sm::Application.routes.draw do
-  authenticate do
   devise_for :users
   get '/contact' => "site#contact"
   get '/about' => "site#about"
@@ -38,6 +37,4 @@ Sm::Application.routes.draw do
   resources :relationships, only: [:create, :destroy]
 
   resources :messages
-  end
-
 end

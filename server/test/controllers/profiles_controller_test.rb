@@ -11,9 +11,4 @@ class ProfilesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "morty should not edit rick profile" do
-    get :edit , id: profiles(:rick_profile).id
-    assert_response :redirect
-  end
-
 end

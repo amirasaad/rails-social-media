@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  content: MyText
-  sender_id: 1
-  reciver_id: 1
+rick_message:
+  content: It's 10 mins advanture morty
+  sender: rick
+  reciver: morty
 
-two:
-  content: MyText
-  sender_id: 1
-  reciver_id: 1
+morty_message:
+  content: I have to finsh my homework
+  sender: morty
+  reciver: rick

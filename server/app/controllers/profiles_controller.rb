@@ -1,10 +1,8 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
-  before_action :correct_user , only: [:edit ,:update]
 
   def edit
     @user = current_user
-    @profile = current_user.profile
   end
 
   def show
@@ -12,7 +10,6 @@ class ProfilesController < ApplicationController
 
   def update
     @user = current_user
-    @profile = current_user.profile
     respond_to do |format|
       if @profile.update(profile_params)
         format.html {
@@ -32,11 +29,6 @@ class ProfilesController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def profile_params
     params.require(:profile).permit(:name).permit(:birthday)
-  end
-
-  def correct_user
-    @user = @post.user
-    redirect_to(root_url) unless signed_in?(@user)
   end
 
 end

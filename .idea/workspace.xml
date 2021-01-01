@@ -5,19 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7d533b8-4811-47ef-bf71-3b194c1c7d46" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.buildpath" beforeDir="false" afterPath="$PROJECT_DIR$/server/.buildpath" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dockerignore" beforeDir="false" afterPath="$PROJECT_DIR$/server/.dockerignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.rdoc" beforeDir="false" afterPath="$PROJECT_DIR$/server/README.rdoc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.ru" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/server/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/server/Gemfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/app/controllers/profiles_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/controllers/profiles_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/app/controllers/users_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/controllers/users_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app/views/users/_usergist.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/views/users/_usergist.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/config/environments/development.rb" beforeDir="false" afterPath="$PROJECT_DIR$/server/config/environments/development.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/config/environments/test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/server/config/environments/test.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/server/config/routes.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/test/controllers/posts_controller_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/server/test/controllers/posts_controller_test.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/test/controllers/profiles_controller_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/server/test/controllers/profiles_controller_test.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/test/fixtures/comments.yml" beforeDir="false" afterPath="$PROJECT_DIR$/server/test/fixtures/comments.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/test/fixtures/messages.yml" beforeDir="false" afterPath="$PROJECT_DIR$/server/test/fixtures/messages.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/test/fixtures/posts.yml" beforeDir="false" afterPath="$PROJECT_DIR$/server/test/fixtures/posts.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/test/fixtures/profiles.yml" beforeDir="false" afterPath="$PROJECT_DIR$/server/test/fixtures/profiles.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/test/fixtures/relationships.yml" beforeDir="false" afterPath="$PROJECT_DIR$/server/test/fixtures/relationships.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/test/fixtures/users.yml" beforeDir="false" afterPath="$PROJECT_DIR$/server/test/fixtures/users.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/test/test_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/server/test/test_helper.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +76,7 @@
     <option name="shouldAskUser" value="false" />
     <option name="shouldCreateModules" value="false" />
   </component>
-  <component name="RunManager" selected="Docker.Build">
+  <component name="RunManager" selected="Test::Unit/Shoulda/Minitest.All tests in test: sm">
     <configuration name="Unnamed" type="RSpecRunConfigurationType" factoryName="RSpec" nameIsGenerated="true">
       <module name="sm" />
       <predefined_log_file enabled="true" id="RUBY_RSPEC" />
@@ -157,7 +167,6 @@
       </method>
     </configuration>
     <configuration name="All tests in test: sm" type="TestUnitRunConfigurationType" factoryName="Test::Unit/Shoulda/Minitest" temporary="true">
-      <module name="sm" />
       <predefined_log_file enabled="true" id="RUBY_TESTUNIT" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-Itest" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
@@ -175,6 +184,16 @@
           <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
         </COVERAGE_PATTERN>
       </EXTENSION>
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" />
+        </ENTRIES>
+      </EXTENSION>
       <EXTENSION ID="org.jetbrains.plugins.ruby.rails.run.RailsRunConfigurationExtension" SCRATCH_USE_RAILS_RUNNER="false" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="$PROJECT_DIR$/server/test" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="" />
@@ -190,7 +209,6 @@
       </method>
     </configuration>
     <configuration name="test_should_destroy_post" type="TestUnitRunConfigurationType" factoryName="Test::Unit/Shoulda/Minitest" temporary="true" nameIsGenerated="true">
-      <module name="sm" />
       <predefined_log_file enabled="true" id="RUBY_TESTUNIT" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-Itest" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
@@ -208,6 +226,16 @@
           <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
         </COVERAGE_PATTERN>
       </EXTENSION>
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" />
+        </ENTRIES>
+      </EXTENSION>
       <EXTENSION ID="org.jetbrains.plugins.ruby.rails.run.RailsRunConfigurationExtension" SCRATCH_USE_RAILS_RUNNER="false" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$PROJECT_DIR$/server/test/controllers/posts_controller_test.rb" />
@@ -223,7 +251,6 @@
       </method>
     </configuration>
     <configuration name="test_should_update_post" type="TestUnitRunConfigurationType" factoryName="Test::Unit/Shoulda/Minitest" temporary="true" nameIsGenerated="true">
-      <module name="sm" />
       <predefined_log_file enabled="true" id="RUBY_TESTUNIT" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-Itest" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
@@ -240,6 +267,16 @@
         <COVERAGE_PATTERN ENABLED="true">
           <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
         </COVERAGE_PATTERN>
+      </EXTENSION>
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" />
+        </ENTRIES>
       </EXTENSION>
       <EXTENSION ID="org.jetbrains.plugins.ruby.rails.run.RailsRunConfigurationExtension" SCRATCH_USE_RAILS_RUNNER="false" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
@@ -270,12 +307,12 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="Docker Image" type="docker-deploy" factoryName="docker-image" temporary="true" server-name="Docker">
+    <configuration name="Run Server" type="docker-deploy" factoryName="docker-image" temporary="true" server-name="Docker">
       <deployment type="docker-image">
         <settings>
-          <option name="imageTag" value="sm:latest" />
-          <option name="command" value="" />
-          <option name="containerName" value="sm_latest" />
+          <option name="imageTag" value="sm:server" />
+          <option name="command" value="rails server" />
+          <option name="containerName" value="sm_server" />
           <option name="entrypoint" value="" />
           <option name="portBindings">
             <list>
@@ -292,7 +329,7 @@
     </configuration>
     <list>
       <item itemvalue="Docker.Build" />
-      <item itemvalue="Docker.Docker Image" />
+      <item itemvalue="Docker.Run Server" />
       <item itemvalue="Rails.Unnamed (1)" />
       <item itemvalue="Rails.Unnamed" />
       <item itemvalue="RSpec.Unnamed" />
@@ -302,8 +339,8 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.Run Server" />
         <item itemvalue="Test::Unit/Shoulda/Minitest.test_should_update_post" />
-        <item itemvalue="Docker.Docker Image" />
         <item itemvalue="Test::Unit/Shoulda/Minitest.test_should_destroy_post" />
         <item itemvalue="Test::Unit/Shoulda/Minitest.All tests in test: sm" />
       </list>
@@ -328,7 +365,8 @@
       <workItem from="1609200551942" duration="20202000" />
       <workItem from="1609257870074" duration="785000" />
       <workItem from="1609258797434" duration="119000" />
-      <workItem from="1609258945182" duration="2175000" />
+      <workItem from="1609258945182" duration="11009000" />
+      <workItem from="1609510085362" duration="103000" />
     </task>
     <servers />
   </component>
@@ -346,6 +384,20 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="ruby-line">
+          <url>file://$PROJECT_DIR$/server/test/test_helper.rb</url>
+          <line>2</line>
+          <properties myBlockOrdinal="-1">
+            <option name="block-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
