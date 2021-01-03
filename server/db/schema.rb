@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20141130213359) do
 
-  create_table "comments", force: true do |t|
+  create_table "comments", force: :cascade do |t|
     t.integer  "post_id"
     t.string   "user_id"
     t.text     "body"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20141130213359) do
     t.datetime "updated_at"
   end
 
-  create_table "messages", force: true do |t|
+  create_table "messages", force: :cascade do |t|
     t.text     "content"
     t.integer  "sender_id"
     t.integer  "reciver_id"
@@ -29,14 +29,14 @@ ActiveRecord::Schema.define(version: 20141130213359) do
     t.datetime "updated_at"
   end
 
-  create_table "posts", force: true do |t|
+  create_table "posts", force: :cascade do |t|
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
   end
 
-  create_table "profiles", force: true do |t|
+  create_table "profiles", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name"
     t.date     "birthday"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20141130213359) do
     t.datetime "updated_at"
   end
 
-  create_table "relationships", force: true do |t|
+  create_table "relationships", force: :cascade do |t|
     t.integer  "follower_id"
     t.integer  "followed_id"
     t.datetime "created_at"
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20141130213359) do
   add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
   add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "hashed_password"
     t.string   "username"

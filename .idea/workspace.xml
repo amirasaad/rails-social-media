@@ -5,29 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7d533b8-4811-47ef-bf71-3b194c1c7d46" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.buildpath" beforeDir="false" afterPath="$PROJECT_DIR$/server/.buildpath" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dockerignore" beforeDir="false" afterPath="$PROJECT_DIR$/server/.dockerignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/bin/setup" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/config/initializers/assets.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/config/initializers/cookies_serializer.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/project_development" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/rails-social-media.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/rails-social-media.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.rdoc" beforeDir="false" afterPath="$PROJECT_DIR$/server/README.rdoc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.ru" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/server/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/server/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/app/controllers/profiles_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/controllers/profiles_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/app/controllers/users_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/controllers/users_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/app/views/users/_usergist.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/views/users/_usergist.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/bin/rails" beforeDir="false" afterPath="$PROJECT_DIR$/server/bin/rails" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/bin/rake" beforeDir="false" afterPath="$PROJECT_DIR$/server/bin/rake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/config/application.rb" beforeDir="false" afterPath="$PROJECT_DIR$/server/config/application.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/config/boot.rb" beforeDir="false" afterPath="$PROJECT_DIR$/server/config/boot.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/config/environment.rb" beforeDir="false" afterPath="$PROJECT_DIR$/server/config/environment.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/config/environments/development.rb" beforeDir="false" afterPath="$PROJECT_DIR$/server/config/environments/development.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/config/environments/production.rb" beforeDir="false" afterPath="$PROJECT_DIR$/server/config/environments/production.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/config/environments/test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/server/config/environments/test.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/server/config/routes.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/test/controllers/posts_controller_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/server/test/controllers/posts_controller_test.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/test/controllers/profiles_controller_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/server/test/controllers/profiles_controller_test.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/test/fixtures/comments.yml" beforeDir="false" afterPath="$PROJECT_DIR$/server/test/fixtures/comments.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/test/fixtures/messages.yml" beforeDir="false" afterPath="$PROJECT_DIR$/server/test/fixtures/messages.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/test/fixtures/posts.yml" beforeDir="false" afterPath="$PROJECT_DIR$/server/test/fixtures/posts.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/test/fixtures/profiles.yml" beforeDir="false" afterPath="$PROJECT_DIR$/server/test/fixtures/profiles.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/test/fixtures/relationships.yml" beforeDir="false" afterPath="$PROJECT_DIR$/server/test/fixtures/relationships.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/test/fixtures/users.yml" beforeDir="false" afterPath="$PROJECT_DIR$/server/test/fixtures/users.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/test/test_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/server/test/test_helper.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/config/initializers/mime_types.rb" beforeDir="false" afterPath="$PROJECT_DIR$/server/config/initializers/mime_types.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/config/initializers/session_store.rb" beforeDir="false" afterPath="$PROJECT_DIR$/server/config/initializers/session_store.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/config/locales/en.yml" beforeDir="false" afterPath="$PROJECT_DIR$/server/config/locales/en.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/schema.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +73,7 @@
     <option name="shouldAskUser" value="false" />
     <option name="shouldCreateModules" value="false" />
   </component>
-  <component name="RunManager" selected="Test::Unit/Shoulda/Minitest.All tests in test: sm">
+  <component name="RunManager" selected="Docker.Build">
     <configuration name="Unnamed" type="RSpecRunConfigurationType" factoryName="RSpec" nameIsGenerated="true">
       <module name="sm" />
       <predefined_log_file enabled="true" id="RUBY_RSPEC" />
@@ -367,6 +364,7 @@
       <workItem from="1609258797434" duration="119000" />
       <workItem from="1609258945182" duration="11009000" />
       <workItem from="1609510085362" duration="103000" />
+      <workItem from="1609673402798" duration="6739000" />
     </task>
     <servers />
   </component>
@@ -384,6 +382,10 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Get the web server running ..&#10;&#10;Update server/Dockerfile&#10;Update server/Gemfile&#10;Run rails update command" />
+    <option name="LAST_COMMIT_MESSAGE" value="Get the web server running ..&#10;&#10;Update server/Dockerfile&#10;Update server/Gemfile&#10;Run rails update command" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
