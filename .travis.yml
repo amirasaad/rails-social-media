@@ -1,0 +1,14 @@
+dist: xenial
+
+services:
+  - docker
+language: ruby
+jobs:
+  include:
+    - name: "Tests"
+      before_script:
+        - docker -v
+        - docker build -t travis:latest server
+        - docker run -p 3000:3000 sm:latest rails server -b 0.0.0.0
+      script:
+        - docker run travis:latest rake test
