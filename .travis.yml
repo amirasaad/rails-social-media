@@ -9,6 +9,5 @@ jobs:
       before_script:
         - docker -v
         - docker build -t travis:latest server
-        - docker run -p 3000:3000 travis:latest rails server -b 0.0.0.0
       script:
         - docker run travis:latest rake test
