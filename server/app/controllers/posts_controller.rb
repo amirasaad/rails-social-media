@@ -103,8 +103,6 @@ class PostsController < ApplicationController
   end
 
   def correct_user
-    @user = @post.user
-    redirect_to(root_url) unless signed_in?(@user)
+    redirect_to(root_url) unless  @post.user == current_user
   end
-
 end

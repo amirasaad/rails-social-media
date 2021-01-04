@@ -1,15 +1,16 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
 
+  before_action :get_profile, only: [:edit, :update]
+
+
   def edit
-    @user = current_user
   end
 
   def show
   end
 
   def update
-    @user = current_user
     respond_to do |format|
       if @profile.update(profile_params)
         format.html {
@@ -30,5 +31,11 @@ class ProfilesController < ApplicationController
   def profile_params
     params.require(:profile).permit(:name).permit(:birthday)
   end
+
+  def get_profile
+    @profile = current_user.profile || Profile.new
+    @profile.user = current_user
+  end
+
 
 end

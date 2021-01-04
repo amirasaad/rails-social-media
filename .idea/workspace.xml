@@ -5,26 +5,51 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7d533b8-4811-47ef-bf71-3b194c1c7d46" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/server/bin/setup" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/config/initializers/assets.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/config/initializers/cookies_serializer.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/project_development" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/rails-social-media.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/rails-social-media.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/app/views/messages/show.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/app/views/profiles/create.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/spec/fixtures/.keep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/spec/fixtures/comments.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/spec/fixtures/messages.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/spec/fixtures/posts.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/spec/fixtures/profiles.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/spec/fixtures/relationships.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/spec/fixtures/users.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/server/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/server/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/bin/rails" beforeDir="false" afterPath="$PROJECT_DIR$/server/bin/rails" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/bin/rake" beforeDir="false" afterPath="$PROJECT_DIR$/server/bin/rake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/config/application.rb" beforeDir="false" afterPath="$PROJECT_DIR$/server/config/application.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/config/boot.rb" beforeDir="false" afterPath="$PROJECT_DIR$/server/config/boot.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/config/environment.rb" beforeDir="false" afterPath="$PROJECT_DIR$/server/config/environment.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/server/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/Rakefile" beforeDir="false" afterPath="$PROJECT_DIR$/server/Rakefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app/controllers/application_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/controllers/application_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app/controllers/comments_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/controllers/comments_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app/controllers/messages_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/controllers/messages_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app/controllers/posts_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/controllers/posts_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app/controllers/profiles_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/controllers/profiles_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app/controllers/users_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/controllers/users_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app/views/comments/_new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/views/comments/_new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app/views/devise/registrations/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/views/devise/registrations/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/views/layouts/application.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app/views/posts/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/views/posts/_form.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app/views/posts/_new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/views/posts/_new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app/views/posts/_post.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/views/posts/_post.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app/views/posts/_postcomments.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/views/posts/_postcomments.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app/views/posts/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/views/posts/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app/views/profiles/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/views/profiles/edit.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app/views/site/home.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/views/site/home.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app/views/users/_follow_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/views/users/_follow_form.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app/views/users/_new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/views/users/_new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app/views/users/_usergist.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/views/users/_usergist.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app/views/users/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/views/users/show.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/config/environments/development.rb" beforeDir="false" afterPath="$PROJECT_DIR$/server/config/environments/development.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/config/environments/production.rb" beforeDir="false" afterPath="$PROJECT_DIR$/server/config/environments/production.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/config/environments/test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/server/config/environments/test.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/config/initializers/mime_types.rb" beforeDir="false" afterPath="$PROJECT_DIR$/server/config/initializers/mime_types.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/config/initializers/session_store.rb" beforeDir="false" afterPath="$PROJECT_DIR$/server/config/initializers/session_store.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/config/locales/en.yml" beforeDir="false" afterPath="$PROJECT_DIR$/server/config/locales/en.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/schema.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/config/initializers/devise.rb" beforeDir="false" afterPath="$PROJECT_DIR$/server/config/initializers/devise.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/server/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/project_development" beforeDir="false" afterPath="$PROJECT_DIR$/server/project_development" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/project_test" beforeDir="false" afterPath="$PROJECT_DIR$/server/project_test" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/test/controllers/posts_controller_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/server/test/controllers/posts_controller_test.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/test/test_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/server/test/test_helper.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +67,13 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
@@ -52,19 +84,23 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="sqlite" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="credentialsType org.jetbrains.plugins.ruby.remote.RubyCreateRemoteInterpreterDialog$RubyCreateRemoteSdkForm" value="Docker" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/server/spec" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="PyConsoleConfigurable.Python Console" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server/spec" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/server" />
     </key>
@@ -73,14 +109,29 @@
     <option name="shouldAskUser" value="false" />
     <option name="shouldCreateModules" value="false" />
   </component>
-  <component name="RunManager" selected="Docker.Build">
+  <component name="RunManager" selected="Test::Unit/Shoulda/Minitest.test_morty_should_update_th...">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="NimRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="nim.task.build.to.cache" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Unnamed" type="RSpecRunConfigurationType" factoryName="RSpec" nameIsGenerated="true">
-      <module name="sm" />
       <predefined_log_file enabled="true" id="RUBY_RSPEC" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="true" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="Remote: ruby-2.6.6-p146" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="Remote: ruby-2.3.8-p459" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
       <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
       <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
@@ -89,8 +140,18 @@
           <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
         </COVERAGE_PATTERN>
       </EXTENSION>
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" />
+        </ENTRIES>
+      </EXTENSION>
       <EXTENSION ID="org.jetbrains.plugins.ruby.rails.run.RailsRunConfigurationExtension" SCRATCH_USE_RAILS_RUNNER="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="$PROJECT_DIR$/server/spec" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
@@ -163,12 +224,49 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All tests in test: sm" type="TestUnitRunConfigurationType" factoryName="Test::Unit/Shoulda/Minitest" temporary="true">
+    <configuration name="Unnamed" type="RakeRunConfigurationType" factoryName="Rake" nameIsGenerated="true">
+      <module name="rails-social-media" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$/server" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="true" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="Remote: ruby-2.3.8-p459" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" track_test_folders="true" runner="rcov" IGNORE_RCOVRT="true" ENABLE_BRANCH_COVERAGE="true" ENABLE_FORKED_COVERAGE="true">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" />
+        </ENTRIES>
+      </EXTENSION>
+      <EXTENSION ID="org.jetbrains.plugins.ruby.rails.run.RailsRunConfigurationExtension" SCRATCH_USE_RAILS_RUNNER="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_NAME" VALUE="spec" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ARGS" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ATTACHED_TEST_FRAMEWORKS" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TRACE" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_DRYRUN" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_PREREQS" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TESTOPTS" VALUE="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="posts_controller_test" type="TestUnitRunConfigurationType" factoryName="Test::Unit/Shoulda/Minitest" temporary="true" nameIsGenerated="true">
+      <module name="rails-social-media" />
       <predefined_log_file enabled="true" id="RUBY_TESTUNIT" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-Itest" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="true" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="Remote: ruby-2.2.10-p489" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
       <envs>
         <env name="RAILS_ENV" value="test" />
@@ -192,11 +290,54 @@
         </ENTRIES>
       </EXTENSION>
       <EXTENSION ID="org.jetbrains.plugins.ruby.rails.run.RailsRunConfigurationExtension" SCRATCH_USE_RAILS_RUNNER="false" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="$PROJECT_DIR$/server/test" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/{*_test,test_*,*_spec}.rb" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$PROJECT_DIR$/server/test/controllers/posts_controller_test.rb" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_METHOD_NAME" VALUE="" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="ALL_IN_FOLDER" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="ZEUS" VALUE="false" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="SPRING" VALUE="false" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_OPTIONS" VALUE="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_morty_should_update_th..." type="TestUnitRunConfigurationType" factoryName="Test::Unit/Shoulda/Minitest" temporary="true" nameIsGenerated="true">
+      <module name="rails-social-media" />
+      <predefined_log_file enabled="true" id="RUBY_TESTUNIT" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-Itest" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="true" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="Remote: ruby-2.3.8-p459" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs>
+        <env name="RAILS_ENV" value="test" />
+        <env name="JRUBY_OPTS" value="-X+O" />
+      </envs>
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" track_test_folders="true" runner="rcov" IGNORE_RCOVRT="true" ENABLE_BRANCH_COVERAGE="true" ENABLE_FORKED_COVERAGE="true">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" />
+        </ENTRIES>
+      </EXTENSION>
+      <EXTENSION ID="org.jetbrains.plugins.ruby.rails.run.RailsRunConfigurationExtension" SCRATCH_USE_RAILS_RUNNER="false" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$PROJECT_DIR$/server/test/controllers/posts_controller_test.rb" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_METHOD_NAME" VALUE="^test_morty_should_update_their_post$" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_METHOD" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="ZEUS" VALUE="false" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="SPRING" VALUE="false" />
@@ -210,7 +351,7 @@
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-Itest" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="true" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="Remote: ruby-2.2.10-p489 (2)" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
       <envs>
         <env name="RAILS_ENV" value="test" />
@@ -252,7 +393,7 @@
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-Itest" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="true" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="Remote: ruby-2.2.10-p489 (2)" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
       <envs>
         <env name="RAILS_ENV" value="test" />
@@ -329,17 +470,20 @@
       <item itemvalue="Docker.Run Server" />
       <item itemvalue="Rails.Unnamed (1)" />
       <item itemvalue="Rails.Unnamed" />
+      <item itemvalue="Rake.Unnamed" />
       <item itemvalue="RSpec.Unnamed" />
-      <item itemvalue="Test::Unit/Shoulda/Minitest.All tests in test: sm" />
       <item itemvalue="Test::Unit/Shoulda/Minitest.test_should_destroy_post" />
       <item itemvalue="Test::Unit/Shoulda/Minitest.test_should_update_post" />
+      <item itemvalue="Test::Unit/Shoulda/Minitest.posts_controller_test" />
+      <item itemvalue="Test::Unit/Shoulda/Minitest.test_morty_should_update_th..." />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Test::Unit/Shoulda/Minitest.test_morty_should_update_th..." />
+        <item itemvalue="Test::Unit/Shoulda/Minitest.posts_controller_test" />
         <item itemvalue="Docker.Run Server" />
         <item itemvalue="Test::Unit/Shoulda/Minitest.test_should_update_post" />
         <item itemvalue="Test::Unit/Shoulda/Minitest.test_should_destroy_post" />
-        <item itemvalue="Test::Unit/Shoulda/Minitest.All tests in test: sm" />
       </list>
     </recent_temporary>
   </component>
@@ -364,8 +508,18 @@
       <workItem from="1609258797434" duration="119000" />
       <workItem from="1609258945182" duration="11009000" />
       <workItem from="1609510085362" duration="103000" />
-      <workItem from="1609673402798" duration="6739000" />
+      <workItem from="1609673402798" duration="8919000" />
+      <workItem from="1609702576773" duration="16906000" />
+      <workItem from="1609760071522" duration="1188000" />
     </task>
+    <task id="LOCAL-00001" summary="Get the web server running ..&#10;&#10;Update server/Dockerfile&#10;Update server/Gemfile&#10;Run rails update command">
+      <created>1609694048435</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1609694048436</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -407,6 +561,8 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/sm@test_should_update_post.rcov" NAME="test_should_update_post Coverage Results" MODIFIED="1609228516595" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="sm" />
+    <SUITE FILE_PATH="coverage/rails_social_media@test_morty_should_update_th___.rcov" NAME="test_morty_should_update_th... Coverage Results" MODIFIED="1609761112473" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="rails-social-media" />
+    <SUITE FILE_PATH="coverage/rails_social_media@Unnamed.rcov" NAME="Unnamed Coverage Results" MODIFIED="1609704752855" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/server" MODULE_NAME="rails-social-media" />
     <SUITE FILE_PATH="coverage/sm@All_tests_in_test__sm.rcov" NAME="All tests in test: sm Coverage Results" MODIFIED="1609203734317" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="sm" />
   </component>
 </project>

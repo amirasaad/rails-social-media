@@ -1,9 +1,8 @@
 <section>
-        <center>
 	<h1>
 		<%= gravatar_for user  %>
 
-		<% if user_signed_in? && current_user.admin? && !signed_in?(user) %>
+		<% if user_signed_in? && current_user.admin? && current_user != user %>
 		| <%= link_to "delete", user, method: :delete,
 		data: { confirm: "You sure?" } %>
 		<% end %>
@@ -11,7 +10,6 @@
 	</h1>
 	<h2><%= link_to user.username , "/profile/#{user.username}" %> </h2>
   <h3><%= user.username%></h3>
-	</center>
 
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
   <div class="panel panel-success">

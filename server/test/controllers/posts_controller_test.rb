@@ -32,8 +32,8 @@ class PostsControllerTest < ActionController::TestCase
   end
 
   test "morty should update their post" do
-    patch :update, id: @morty_post.id, post: { body: 'New content' }
-    assert_equal 'New content', Post.find(@rick_post.id).body
+    patch :update, id: @morty_post, post: { body: 'New content' }
+    assert_equal 'New content', Post.find(@morty_post.id).body
     assert_response :redirect
   end
 

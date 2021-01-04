@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!, :expect => :show
-  before_action :correct_user , only: [:edit ,:update , :destroy]
+  before_action :authenticate_user!
+  before_action :correct_user , only: [:destroy]
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.new(comment_params)
@@ -39,6 +39,6 @@ class CommentsController < ApplicationController
   def correct_user
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
-    redirect_to(root_url) unless signed_in?(@comment.user ) || signed_in?(@post.user)
+    redirect_to(root_url) unless @comment.user == current_user ||  @post.user == current_user
   end
 end

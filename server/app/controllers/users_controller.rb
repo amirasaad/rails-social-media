@@ -12,17 +12,6 @@ class UsersController < ApplicationController
     @users = User.paginate(page: params[:page])
   end
 
-  def create
-    @user = User.new(user_params)
-    Profile.new(user: @user)
-    if @user.save
-      sign_in @user
-      redirect_to root_url, notice: 'You successfully registered.'
-    else
-      render action: :new
-    end
-  end
-
   def edit
     if params[:id]
       @user = User.find(params[:id])

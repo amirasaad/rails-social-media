@@ -21,14 +21,8 @@ Sm::Application.routes.draw do
     resources :posts
   end
 
-  resources :users  do
-    resources :profiles
-    member do
-      get :following, :followers
-    end
-  end
-
-  get '/profile/:username', to: 'users#show'#, as: :user do
+  resources :profiles, only: [:update, :create]
+  get '/:username', to: 'users#show'#, as: :user do
   # member do
   #  get :following, :followers
   # end

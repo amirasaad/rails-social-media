@@ -6,7 +6,7 @@
 		| <%= link_to "delete", @user, method: :delete,
 		data: { confirm: "You sure?" } %>
 		<% end %>
-		<div class="pull-right"><%= render :partial => 'users/follow_form' ,:locals=>{user: @user} if logged_in? %></div>
+		<div class="pull-right"><%= render :partial => 'users/follow_form' ,:locals=>{user: @user} %></div>
 	</h3>
 
 

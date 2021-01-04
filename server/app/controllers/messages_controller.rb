@@ -6,6 +6,9 @@ class MessagesController < ApplicationController
     @messages = current_user.received_messages
   end
 
+  def show
+  end
+
   def create
     response.headers["Content-Type"] = "text/javascript"
     attributes = params.require(:message).permit(:content, :reciver_id)
