@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+morty:
+  username: Morty
+  email: morty@universe.z
+  admin: false
+
+rick:
+  username: Rick
+  email: rick@universe.z
+  admin: true
