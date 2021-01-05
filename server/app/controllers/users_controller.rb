@@ -1,11 +1,22 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, only: [:edit, :update]
+  before_action :require_user!, only: [:edit, :update]
   before_action :set_user, only: [:edit ,:update, :destroy]
   before_action :admin_user, only: :destroy
   before_action :correct_user, only: [:edit, :update]
 
   def new
     @user = User.new
+  end
+
+  def create
+    @user = User.new(user_params)
+
+    if @user.save
+      sign_in @user
+      redirect_to root_path, flash: { notice: 'Nwartt! <3' }
+    else
+      render :new
+    end
   end
 
   def index
@@ -62,8 +73,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(
-      :username ,:email, :password, :password_confirmation)
+    params.require(:user).permit(:username ,:email)
   end
 
   def admin_user
@@ -72,7 +82,7 @@ class UsersController < ApplicationController
 
   def correct_user
     @user = User.find(params[:id])
-    redirect_to(root_url) unless signed_in?(@user)
+    redirect_to(root_url) unless current_user == @user
   end
 
 end

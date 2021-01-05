@@ -1,7 +1,7 @@
-class Post < ActiveRecord::Base
+class Post < ApplicationRecord
   validates_presence_of :body
 
-  belongs_to :user
+  belongs_to :user, optional: true
   has_many :comments, :dependent => :destroy
 
 

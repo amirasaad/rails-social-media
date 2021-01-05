@@ -2,7 +2,7 @@ class SiteController < ApplicationController
   respond_to :html, :xml, :js
 
   def home
-    if user_signed_in?
+    if current_user
       @posts = Post.from_users_followed_by(current_user).
         paginate(:page => params[:page], :per_page =>5).
         order('created_at DESC')

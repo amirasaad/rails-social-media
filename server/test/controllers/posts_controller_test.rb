@@ -20,26 +20,26 @@ class PostsControllerTest < ActionController::TestCase
 
   test "should create post" do
     assert_difference('Post.count') do
-      post :create, post: { body: 'New Post' }
+      post :create, params: { post: { body: 'New Post' } }
     end
 
     assert_redirected_to posts_path
   end
 
   test "should show post" do
-    get :show, id: @rick_post
+    get :show, params: { id: @rick_post.id }
     assert_response :success
   end
 
   test "morty should update their post" do
-    patch :update, id: @morty_post, post: { body: 'New content' }
+    patch :update, params: { id: @morty_post.id, post: { body: 'New content' } }
     assert_equal 'New content', Post.find(@morty_post.id).body
     assert_response :redirect
   end
 
   test "morty should not update rick post" do
 
-    patch :update, id: posts(:rick_post), post: {body: 'Yo son of a bi**'}
+    patch :update, params: { id: posts(:rick_post), post: { body: 'Yo son of a bi**' } }
 
     assert_equal @rick_post.body, Post.find(@rick_post.id).body
 
@@ -48,7 +48,7 @@ class PostsControllerTest < ActionController::TestCase
 
   test "morty should destroy their post" do
     assert_difference('Post.count', -1) do
-      delete :destroy, id: @morty_post.id
+      delete :destroy, params: { id: @morty_post.id }
     end
 
     assert_response :redirect

@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
   include ActionController::Live
-  before_action :authenticate_user!
+  before_action :require_user!
 
   def index
     @messages = current_user.received_messages

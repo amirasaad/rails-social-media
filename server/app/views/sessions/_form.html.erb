@@ -1,5 +1,5 @@
-<%=  bootstrap_form_for :login, { url: session_path}  do |f| %>
-	<%= f.text_field :username, :placeholder => 'Your Username', icon: 'user' %>
+<%= form_for :login, { url: session_path}  do |f| %>
+	<%= f.text_field :username, :placeholder => 'Your Username', icon: 'user', class: 'form-control' %>
 	<%= f.password_field :password, :placeholder => 'Your password', icon: 'eye-close' %>
 	<%= f.submit "Sign In" %>
 <% end %>

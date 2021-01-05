@@ -1,13 +1,14 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :require_user!
+
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_filter :update_poststreams, :only => [:index , :refreshPosts]
+  before_action :update_poststreams, :only => [:index , :refreshPosts]
   before_action :correct_user , only: [:edit ,:update , :destroy]
 
   # GET /posts
   # GET /posts.json
   def index
-    if user_signed_in?
+    if current_user
       @posts = Post.from_users_followed_by(current_user).
         paginate(:page => params[:page], :per_page =>5).
         order('created_at DESC')

@@ -7,7 +7,7 @@ class ProfilesControllerTest < ActionController::TestCase
   end
 
   test "morty should edit only their profile" do
-    get :edit , id: profiles(:morty_profile).id
+    get :edit, params: { id: profiles(:morty_profile).id }
     assert_response :success
   end
 

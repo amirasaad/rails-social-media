@@ -1,4 +1,4 @@
-<% if user_signed_in? %>
+<% if current_user %>
 <div id="notice" class="alert alert-success" style="display:none">
 	<a class="close" data-dismiss="alert">×</a>
 </div>
@@ -15,7 +15,7 @@
 		<h1>Hello</h1>
 		<p class="text-primary">Join now</p>
 		<% @user = User.new %>
-		<%= link_to "Register", new_user_registration_path ,:class => 'btn btn-primary btn-lg' %>
+		<%= link_to "Register", register_path ,:class => 'btn btn-primary btn-lg' %>
 	</div>
 </div>
 <% end %>

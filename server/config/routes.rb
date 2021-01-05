@@ -1,5 +1,8 @@
-Sm::Application.routes.draw do
-  devise_for :users
+Rails.application.routes.draw do
+  passwordless_for :users
+
+  get '/register' => 'users#new', as: 'register'
+  resources :users, only: [:create]
   get '/contact' => "site#contact"
   get '/about' => "site#about"
   get '/people' => "users#index"
