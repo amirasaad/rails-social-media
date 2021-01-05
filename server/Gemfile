@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.2'
 
-gem 'nokogiri', '1.9.1'
+gem 'nokogiri', '1.11.0'
 
 gem 'ffi', '1.12.2'
 
