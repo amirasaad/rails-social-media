@@ -1,0 +1,8 @@
+<%= bootstrap_form_for(@post, :remote => true) do |f| %>
+  <%= csrf_meta_tags %>
+    <%=  f.text_area :body, size: "550x3" ,placeholder: "What do you like to say?", hide_label: :true%>
+
+       <%=f.submit 'Save' ,:class =>'btn btn-success' %>
+
+
+<% end %>

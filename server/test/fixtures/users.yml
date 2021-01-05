@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+morty:
+  username: Morty
+  email: morty@universe.z
+  encrypted_password: <%= User.new.send(:password_digest, '123456') %>
+  admin: false
+
+rick:
+  username: Rick
+  email: rick@universe.z
+  encrypted_password: <%= User.new.send(:password_digest, '123456') %>
+  admin: true

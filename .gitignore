@@ -16,15 +16,19 @@
 /tmp
 .env
 
+out
+tmp
+
+*.sqlite
 
 # Rails
 *.rbc
 capybara-*.html
 .rspec
-/log
+/server/log
 /tmp
 /db/*.sqlite3
-/public/system
+/server/public/system
 /coverage/
 /spec/tmp
 **.orig
@@ -32,8 +36,8 @@ rerun.txt
 pickle-email-*.html
 
 # TODO Comment out these rules if you are OK with secrets being uploaded to the repo
-config/initializers/secret_token.rb
-config/secrets.yml
+server/config/initializers/secret_token.rb
+server/config/secrets.yml
 
 ## Environment normalisation:
 /.bundle

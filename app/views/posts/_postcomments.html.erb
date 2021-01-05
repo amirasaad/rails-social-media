@@ -1,4 +1,0 @@
-<% if  @post.comments.count >= 3 %>
-	<%= link_to "See all comments" ,post_path(@post) ,:remote => true %>
-<% end %>
-	<%= render @post.latest_comments %>
