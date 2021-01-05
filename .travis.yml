@@ -10,4 +10,4 @@ jobs:
         - docker -v
         - docker build -t travis:latest server
       script:
-        - docker run travis:latest rake test
+        - docker run travis:latest rake

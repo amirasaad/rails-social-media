@@ -53,3 +53,11 @@ server/config/secrets.yml
 /vendor/assets/bower_components
 *.bowerrc
 bower.json
+
+project_development
+project_test
+
+.idea/workspace.xml
+.idea/*.iws
+out
+tmp
