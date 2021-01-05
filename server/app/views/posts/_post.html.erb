@@ -14,7 +14,7 @@
       <% end %>
     </div>
     <div class="media-body">
-      <h4 class="media-heading"><%=link_to post.user.username  , "/profile/#{post.user.username}" %>
+      <h4 class="media-heading"><%=link_to post.user.username, post_path(post) %>
       </h4>
       <div class="edit">
         <p><%=  post.body %></p>
@@ -25,7 +25,7 @@
   </div>
 
   <div id="comments">
-    <%= render :partial=> 'posts/postcomments' , :locals =>{:post => post} %>
+    <%= render :partial=> 'posts/post_comments', :locals =>{:post => post} %>
   </div>
 
   <%end %>

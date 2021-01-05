@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   before_action :require_user!, only: [:edit, :update]
   before_action :set_user, only: [:edit ,:update, :destroy]
   before_action :admin_user, only: :destroy
-  before_action :correct_user, only: [:edit, :update]
 
   def new
     @user = User.new
@@ -20,15 +19,10 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.paginate(page: params[:page], per_page: 5)
   end
 
   def edit
-    if params[:id]
-      @user = User.find(params[:id])
-    else
-      @user = current_user
-    end
   end
 
   def show
@@ -40,8 +34,8 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user == current_user && @user.update(user_params)
-      redirect_to posts_path, notice: 'User updated'
+    if @user == current_user
+      redirect_to edit_user_path, notice: 'alsta'
     else
       render action: 'edit'
     end

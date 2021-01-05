@@ -1,6 +1,6 @@
 <h3>
 	<%= gravatar_for user , :size => 80 %>
-	<%= link_to user.username , "/profile/#{user.username}" %>
+	<%= link_to user.username , "/#{user.username}" %>
 	<% if current_user && current_user.admin? && !signed_in?(user) %>
 	| <%= link_to "delete", user, method: :delete,
 	data: { confirm: "You sure?" } %>

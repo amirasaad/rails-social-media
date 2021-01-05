@@ -1,5 +1,6 @@
 <%= form_for(current_user.relationships.build(followed_id: @user.id),
              remote: true) do |f| %>
+  <%= csrf_meta_tags %>
   <div><%= f.hidden_field :followed_id %></div>
   <%= f.submit "Follow", class: "btn btn-primary" %>
 <% end %>

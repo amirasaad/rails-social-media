@@ -1,10 +1,10 @@
-$('#<%= dom_id(@post) %>').find('#comments').html('<%= escape_javascript(render("posts/postcomments")) %>');
+$('#<%= dom_id(@post) %>').find('#comments').html("<%= j render 'posts/postcomments', locals: {post: @post} %>");
 
 $('#<%= dom_id(@post) %>').find('#notice').html('comment posted').slideDown().fadeOut(60000);
 
 $('#<%= dom_id(@post) %>').find('#count_comments').html('<%= @post.comments.count %>');
 
-$('#<%= dom_id(@post) %>').closest('#new_comment')[0].reset();
+$('#<%= dom_id(@post) %>').find('#new_comment')[0].reset();
 
 $('#<%= dom_id(@comment) %>').effect('highlight', 30000 );
 

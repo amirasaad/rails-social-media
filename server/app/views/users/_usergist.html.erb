@@ -1,5 +1,5 @@
 <section>
-	<h1>
+	<div class="text-center">
 		<%= gravatar_for user  %>
 
 		<% if current_user && current_user.admin? && current_user != user %>
@@ -7,9 +7,9 @@
 		data: { confirm: "You sure?" } %>
 		<% end %>
 
-	</h1>
-	<h2><%= link_to user.username , "/profile/#{user.username}" %> </h2>
-  <h3><%= user.username%></h3>
+
+	<h3><%= link_to user.username , "/#{user.username}" %> </h3>
+  </div>
 
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
   <div class="panel panel-success">

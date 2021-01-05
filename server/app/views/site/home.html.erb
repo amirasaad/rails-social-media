@@ -5,8 +5,13 @@
 <div id="alert" class="alert alert-warning" style="display:none">
 	<a class="close" data-dismiss="alert">×</a>
 </div>
+<div class="row">
+ <% @post = Post.new %>
+  <%= render 'posts/new' %>
+
   <div id="postsfeed">
 <%= render @posts || 'No Posts' %>
+<%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
   </div>
 
 <% else %>

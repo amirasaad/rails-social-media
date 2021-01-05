@@ -31,12 +31,6 @@ gem 'redis'
 
 gem 'execjs'
 
-
-gem 'devise'
-
-
-gem 'omniauth'
-
 # Use SCSS for stylesheets
 gem 'sass-rails'
 

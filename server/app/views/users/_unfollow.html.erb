@@ -1,5 +1,6 @@
 <%= form_for(current_user.relationships.find_by(followed_id: @user.id),
              html: { method: :delete },
              remote: true) do |f| %>
+  <%= csrf_meta_tags %>
   <%= f.submit "Unfollow", class: "btn btn-danger" %>
 <% end %>

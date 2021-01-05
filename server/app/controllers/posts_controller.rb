@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   def index
     if current_user
       @posts = Post.from_users_followed_by(current_user).
-        paginate(:page => params[:page], :per_page =>5).
+        paginate(:page => params[:page], :per_page =>20).
         order('created_at DESC')
     end
   end
