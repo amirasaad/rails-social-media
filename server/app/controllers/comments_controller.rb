@@ -1,7 +1,10 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
   before_action :require_user!
 
-  before_action :correct_user , only: [:destroy]
+  before_action :correct_user, only: [:destroy]
+
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.new(comment_params)
@@ -18,8 +21,7 @@ class CommentsController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
   def destroy
     @post = Post.find(params[:post_id])
@@ -40,6 +42,6 @@ class CommentsController < ApplicationController
   def correct_user
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
-    redirect_to(root_url) unless @comment.user == current_user ||  @post.user == current_user
+    redirect_to(root_url) unless @comment.user == current_user || @post.user == current_user
   end
 end

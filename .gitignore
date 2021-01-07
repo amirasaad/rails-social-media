@@ -64,3 +64,6 @@ tmp
 
 server/.devcontainer/
 .devcontainer/
+tmp
+.vscode
+.devcontainer

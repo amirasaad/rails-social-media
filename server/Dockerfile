@@ -20,3 +20,5 @@ RUN bundle install
 EXPOSE 3000
 
 COPY . .
+
+CMD ["rails", "server", "-b", "0.0.0.0"]

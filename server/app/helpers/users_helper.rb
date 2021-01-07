@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module UsersHelper
   def gravatar_for(user, options = { size: 150 , class: 'gravatar img-circle'})
     gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
