@@ -61,3 +61,6 @@ project_test
 .idea/*.iws
 out
 tmp
+
+server/.devcontainer/
+.devcontainer/

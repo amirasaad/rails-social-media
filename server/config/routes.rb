@@ -2,9 +2,9 @@ Rails.application.routes.draw do
   passwordless_for :users
 
   get '/register' => 'users#new', as: 'register'
-  get '/people' => "users#index"
+  get '/people' => "users#index", as: 'people'
 
-  resources :users, only: [:create, :update, :edit]
+  resources :users, only: [:create, :update, :edit, :destroy]
   get '/settings', to: "users#edit", :as => "settings"
 
   get '/contact' => "site#contact"

@@ -1,5 +1,13 @@
-<%=  bootstrap_form_for @session, url: send(Passwordless.mounted_as).sign_in_path do |f| %>
+<div class="row login-panel ">
+    <%=  bootstrap_form_for @session, url: send(Passwordless.mounted_as).sign_in_path do |f| %>
     <% email_field_name = :"passwordless[#{@email_field}]" %>
-    <%= text_field_tag email_field_name, params.fetch(email_field_name, nil) %>
-    <%= f.submit "Edeny 2lbak" %>
+
+    <div class="col-lg-8">
+        <%= text_field_tag email_field_name, params.fetch(email_field_name, nil), class: 'form-control', placeholder: 'Your Email' %>
+    </div>
+    <div class="col-lg-4">
+    <%= f.submit "Edeny 2lbak", class: 'btn btn-success' %>
+    </div>
 <% end %>
+</div>
+

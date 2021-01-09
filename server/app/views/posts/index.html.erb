@@ -2,9 +2,9 @@
  <% @post = Post.new %>
   <%= render 'posts/new' %>
 
-<div id="postsfeed">
+<ul id="postsfeed" class="media-list">
 
    <%= render @posts %>
-</div>
+</ul>
 
 <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
