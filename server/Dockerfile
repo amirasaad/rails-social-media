@@ -21,5 +21,3 @@ RUN adduser -D smuser
 USER smuser
 
 COPY . .
-
-CMD bundle exec puma -C config/puma.rb
