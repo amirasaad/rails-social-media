@@ -1,4 +1,4 @@
-<section>
+<section id="<%= dom_id(@user) %>">
 	<h3>
 		<%= gravatar_for @user , :size => 150, class: 'gravatar img-circle' %>
 		<%= link_to @user.username , "/#{@user.username}" %>
@@ -8,7 +8,8 @@
 				<%= link_to "delete", @user, method: :delete,
 										data: { confirm: "You sure?" }, class: 'btn btn-danger' %>
 			<% end %>
-			<%= render :partial => 'users/follow_form' ,:locals=>{user: @user} %></div>
+			<%= render :partial => 'relationships/follow_form' ,:locals=>{user: @user} %></div>
+
 	</h3>
 
 
