@@ -1,12 +1,14 @@
 <section>
 	<h3>
-		<%= gravatar_for @user , :size => 150 %>
-		<%= link_to @user.username , "/profile/#{@user.username}" %>
-		<% if user_signed_in? && current_user.admin? && !signed_in?(@user) %>
-		| <%= link_to "delete", @user, method: :delete,
-		data: { confirm: "You sure?" } %>
-		<% end %>
-		<div class="pull-right"><%= render :partial => 'users/follow_form' ,:locals=>{user: @user} %></div>
+		<%= gravatar_for @user , :size => 150, class: 'gravatar img-circle' %>
+		<%= link_to @user.username , "/#{@user.username}" %>
+
+		<div class="pull-right">
+			<% if current_user && current_user.admin? && current_user != @user %>
+				<%= link_to "delete", @user, method: :delete,
+										data: { confirm: "You sure?" }, class: 'btn btn-danger' %>
+			<% end %>
+			<%= render :partial => 'users/follow_form' ,:locals=>{user: @user} %></div>
 	</h3>
 
 
@@ -19,7 +21,11 @@
 </ul>
 <div id="my-tab-content" class="tab-content">
 	<div class="tab-pane active" id="posts">
-		<%= render @posts %>
+		<div class="panel panel-body">
+			<ul class="media-list"><%= render @posts %></ul>
+		</div>
+
+
 
 	</div>
 	<div class="tab-pane" id="followers">

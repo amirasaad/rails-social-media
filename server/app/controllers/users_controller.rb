@@ -1,23 +1,28 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, only: [:edit, :update]
+  before_action :require_user!, only: [:edit, :update]
   before_action :set_user, only: [:edit ,:update, :destroy]
   before_action :admin_user, only: :destroy
-  before_action :correct_user, only: [:edit, :update]
 
   def new
     @user = User.new
   end
 
+  def create
+    @user = User.new(user_params)
+
+    if @user.save
+      sign_in @user
+      redirect_to root_path, flash: { notice: 'Nwartt! <3' }
+    else
+      render :new
+    end
+  end
+
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.paginate(page: params[:page], per_page: 5)
   end
 
   def edit
-    if params[:id]
-      @user = User.find(params[:id])
-    else
-      @user = current_user
-    end
   end
 
   def show
@@ -29,8 +34,8 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user == current_user && @user.update(user_params)
-      redirect_to posts_path, notice: 'User updated'
+    if @user == current_user
+      redirect_to edit_user_path, notice: 'alsta'
     else
       render action: 'edit'
     end
@@ -39,21 +44,21 @@ class UsersController < ApplicationController
   def destroy
     User.find(params[:id]).destroy
     flash[:success] = "User deleted."
-    redirect_to users_url
+    redirect_to people_path
   end
 
   def following
     @title = "Following"
     @user = User.find(params[:id])
     @users = @user.followed_users.paginate(page: params[:page])
-    render 'show_follow'
+    render 'show_follow', locals: {user: @user}
   end
 
   def followers
     @title = "Followers"
     @user = User.find(params[:id])
     @users = @user.followers.paginate(page: params[:page])
-    render 'show_follow'
+    render 'show_follow', locals: {user: @user}
   end
 
   private
@@ -62,8 +67,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(
-      :username ,:email, :password, :password_confirmation)
+    params.require(:user).permit(:username ,:email)
   end
 
   def admin_user
@@ -72,7 +76,7 @@ class UsersController < ApplicationController
 
   def correct_user
     @user = User.find(params[:id])
-    redirect_to(root_url) unless signed_in?(@user)
+    redirect_to(root_url) unless current_user == @user
   end
 
 end

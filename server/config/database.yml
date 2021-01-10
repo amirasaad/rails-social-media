@@ -6,7 +6,7 @@ development:
   pool: 5
   password:
 
-test: &TEST
+test: &test
   adapter: sqlite3
   encoding: utf8
   database: project_test
@@ -23,4 +23,4 @@ production:
   password:
 
 cucumber:
-  <<: *TEST
+  <<: *test

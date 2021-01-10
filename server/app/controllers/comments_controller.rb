@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :require_user!
+
   before_action :correct_user , only: [:destroy]
   def create
     @post = Post.find(params[:post_id])
@@ -8,7 +9,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to posts_path, notice: 'your comment posted' }
+        format.html { redirect_to posts_path, notice: 'your comment is posted' }
         format.js
       else
         format.html { redirect_to posts_path, alert: 'Unable to add comment' }

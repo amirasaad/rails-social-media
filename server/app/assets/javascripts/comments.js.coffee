@@ -4,6 +4,6 @@
 
 jQuery ->
    $('.actions').hide
-   $('.comment').hover \
+   $('.media-body').hover \
         (-> $(this).find('.actions').fadeIn(150)), \
         (-> $(this).find('.actions').fadeOut(150))

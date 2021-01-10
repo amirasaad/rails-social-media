@@ -1,12 +1,12 @@
 require 'digest'
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
 
   validates :username, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: { case_sensitive: false }
 
+  passwordless_with :email
 
   has_one :profile
   has_many :posts, -> { order('created_at DESC') },:dependent => :destroy

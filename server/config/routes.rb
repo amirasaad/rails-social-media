@@ -1,17 +1,21 @@
-Sm::Application.routes.draw do
-  devise_for :users
+Rails.application.routes.draw do
+  passwordless_for :users
+
+  get '/register' => 'users#new', as: 'register'
+  get '/people' => "users#index", as: 'people'
+
+  resources :users, only: [:create, :update, :edit, :destroy]
+  get '/settings', to: "users#edit", :as => "settings"
+
   get '/contact' => "site#contact"
   get '/about' => "site#about"
-  get '/people' => "users#index"
-
-  get '/settings' => "profiles#edit", :as => "settings"
 
   get '/stories', to: redirect('/posts')
 
 
   root :to => "site#home"
 
-  get  "refresh"  => "posts#refreshposts", :as => "refresh"
+  get "refresh"  => "posts#refreshposts", :as => "refresh"
 
   resources :posts do
     resources :comments
@@ -21,14 +25,10 @@ Sm::Application.routes.draw do
     resources :posts
   end
 
-  resources :profiles, only: [:update, :create]
-  get '/:username', to: 'users#show'#, as: :user do
-  # member do
-  #  get :following, :followers
-  # end
-  # end
-
   resources :relationships, only: [:create, :destroy]
 
   resources :messages
+
+  get '/:username', to: 'users#show'
+
 end

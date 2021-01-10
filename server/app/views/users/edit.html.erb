@@ -1,7 +1,7 @@
   <h1>Settings</h1>
 
-<%= bootstrap_form_for(@user) do |f| %>
-   <%= gravatar_for @user , :size => 80  %>
+<%= bootstrap_form_for(current_user) do |f| %>
+   <%= gravatar_for current_user , :size => 80  %>
     <a href="http://gravatar.com/emails">change</a>
     <br />
 	<div class="col-md-6">
@@ -15,7 +15,7 @@
 
 	<div class="form-actions">
 		<%= f.submit "Update", :class => 'btn btn-success' %>
-		<%= link_to "Cancel" ,"/#{@user.username}", :class => 'btn' %>
+		<%= link_to "Cancel" ,"/#{current_user.username}", :class => 'btn' %>
 	</div>
 <% end %>
 
