@@ -1,25 +1,27 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2'
 gem 'bootsnap', require: false
+gem 'ffi'
 gem 'listen'
 gem 'nokogiri'
-gem 'ffi'
+gem 'rails', '~> 5.2'
 
 gem 'passwordless', git: 'https://github.com/mikker/passwordless.git', branch: 'master'
 
 gem 'autoprefixer-rails'
 
 gem 'bootstrap-sass'
-gem 'sassc-rails'
 gem 'bootswatch-rails'
+gem 'sassc-rails'
 
-gem 'bootstrap_form'
+gem 'bootstrap_form', "~> 2.7"
 
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
 
-gem "simple_form"
+gem 'simple_form'
 
 gem 'will_paginate'
 
@@ -57,31 +59,32 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem "letter_opener", :group => :development
-
+gem 'letter_opener', group: :development
 
 group :test, :development do
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'meta_request'
-  gem 'sqlite3'
-  gem 'rspec-rails'
   gem 'capybara'
   gem 'capybara-email'
-  gem 'record_tag_helper'
-  gem 'rails-controller-testing'
-  gem 'did_you_mean'
   gem 'cucumber-rails', require: false
+  gem 'did_you_mean'
+  gem 'meta_request'
+  gem 'rails-controller-testing'
+  gem 'record_tag_helper'
+  gem 'rspec-rails'
+  gem 'sqlite3'
   # database_cleaner is not mandatory, but highly recommended
   gem 'database_cleaner'
   gem 'email_spec'
+  gem 'rubocop', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec', require: false
 end
 
 group :production do
   # Use PostgreSql as the database for Active Record
-  gem "pg"
   gem 'mini_racer'
-
+  gem 'pg'
 end
 
-ruby "2.7.2"
+ruby '2.7.2'

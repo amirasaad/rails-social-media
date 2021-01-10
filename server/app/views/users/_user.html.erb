@@ -1,10 +1,10 @@
-<h3>
+<h3 id="<%= dom_id(user) %>">
 	<%= gravatar_for user , :size => 80, class: 'gravatar img-circle' %>
 	<%= link_to user.username , "/#{user.username}" %>
 
 
 	<div class="pull-right">
-		<%= render :partial => 'users/follow_form' ,:locals=>{user: user} %></div>
+		<%= render :partial => 'relationships/follow_form' ,:locals=>{user: user} %></div>
 	<% if current_user && current_user.admin? && current_user != user %>
 		<%= link_to "delete", user, method: :delete, class: 'btn btn-danger pull-right',
 								data: { confirm: "You sure?" } %>

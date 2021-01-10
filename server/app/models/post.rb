@@ -1,19 +1,21 @@
+# frozen_string_literal: true
+
 class Post < ApplicationRecord
-  validates_presence_of :body
+  validates :body, presence: true
 
   belongs_to :user, optional: true
-  has_many :comments, :dependent => :destroy
+  has_many :comments, dependent: :destroy
 
-
-  scope :where_body, lambda { |term| where("posts.body LIKE ?", "%#{term}%") }
+  scope :where_body, ->(term) { where('posts.body LIKE ?', "%#{term}%") }
 
   def owned_by?(owner)
     return false unless owner.is_a?(User)
+
     user == owner
   end
 
   def latest_comments
-    return comments.order('created_at DESC').take(2)
+    comments.order('created_at DESC').take(2)
   end
 
   def self.from_users_followed_by(user)
@@ -22,5 +24,4 @@ class Post < ApplicationRecord
     where("user_id IN (#{followed_user_ids}) OR user_id = :user_id",
           user_id: user.id)
   end
-
 end

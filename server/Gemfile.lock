@@ -54,6 +54,7 @@ GEM
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     arel (9.0.0)
+    ast (2.4.1)
     autoprefixer-rails (10.1.0.0)
       execjs
     bcrypt (3.1.16)
@@ -68,9 +69,7 @@ GEM
     bootstrap-sass (3.4.1)
       autoprefixer-rails (>= 5.2.1)
       sassc (>= 2.0.0)
-    bootstrap_form (4.5.0)
-      actionpack (>= 5.2)
-      activemodel (>= 5.2)
+    bootstrap_form (2.7.0)
     bootswatch-rails (3.3.5)
       railties (>= 3.1)
     builder (3.2.4)
@@ -203,6 +202,9 @@ GEM
     nokogiri (1.11.0)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
+    parallel (1.20.1)
+    parser (3.0.0.0)
+      ast (~> 2.4.1)
     pg (1.2.3)
     protobuf-cucumber (3.10.8)
       activesupport (>= 3.2)
@@ -244,6 +246,7 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (>= 0.19.0, < 2.0)
+    rainbow (3.0.0)
     rake (13.0.3)
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
@@ -253,6 +256,7 @@ GEM
       actionview (>= 5)
     redis (4.2.5)
     regexp_parser (1.8.2)
+    rexml (3.2.4)
     rspec-core (3.10.1)
       rspec-support (~> 3.10.0)
     rspec-expectations (3.10.1)
@@ -270,6 +274,25 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.10.1)
+    rubocop (1.8.0)
+      parallel (~> 1.10)
+      parser (>= 3.0.0.0)
+      rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 1.8, < 3.0)
+      rexml
+      rubocop-ast (>= 1.2.0, < 2.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 1.4.0, < 3.0)
+    rubocop-ast (1.4.0)
+      parser (>= 2.7.1.5)
+    rubocop-rails (2.9.1)
+      activesupport (>= 4.2.0)
+      rack (>= 1.1)
+      rubocop (>= 0.90.0, < 2.0)
+    rubocop-rspec (2.1.0)
+      rubocop (~> 1.0)
+      rubocop-ast (>= 1.1.0)
+    ruby-progressbar (1.11.0)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
@@ -305,6 +328,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
+    unicode-display_width (2.0.0)
     websocket-driver (0.7.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -323,7 +347,7 @@ DEPENDENCIES
   binding_of_caller
   bootsnap
   bootstrap-sass
-  bootstrap_form
+  bootstrap_form (~> 2.7)
   bootswatch-rails
   capybara
   capybara-email
@@ -350,6 +374,9 @@ DEPENDENCIES
   record_tag_helper
   redis
   rspec-rails
+  rubocop
+  rubocop-rails
+  rubocop-rspec
   sass-rails
   sassc-rails
   sdoc

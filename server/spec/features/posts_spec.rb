@@ -1,12 +1,15 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-feature 'User can create a post after login' do
+describe 'User can create a post after login' do
   fixtures :users
-  before :each do
+  before do
     @user = users(:morty)
     passwordless_sign_in @user
   end
-  scenario 'can create post' do
+
+  it 'can create post' do
     visit '/'
     fill_in 'post[body]', with: 'New post'
     click_button 'Share'
