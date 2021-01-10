@@ -85,6 +85,8 @@ group :production do
   # Use PostgreSql as the database for Active Record
   gem 'pg'
   gem 'puma'
+  gem 'sentry-ruby'
+  gem 'sentry-rails'
 end
 
 ruby '2.7.2'
