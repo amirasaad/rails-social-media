@@ -17,7 +17,4 @@ COPY Gemfile.lock Gemfile.lock
 
 RUN bundle install
 
-RUN adduser -D smuser
-USER smuser
-
 COPY . .
