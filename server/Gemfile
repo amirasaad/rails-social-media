@@ -83,8 +83,8 @@ end
 
 group :production do
   # Use PostgreSql as the database for Active Record
-  gem 'mini_racer'
   gem 'pg'
+  gem 'puma'
 end
 
 ruby '2.7.2'

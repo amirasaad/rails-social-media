@@ -40,8 +40,8 @@
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-nav navbar-collapse">
-                <li class="<%= 'active' if current_page?(root_path) %>">
-                  <%= link_to ' Home' ,root_path , :class => 'fa fa-home' %> </li>
+                <li class="<%= 'active' if current_page?('/') %>">
+                  <%= link_to ' Home' ,'/' , :class => 'fa fa-home' %> </li>
                   <li class="<%= 'active' if params[:controller] == 'users' %>">
                   <a href="/people"><span class="fa fa-users"></span> People</a>
                 </li>
@@ -172,6 +172,14 @@
             </div>
             <!-- /.container-fluid -->
         </div>
+        <footer class="footer">
+            <div class="container">
+              <div class="text-center center-block">
+                <p class="txt-railway"> Social Media &copy; 2014 - <%= Time.new.year %> </p>
+                <a href="mailto:amir.pro.2010@gmail.com" target="_blank"><i id="social" class="fa fa-envelope-square fa-3x social-em"></i></a>
+              </div>
+            </div>
+          </footer>
 
 </body>
 

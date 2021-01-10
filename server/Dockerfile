@@ -17,6 +17,9 @@ COPY Gemfile.lock Gemfile.lock
 
 RUN bundle install
 
-EXPOSE 3000
+RUN adduser -D smuser
+USER smuser
 
 COPY . .
+
+CMD bundle exec puma -C config/puma.rb -b 0.0.0.0:$PORT
