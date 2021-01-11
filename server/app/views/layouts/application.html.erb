@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <%= csrf_meta_tags %>
 
     <title><%= content_for?(:title) ? yield(:title) : "Social Media " %></title>
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
@@ -54,7 +55,9 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
-                    <!--<ul class="dropdown-menu dropdown-messages">
+
+                    <ul class="dropdown-menu dropdown-messages">
+                        <div id="current-user"></div>
                         <li>
                             <a href="#">
                                 <div>
@@ -67,7 +70,7 @@
                             </a>
                         </li>
                         <li class="divider"></li>
-                    </ul>-->
+                    </ul>
                     <!-- /.dropdown-messages -->
                 </li>
                 <!-- /.dropdown -->

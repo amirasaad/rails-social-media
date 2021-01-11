@@ -20,10 +20,10 @@ class User < ApplicationRecord
                                    class_name: 'Relationship', dependent: :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
 
-  has_many :sent_messages, class_name: 'Message',
-                           foreign_key: 'sender_id'
-  has_many :received_messages, class_name: 'Message',
-                               foreign_key: 'receiver_id'
+  has_many :sent_conversations, class_name: 'Conversation', foreign_key: 'sender_id'
+  has_many :received_conversations, class_name: 'Conversation', foreign_key: 'received_id'
+
+  has_many :personal_messages, dependent: :destroy
 
   default_scope { order(created_at: :desc) }
 

@@ -5,9 +5,12 @@
 
 	<div class="pull-right">
 		<%= render :partial => 'relationships/follow_form' ,:locals=>{user: user} %></div>
-	<% if current_user && current_user.admin? && current_user != user %>
-		<%= link_to "delete", user, method: :delete, class: 'btn btn-danger pull-right',
-								data: { confirm: "You sure?" } %>
-	<% end %>
+
+		<%= link_to 'send a message', new_personal_message_path(receiver_id: user), class: 'btn btn-success' %>
+
+		<% if current_user && current_user.admin? && current_user != user %>
+			<%= link_to "delete", user, method: :delete, class: 'btn btn-danger',
+						data: { confirm: "You sure?" } %>
+		<% end %>
 </h3>
 
