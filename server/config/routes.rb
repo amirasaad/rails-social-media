@@ -1,11 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-
   passwordless_for :users
 
   get '/conversations' => 'conversations#index'
-
 
   resources :conversations, only: [:create] do
     resources :personal_messages, only: [:create]
