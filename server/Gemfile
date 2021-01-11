@@ -17,7 +17,7 @@ gem 'bootstrap-sass'
 gem 'bootswatch-rails'
 gem 'sassc-rails'
 
-gem 'bootstrap_form', "~> 2.7"
+gem 'bootstrap_form', '~> 2.7'
 
 gem 'font-awesome-rails'
 
@@ -83,8 +83,10 @@ end
 
 group :production do
   # Use PostgreSql as the database for Active Record
-  gem 'mini_racer'
   gem 'pg'
+  gem 'puma'
+  gem 'sentry-rails'
+  gem 'sentry-ruby'
 end
 
 ruby '2.7.2'

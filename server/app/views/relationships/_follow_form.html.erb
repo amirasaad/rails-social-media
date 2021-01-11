@@ -1,4 +1,5 @@
 <% user||= local_assigns[:user] %>
+<% if current_user %>
 <% unless current_user.id == user.id %>
   <div id="follow_form">
   <% if current_user.following?(user) %>
@@ -7,4 +8,5 @@
     <%= render partial: 'relationships/follow', locals: { user: user }%>
   <% end %>
   </div>
+<% end %>
 <% end %>

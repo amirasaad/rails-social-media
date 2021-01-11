@@ -25,6 +25,8 @@ class User < ApplicationRecord
   has_many :received_messages, class_name: 'Message',
                                foreign_key: 'receiver_id'
 
+  default_scope { order(created_at: :desc) }
+
   before_save { self.username = username.downcase }
 
   def self.find(query)

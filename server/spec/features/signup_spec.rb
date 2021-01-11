@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-feature 'Signup without passwords' do
+describe 'Signup without passwords' do
   let(:user) { User.create! email: 'test@test.com', username: 'test' }
 
   it 'User can sign up with only username and email' do
