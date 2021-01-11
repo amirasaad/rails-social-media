@@ -1,1 +1,2 @@
-$("#follow_form").html("<%= escape_javascript(render('users/unfollow')) %>")
+$('#<%= dom_id(@user) %>').find("#follow_form").html("<%= j render partial: "relationships/unfollow", locals: {user: @user} %>")
+

@@ -1,0 +1,1 @@
+(function(){jQuery(function(){return $(".actions").hide,$("a[rel~=popover], .has-popover").popover(),$("a[rel~=tooltip], .has-tooltip").tooltip(),$(".media-body").hover(function(){return $(this).find(".actions").fadeIn(150)},function(){return $(this).find(".actions").fadeOut(150)})})}).call(this);

@@ -1,8 +1,12 @@
+
+  <div class="panel-body box">
 <%= bootstrap_form_for(@post, :remote => true) do |f| %>
   <%= csrf_meta_tags %>
-    <%=  f.text_area :body, size: "550x3" ,placeholder: "What do you like to say?", hide_label: :true%>
-
+  <div class="input-group">
+    <%=  f.text_area :body ,placeholder: "What do you like to say?", hide_label: :true%>
+    <span class="input-group-btn">
        <%=f.submit 'Share' ,:class =>'btn btn-primary' %>
-
-
+    </span>
+  </div>
 <% end %>
+  </div>

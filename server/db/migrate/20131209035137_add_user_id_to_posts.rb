@@ -1,4 +1,6 @@
-class AddUserIdToPosts < ActiveRecord::Migration
+# frozen_string_literal: true
+
+class AddUserIdToPosts < ActiveRecord::Migration[4.2]
   def change
     add_column :posts, :user_id, :integer
   end

@@ -1,17 +1,21 @@
+# frozen_string_literal: true
+
+# Post Controller
 class PostsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_filter :update_poststreams, :only => [:index , :refreshPosts]
-  before_action :correct_user , only: [:edit ,:update , :destroy]
+  before_action :require_user!
+
+  before_action :set_post, only: %i[show edit update destroy]
+  before_action :update_poststreams, only: %i[index refreshPosts]
+  before_action :correct_user, only: %i[edit update destroy]
 
   # GET /posts
   # GET /posts.json
   def index
-    if user_signed_in?
-      @posts = Post.from_users_followed_by(current_user).
-        paginate(:page => params[:page], :per_page =>5).
-        order('created_at DESC')
-    end
+    return unless current_user
+
+    @posts = Post.from_users_followed_by(current_user)
+                 .paginate(page: params[:page], per_page: 20)
+                 .order('created_at DESC')
   end
 
   # GET /posts/1
@@ -29,8 +33,7 @@ class PostsController < ApplicationController
   end
 
   # GET /posts/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /posts
   # POST /posts.json
@@ -40,19 +43,19 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        flash.now[:alert] = "Post has been created"
+        flash.now[:alert] = 'Post has been created'
         format.js
         format.html { redirect_to action: 'index' }
-        format.json {
+        format.json do
           render action: 'show', status: :created, location: @post
-        }
+        end
 
       else
-        flash.now[:alert] = "Post has not been created"
+        flash.now[:alert] = 'Post has not been created'
         format.html { redirect_to root_path }
-        format.json {
+        format.json do
           render json: @post.errors, status: :unprocessable_entity
-        }
+        end
         format.js { render 'fail_create.js.erb' }
       end
     end
@@ -61,14 +64,14 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
-    flash.now[:alert] = "Post has been updated"
+    flash.now[:alert] = 'Post has been updated'
     respond_to do |format|
       if @post.update(post_params)
         format.js
-        format.html {
+        format.html do
           redirect_to action: 'index',
-          notice: 'Post was successfully updated.'
-        }
+                      notice: 'Post was successfully updated.'
+        end
       else
         format.html { render action: 'edit' }
       end
@@ -79,7 +82,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1.json
   def destroy
     @post.destroy
-    flash.now[:alert] = "Post has been deleted"
+    flash.now[:alert] = 'Post has been deleted'
     respond_to do |format|
       format.html { redirect_to posts_url }
       format.json { head :no_content }
@@ -88,6 +91,7 @@ class PostsController < ApplicationController
   end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_post
     @post = Post.find(params[:id])
@@ -95,7 +99,7 @@ class PostsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def post_params
-    params.require(:post).permit( :body)
+    params.require(:post).permit(:body)
   end
 
   def update_poststreams
@@ -103,6 +107,6 @@ class PostsController < ApplicationController
   end
 
   def correct_user
-    redirect_to(root_url) unless  @post.user == current_user
+    redirect_to(root_url) unless @post.user == current_user
   end
 end

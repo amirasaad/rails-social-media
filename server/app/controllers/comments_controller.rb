@@ -1,14 +1,23 @@
+# frozen_string_literal: true
+
+# Comments Controller
+# POST comments
+# GET comments
+# GET comments/{id}
+# DELETE comments/{id}
 class CommentsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :correct_user , only: [:destroy]
+  before_action :require_user!
+
+  before_action :correct_user, only: [:destroy]
+  before_action :set_post
+
   def create
-    @post = Post.find(params[:post_id])
     @comment = @post.comments.new(comment_params)
     @comment.user = current_user
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to posts_path, notice: 'your comment posted' }
+        format.html { redirect_to posts_path, notice: 'your comment is posted' }
         format.js
       else
         format.html { redirect_to posts_path, alert: 'Unable to add comment' }
@@ -17,11 +26,9 @@ class CommentsController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
   def destroy
-    @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
     @comment.destroy
     respond_to do |format|
@@ -37,8 +44,11 @@ class CommentsController < ApplicationController
   end
 
   def correct_user
-    @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
-    redirect_to(root_url) unless @comment.user == current_user ||  @post.user == current_user
+    redirect_to(root_url) unless @comment.user == current_user || @post.user == current_user
+  end
+
+  def set_post
+    @post = Post.find(params[:post_id])
   end
 end

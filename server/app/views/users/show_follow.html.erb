@@ -1,25 +1,25 @@
 <% provide(:title, @title) %>
 
 <section>
- <h1> <%= gravatar_for @user %>
-  <%= @user.username %></h1>
+ <h1> <%= gravatar_for user %>
+  <%= user.username %></h1>
 
 </section>
 <section>
   <%= render 'shared/stats' %>
-  <% if @users.any? %>
+  <% if users.any? %>
   <div class="user_avatars">
-    <% @users.each do |user| %>
-    <%= link_to gravatar_for(user, size: 30), "/#{@user.username}" %>
+    <% users.each do |user| %>
+    <%= link_to gravatar_for(user, size: 30), "/#{user.username}" %>
     <% end %>
   </div>
   <% end %>
 </section>
 <div class="span8">
-<h3><%= @title %></h3>
-<% if @users.any? %>
+<h3><%= title %></h3>
+<% if users.any? %>
 <ul class="users">
-  <%= render @users %>
+  <%= render users %>
 </ul>
 <%= will_paginate %>
 <% end %>

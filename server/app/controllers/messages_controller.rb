@@ -1,16 +1,17 @@
+# frozen_string_literal: true
+
 class MessagesController < ApplicationController
   include ActionController::Live
-  before_action :authenticate_user!
+  before_action :require_user!
 
   def index
     @messages = current_user.received_messages
   end
 
-  def show
-  end
+  def show; end
 
   def create
-    response.headers["Content-Type"] = "text/javascript"
+    response.headers['Content-Type'] = 'text/javascript'
     attributes = params.require(:message).permit(:content, :reciver_id)
     @message = Message.create(attributes)
     @message.sender = current_user
@@ -18,16 +19,16 @@ class MessagesController < ApplicationController
   end
 
   def events
-    response.headers["Content-Type"] = "text/event-stream"
+    response.headers['Content-Type'] = 'text/event-stream'
     redis = Redis.new
     redis.psubscribe('messages.*') do |on|
-      on.pmessage do |pattern, event, data|
+      on.pmessage do |_pattern, event, data|
         response.stream.write("event: #{event}\n")
         response.stream.write("data: #{data}\n\n")
       end
     end
   rescue IOError
-    logger.info "Stream closed"
+    logger.info 'Stream closed'
   ensure
     redis.quit
     response.stream.close

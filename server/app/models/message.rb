@@ -1,6 +1,8 @@
-class Message < ActiveRecord::Base
-  belongs_to :sender, class_name: "User"
-  belongs_to :reciver, class_name: "User"
+# frozen_string_literal: true
 
-  validates_presence_of :content
+class Message < ApplicationRecord
+  belongs_to :sender, class_name: 'User', optional: true
+  belongs_to :reciver, class_name: 'User', optional: true
+
+  validates :content, presence: true
 end
