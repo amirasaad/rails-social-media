@@ -3,7 +3,7 @@
 Rails.application.routes.draw do
   passwordless_for :users
 
-  get '/conversations' => 'conversations#index'
+  get '/conversations' => 'conversations#index', as: 'conversations'
 
   resources :conversations, only: [:create] do
     resources :personal_messages, only: [:create]

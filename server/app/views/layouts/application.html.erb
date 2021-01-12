@@ -42,9 +42,11 @@
             <ul class="nav navbar-nav navbar-collapse">
                 <li class="<%= 'active' if current_page?('/') %>">
                   <%= link_to ' Home' ,'/' , :class => 'fa fa-home' %> </li>
-                  <li class="<%= 'active' if params[:controller] == 'users' %>">
-                  <a href="/people"><span class="fa fa-users"></span> People</a>
-                </li>
+                  <% if current_user %>
+                  <li class="<%= 'active' if params[:controller] == 'conversations' %>">
+                    <%= link_to ' Conversations', conversations_path , :class => 'fa fa-comments' %>
+                  </li>
+                  <% end %>
                </ul>
             <ul class="nav navbar-top-links navbar-right navbar-collapse">
                 <% if not current_user %>
