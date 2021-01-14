@@ -59,16 +59,21 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'letter_opener', group: :development
+group :development do
+  gem 'better_errors'
+  gem 'letter_opener'
+  gem 'meta_request'
+  gem 'did_you_mean'
+  gem 'rubocop', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec', require: false
+end
 
 group :test, :development do
-  gem 'better_errors'
   gem 'binding_of_caller'
   gem 'capybara'
   gem 'capybara-email'
   gem 'cucumber-rails', require: false
-  gem 'did_you_mean'
-  gem 'meta_request'
   gem 'rails-controller-testing'
   gem 'record_tag_helper'
   gem 'rspec-rails'
@@ -76,9 +81,6 @@ group :test, :development do
   # database_cleaner is not mandatory, but highly recommended
   gem 'database_cleaner'
   gem 'email_spec'
-  gem 'rubocop', require: false
-  gem 'rubocop-rails', require: false
-  gem 'rubocop-rspec', require: false
 end
 
 group :production do

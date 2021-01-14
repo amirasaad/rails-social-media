@@ -1,0 +1,14 @@
+<% received_conversations.each do |convo| %>
+<li>
+    <a href="<%= conversations_path(user_id: convo.sender) %>">
+        <div>
+            <strong><%= convo.sender.username %></strong>
+            <span class="pull-right text-muted">
+                <em> <%= time_ago_in_words(convo.personal_messages.last.created_at) %> </em>
+            </span>
+        </div>
+        <div><%= convo.personal_messages.last.body %></div>
+    </a>
+</li>
+<li class="divider"></li>
+<% end %>

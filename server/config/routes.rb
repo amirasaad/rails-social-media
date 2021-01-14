@@ -3,6 +3,15 @@
 Rails.application.routes.draw do
   passwordless_for :users
 
+  get '/conversations' => 'conversations#index', as: 'conversations'
+
+  resources :conversations, only: [:create] do
+    resources :personal_messages, only: [:create]
+    member do
+      post :close
+    end
+  end
+
   get '/register' => 'users#new', as: 'register'
   get '/people' => 'users#index', as: 'people'
 
@@ -27,8 +36,6 @@ Rails.application.routes.draw do
   end
 
   resources :relationships, only: %i[create destroy]
-
-  resources :messages
 
   get '/:username', to: 'users#show'
 end

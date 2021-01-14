@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    <%= csrf_meta_tags %>
     <title><%= content_for?(:title) ? yield(:title) : "Social Media " %></title>
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <!-- jQuery -->
@@ -42,9 +42,11 @@
             <ul class="nav navbar-nav navbar-collapse">
                 <li class="<%= 'active' if current_page?('/') %>">
                   <%= link_to ' Home' ,'/' , :class => 'fa fa-home' %> </li>
-                  <li class="<%= 'active' if params[:controller] == 'users' %>">
-                  <a href="/people"><span class="fa fa-users"></span> People</a>
-                </li>
+                  <% if current_user %>
+                  <li class="<%= 'active' if params[:controller] == 'conversations' %>">
+                    <%= link_to ' Conversations', conversations_path , :class => 'fa fa-comments' %>
+                  </li>
+                  <% end %>
                </ul>
             <ul class="nav navbar-top-links navbar-right navbar-collapse">
                 <% if not current_user %>
@@ -54,20 +56,10 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
-                    <!--<ul class="dropdown-menu dropdown-messages">
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                    </ul>-->
+
+                    <ul class="dropdown-menu dropdown-messages">
+                        <%= render 'shared/user_msg', received_conversations: current_user.received_conversations.first(5) %>
+                    </ul>
                     <!-- /.dropdown-messages -->
                 </li>
                 <!-- /.dropdown -->

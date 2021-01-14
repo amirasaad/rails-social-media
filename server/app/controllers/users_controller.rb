@@ -3,7 +3,7 @@
 class UsersController < ApplicationController
   before_action :require_user!, only: %i[edit update]
   before_action :set_user, only: %i[edit update destroy]
-  before_action :admin_user, only: :destroy
+  before_action :admin_user, only: %i[destroy index]
 
   def new
     @user = User.new
